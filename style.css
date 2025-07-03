@@ -1,0 +1,70 @@
+
+.wrapper {
+    position: relative;
+}
+
+svg {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+
+.scrollElement {
+    position: absolute;
+    height: 6000px;
+    width: 100%;
+    top: 0;
+    z-index: 4;
+}
+
+
+
+/* MARK: ---0-490 Mobile */
+@media (max-width: 490px) {
+
+    #text,
+    #arrow {
+        transform-origin: 50% 50%;
+        transform: translateY(-120px) scale(0.8);
+    }
+
+    #info2 {
+        transform-origin: 50% 50%;
+        transform: translateY(-120px) scale(0.8);
+    }
+}
+
+body {
+  margin: 0;
+  color:indigo;
+  font-family: Poppins;
+  font-size: 40px;
+}
+
+.header {
+  width: 100%;
+  padding: 10px;
+  background-color: floralwhite;
+  display: flex;
+  justify-content: flex-start; /* sola hizala */
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: seagreen;
+}
+
+.logo img {
+  width:120px; /* logonun boyutunu küçült */
+  height: auto;
+  
+ 
+}

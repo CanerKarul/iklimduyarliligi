@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bağış Sayfası</title>
+
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    margin: 0; padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:#27ae60;
+  }
+
+  .container {
+    background: white;
+    max-width: 900px;
+    width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    padding: 30px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .qr-section {
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .qr-section img {
+    max-width: 220px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+ form > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+  display: block; /* blok yapar, alt satıra geçer */
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;      /* inputlar form divinin tamamını kaplar */
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;  /* padding ve border genişlikten sayılır */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color:#27ae60;
+  outline: none;
+}
+
+  button {
+    margin-top: 30px;
+    background-color:#27ae60;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color:black;
+  }
+
+  @media (max-width: 700px) {
+    .container {
+      flex-direction: column;
+      padding: 20px;
+      gap: 30px;
+    }
+    .qr-section, form {
+      flex: 1 1 100%;
+    }
+    .qr-section img {
+      max-width: 180px;
+    }
+  }
+
+.qr-section {
+  display: flex;
+  flex-direction: column;    /* Yukarıdan aşağıya yerleşim */
+  align-items: center;       /* Ortala yatayda */
+}
+
+.qr-section img {
+  max-width: 220px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.qr-text {
+  margin-top: 12px;          /* Üstten boşluk */
+  font-size: 1rem;
+  color: #444;
+  font-weight: 600;
+  text-align: center;        /* Ortala yazıyı */
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- qr kısmı -->
+  <div class="qr-section">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=IBAN-Numaraniz-Buraya" alt="Bağış QR Kodu" />
+    <p class="qr-aciklama" >Lütfen bu QR kodu kullanarak bağışınızı yapınız.</p>
+  </div>
+  <form id="donationForm" onsubmit="return validateForm()">
+    <div>
+      <label for="adSoyad">Ad Soyad</label>
+      <input type="text" id="adSoyad" name="adSoyad" placeholder="Adınız ve Soyadınız" required />
+    </div>
+    <br>
+    <div>
+      <label for="bagisMiktari">Bağış Miktarı (TL)</label>
+      <input type="number" id="bagisMiktari" name="bagisMiktari" placeholder="Örnek: 100 TL " min="1" required />
+    </div>
+    <br>
+    <div>
+      <label for="iban">IBAN Numarası</label>
+      <input type="text" id="iban" name="iban" placeholder="TRxx xxxx xxxx xxxx xxxx xxxx xx" required pattern="TR[0-9]{2} ?[0-9]{4} ?[0-9]{4} ?[0-9]{4} ?[0-9]{4} ?[0-9]{2}" />
+    </div>
+
+    <button type="submit">Ödeme Tutarını Gönder</button>
+  </form>
+</div>
+
+<script>
+  function validateForm() {
+    const ibanInput = document.getElementById('iban');
+    const ibanValue = ibanInput.value.replace(/\s+/g, '').toUpperCase();
+
+    // Basit IBAN doğrulama: TR ile başlayıp 26 karakter olmalı
+    if (!/^TR[0-9]{24}$/.test(ibanValue)) {
+      alert('Lütfen geçerli bir TR IBAN numarası giriniz.');
+      ibanInput.focus();
+      return false;
+    }
+
+    // Diğer alanlar required olduğu için otomatik kontrol yapılır
+    alert('Bağış formu başarıyla gönderildi!'); // Bu kısmı kendi ödeme entegrasyonuna göre düzenle
+    return true; 
+  }
+</script>
+
+</body>
+</html>

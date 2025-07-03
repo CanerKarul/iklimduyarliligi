@@ -265,3 +265,12 @@ window.onbeforeunload = function () {
 //     var cursorPt = pt.matrixTransform(svg.getScreenCTM().inverse());
 //     return { x: Math.floor(cursorPt.x), y: Math.floor(cursorPt.y) }
 // }
+
+window.addEventListener('scroll', () => {
+  const scrollLimit = 6000;
+  if (window.scrollY > scrollLimit) {
+    document.querySelector("svg").style.display = "none";
+  } else {
+    document.querySelector("svg").style.display = "block";
+  }
+});

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hakkımızda</title>
+<style>
+  /* Genel sıfırlamalar ve font */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fafafa;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  /* Üst bölüm (hakkımızda metin + görsel) */
+  .about-top {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .about-text {
+    flex: 1 1 450px;
+  }
+
+  .about-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #27ae60;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  .about-image {
+    flex: 1 1 400px;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  /* Alt bölüm - vizyon, misyon, değerler */
+  .values-section {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .value-box {
+    background: white;
+    flex: 1 1 300px;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .value-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+
+  .value-box h3 {
+    color: #27ae60;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+  }
+
+  .value-box p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Responsive - mobil için */
+  @media (max-width: 800px) {
+    .about-top {
+      flex-direction: column;
+      gap: 25px;
+    }
+    .about-text, .about-image {
+      flex: 1 1 100%;
+    }
+    .values-section {
+      flex-direction: column;
+      gap: 25px;
+    }
+    .value-box {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <section class="about-top">
+    <div class="about-text">
+      <h1>Hakkımızda</h1>
+      <p>
+        Biz, sürdürülebilir ve doğayla uyumlu projelerle geleceği şekillendirmeyi hedefleyen bir kuruluşuz. 
+        Doğaya ve topluma karşı duyarlı yaklaşımımızla, her adımda fark yaratmaya çalışıyoruz.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="resimler/hakkimizda.jpg" alt="Hakkımızda Görseli" />
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="value-box">
+      <h3>Vizyon</h3>
+      <p>
+        Doğal kaynakları koruyan, yenilikçi ve topluma fayda sağlayan çözümler geliştiren lider bir kuruluş olmak.
+        <p>Doğal kaynakları koruyan, iklim krizine karşı farkındalığı artıran ve insan odaklı projeleriyle örnek alınan bir lider olmak.</p>
+      </p>
+    </div>
+    <div class="value-box">
+      <h3>Misyon</h3>
+      <p>
+        İklim değişikliğiyle mücadelede etkin projeler üreterek, daha yaşanabilir bir dünya için çalışmak.
+        <p> Toplumu bilinçlendirmek, çevreye zarar vermeden teknolojiyi kullanmak ve her seviyede sürdürülebilir projeler geliştirmek.</p>
+      </p>
+    </div>
+    <div class="value-box">
+      <h3>Değerlerimiz</h3>
+      <p>
+       <li>Şeffaflık: Tüm faaliyetlerimizde açık ve hesap verebilir olmak.</li>
+
+     <li>Sürdürülebilirlik: Kaynakları verimli kullanmak ve gelecek nesillere yaşanabilir bir dünya bırakmak.</li>
+
+     <li>İş birliği: Farklı paydaşlarla dayanışma içinde hareket etmek.</li>
+
+     <li>Toplumsal Sorumluluk: Çevre ve insan odaklı projeler üretmek ve topluma değer katmak.</li>
+
+     <li>Yenilikçilik: Sürekli gelişim ve çevreci teknolojileri benimsemek.</li>
+      </p>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

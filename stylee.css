@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {min-height: 100vh;
+background-image: url('./resimler/mercan\ resifleri.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+color: white;
+}
+form {
+    position:absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    min-width: 50vh;
+    height: 60vh;
+    padding: 1rem;
+    border-radius: 10px;
+    background:rgb(214, 124, 161);
+    font-weight: bold;
+    font-size: 1.3rem;
+    overflow: hidden;
+}
+
+form input {
+    padding: 0.5rem;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    height: 80%;
+    width: 100%;
+    font-size: 1.2rem;
+    background: none;
+    border-bottom: 1px solid white ;
+    color: white;
+}
+
+
+.underline {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    left: -110px;
+    top: 50%;
+    margin-top: 9px;
+    background: rgba(255,255,255, 0.8);
+    transition: 0.5s ease;
+}
+form textarea {
+    margin-top: 10px;
+    height:30vh;
+    outline:none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border:1px solid rgba(255, 255, 255, 0.5);
+    border-radius:5px;
+    background: none;
+    color: white;
+}
+label {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    padding: 0.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label span {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    z-index: 1;
+    pointer-events: none;
+    color: white;
+    transition: 0.5s ease;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 0.8rem;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    border: none;
+}
+.button:hover {
+background: rgba(0, 0, 0, 0.8);
+}
+
+
+input:focus + span div ,
+input:valid + span div{
+left: 0%;
+top:102%;
+transform: translateY(-25px);
+}
+

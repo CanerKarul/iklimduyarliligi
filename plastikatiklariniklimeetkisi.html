@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastik Atıkların İklime Etkisi | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== GOOGLE FONTS ===============-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        :root {
+            --plastic-blue: #0097a7;
+            --plastic-dark: #006064;
+            --plastic-light: #e0f7fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--plastic-blue), var(--plastic-dark));
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f9f9f9" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f9f9f9" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f9f9f9"/></svg>') no-repeat center/cover;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .plastic-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--plastic-dark);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--plastic-blue);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--plastic-dark);
+        }
+        
+        .card-text {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--plastic-blue);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--plastic-dark);
+        }
+        
+        .plastic-facts {
+            background: var(--plastic-light);
+            padding: 60px 20px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+        
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .fact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .fact-icon {
+            font-size: 2.5rem;
+            color: var(--plastic-blue);
+            margin-bottom: 15px;
+        }
+        
+        .fact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--plastic-dark);
+            margin-bottom: 10px;
+        }
+        
+        .fact-text {
+            color: #555;
+        }
+        
+        .action-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .action-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--plastic-dark);
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .action-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .action-icon {
+            font-size: 2rem;
+            color: var(--plastic-blue);
+            margin-bottom: 15px;
+        }
+        
+        .action-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--plastic-dark);
+        }
+        
+        .impact-list {
+            columns: 2;
+            column-gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        
+        .impact-list li {
+            margin-bottom: 15px;
+            break-inside: avoid;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .impact-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--plastic-blue);
+            border-radius: 50%;
+        }
+        
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-date {
+            flex: 0 0 120px;
+            font-weight: 600;
+            color: var(--plastic-dark);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--plastic-blue);
+            border-radius: 50%;
+        }
+        
+        .timeline-content::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 15px;
+            bottom: -35px;
+            width: 2px;
+            background: var(--plastic-blue);
+        }
+        
+        .timeline-item:last-child .timeline-content::after {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-list {
+                columns: 1;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-date {
+                margin-bottom: 10px;
+            }
+            
+            .timeline-content {
+                padding-left: 15px;
+            }
+            
+            .timeline-content::before {
+                left: -5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> EcoVision
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__toggle-menu"></i>
+                    <i class="ri-close-line nav__toggle-close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="index.html" class="nav__link">Anasayfa</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link dropdown__button">
+                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-code-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                        </li>
+                                        <li>
+                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                        </li>
+                                        <li>
+                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-pen-nib-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                        </li>
+                                        <li>
+                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link active">Plastik Atıkların İklime Etkisi</a>
+                                        </li>
+                                        <li>
+                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Enerji Tüketimi </span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                        </li>
+                                        <li>
+                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                                        </li>
+                                        <li>
+                                            <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                    <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                        </li>
+                                        <li>
+                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                        </li>
+                                        <li>
+                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="bloglar.html" class="nav__link">Bloglar</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 3 ===============-->
+                    <li class="dropdown__item">                        
+                        <div class="nav__link dropdown__button">
+                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-community-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Hakkımızda</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <a href="destek.html" class="dropdown__link">Destek</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-shield-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Konumumuz</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <i class="ri-bottle-fill plastic-icon"></i>
+        <h1 class="hero-title">Plastik Atıkların İklime Etkisi</h1>
+        <p class="hero-subtitle">Plastik kirliliği sadece okyanuslarımızı değil, iklimimizi de tehdit ediyor. Plastik atıkların küresel ısınmaya nasıl katkıda bulunduğunu ve çözüm yollarını keşfedin.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <section>
+            <h2 class="section-title">Plastik Atıklar İklimi Nasıl Etkiliyor?</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Plastik Üretimi" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Fosil Yakıt Bağımlılığı</h3>
+                        <p class="card-text">Plastikler petrol ve doğalgaz gibi fosil yakıtlardan üretilir. Plastik üretimi her yıl 900 milyon ton CO2 emisyonuna neden oluyor - bu, havacılık sektörünün toplam emisyonuna eşdeğer.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1630044807336-4d1a0dfd1ea8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Plastik Atık" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Çöp Depolama Alanlarından Metan Salınımı</h3>
+                        <p class="card-text">Plastik atıklar çöp depolama alanlarında parçalandıkça metan gazı açığa çıkar. Metan, CO2'den 25 kat daha güçlü bir sera gazıdır ve küresel ısınmaya önemli katkı sağlar.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1588591795084-1770cb3be374?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Okyanus Kirliliği" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Okyanus Ekosistemine Zarar</h3>
+                        <p class="card-text">Okyanuslardaki plastik atıklar, CO2 emiliminden sorumlu fitoplanktonların büyümesini engeller. Sağlıklı okyanuslar, atmosferdeki CO2'nin %40'ını emebilir.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Plastic Facts Section -->
+        <section class="plastic-facts">
+            <h2 class="section-title">Çarpıcı Plastik Gerçekleri</h2>
+            <div class="fact-grid">
+                <div class="fact-item">
+                    <i class="ri-time-line fact-icon"></i>
+                    <div class="fact-number">450 yıl</div>
+                    <p class="fact-text">Bir plastik şişenin doğada çözünmesi için gereken ortalama süre</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-flashlight-line fact-icon"></i>
+                    <div class="fact-number">%6</div>
+                    <p class="fact-text">Dünya petrol üretiminin plastik üretimi için kullanılan kısmı</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-fire-line fact-icon"></i>
+                    <div class="fact-number">850 milyon ton</div>
+                    <p class="fact-text">2050 yılına kadar plastik üretiminden kaynaklanacak yıllık CO2 emisyonu tahmini</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Plastic Timeline Section -->
+        <section>
+            <h2 class="section-title">Plastiğin Yaşam Döngüsü ve İklim Etkisi</h2>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">1. Ham Madde</div>
+                    <div class="timeline-content">
+                        <h3>Petrol ve Doğalgaz Çıkarımı</h3>
+                        <p>Plastik üretimi için fosil yakıtların çıkarılması sürecinde önemli miktarda CO2 salınımı olur. Ham petrolün %4-8'i plastik üretiminde kullanılır.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2. Rafineri</div>
+                    <div class="timeline-content">
+                        <h3>Plastik Hammaddesi Üretimi</h3>
+                        <p>Petrolün işlenerek nafta ve diğer plastik hammaddelerine dönüştürülmesi enerji yoğun bir süreçtir ve yüksek emisyon üretir.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">3. Üretim</div>
+                    <div class="timeline-content">
+                        <h3>Plastik Ürünlerin Şekillendirilmesi</h3>
+                        <p>Plastik şişe, poşet gibi ürünlerin üretimi sırasında büyük miktarda enerji tüketilir ve sera gazı salınımı olur.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">4. Kullanım</div>
+                    <div class="timeline-content">
+                        <h3>Kısa Ömürlü Kullanım</h3>
+                        <p>Ortalama bir plastik poşet sadece 12 dakika kullanılır ancak yüzlerce yıl doğada kalır. Tek kullanımlık plastikler atık yönetim sistemlerini zorlar.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">5. Atık</div>
+                    <div class="timeline-content">
+                        <h3>Çöp Depolama veya Doğaya Karışma</h3>
+                        <p>Plastik atıklar ya çöp depolama alanlarında metan gazı üretir ya da doğada parçalanarak mikroplastiklere dönüşür ve ekosisteme zarar verir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Impact Section -->
+        <section>
+            <h2 class="section-title">Plastik Atıkların İklim Üzerindeki Etkileri</h2>
+            
+            <ul class="impact-list">
+                <li><strong>Küresel ısınma:</strong> Plastik üretimi ve bertarafı yılda 1.8 milyar ton CO2 eşdeğeri sera gazı salınımına neden oluyor</li>
+                <li><strong>Okyanus asitlenmesi:</strong> Denizlerdeki plastikler fitoplankton verimliliğini azaltarak okyanusların CO2 emme kapasitesini düşürüyor</li>
+                <li><strong>Enerji israfı:</strong> Plastik geri dönüşüm oranları düşük olduğundan değerli enerji kaynakları israf ediliyor</li>
+                <li><strong>Orman tahribatı:</strong> Plastik ambalajlar için hammadde üretimi orman alanlarının yok olmasına katkıda bulunuyor</li>
+                <li><strong>Su kirliliği:</strong> Plastik üretim süreçleri tatlı su kaynaklarını kirletiyor ve su arıtma maliyetlerini artırıyor</li>
+                <li><strong>Biyoçeşitlilik kaybı:</strong> Plastik kirliliği deniz canlılarını tehdit ederek ekosistem dengesini bozuyor</li>
+                <li><strong>Sağlık sorunları:</strong> Mikroplastikler besin zincirine karışarak insan sağlığını tehdit ediyor</li>
+                <li><strong>Ekonomik maliyet:</strong> Plastik kirliliğinin yıllık küresel ekonomiye maliyeti 2.5 trilyon doları buluyor</li>
+            </ul>
+        </section>
+        
+        <!-- Solutions Section -->
+        <section>
+            <h2 class="section-title">Çözüm Önerileri</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Azalt" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Azalt</h3>
+                        <p class="card-text">Tek kullanımlık plastikleri hayatınızdan çıkarın. Yeniden kullanılabilir su şişeleri, alışveriş çantaları ve saklama kapları kullanın.</p>
+                        <a href="#" class="btn">Önerileri Gör</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1585492568415-6f0a93c0e42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Yeniden Kullan" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Yeniden Kullan</h3>
+                        <p class="card-text">Plastik ürünleri mümkün olduğunca çok kez kullanın. Plastik ambalajları farklı amaçlarla yeniden değerlendirin.</p>
+                        <a href="#" class="btn">Fikirler Al</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1481761289552-381112059e05?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dönüştür" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Dönüştür</h3>
+                        <p class="card-text">Plastik atıklarınızı doğru şekilde ayrıştırın ve geri dönüşüme kazandırın. Yerel geri dönüşüm programlarını destekleyin.</p>
+                        <a href="#" class="btn">Nasıl Yapılır?</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Action Section -->
+        <section class="action-section">
+            <h2 class="action-title">Plastik Ayak İzinizi Azaltın!</h2>
+            <p style="max-width: 800px; margin: 0 auto 40px; color: #555;">Günlük hayatınızda yapacağınız küçük değişikliklerle plastik atıkların iklim üzerindeki etkisini azaltabilirsiniz:</p>
+            
+            <div class="action-grid">
+                <div class="action-card">
+                    <i class="ri-shopping-bag-line action-icon"></i>
+                    <h3 class="action-card-title">Alışveriş Alışkanlıkları</h3>
+                    <p>Bez çanta kullanın, ambalajsız ürünleri tercih edin, toplu alışveriş yapın.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-cup-line action-icon"></i>
+                    <h3 class="action-card-title">Tek Kullanımlıkları Reddedin</h3>
+                    <p>Plastik pipet, çatal-bıçak, bardak gibi ürünleri kullanmayın, yeniden kullanılabilir alternatifler edinin.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-team-line action-icon"></i>
+                    <h3 class="action-card-title">Toplumsal Hareket</h3>
+                    <p>Yerel yönetimlerden plastik yasakları talep edin, temizlik etkinliklerine katılın, bilinçlendirme çalışmaları yapın.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

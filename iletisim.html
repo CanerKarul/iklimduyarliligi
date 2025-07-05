@@ -1,52 +1,626 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim</title>
-    <link rel="stylesheet" href="iletisim.css">
+    <title>İletişim | EcoVision</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+<style>
+    :root {
+        --primary-color: #1995E0;
+        --secondary-color: #17B890;
+        --dark-color: #2D3A3A;
+        --light-color: #F4F7FA;
+        --accent-color: #FF7E5F;
+    }
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
 
+    body {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        line-height: 1.6;
+    }
+    
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+    
+    .main-content {
+        margin-top: 120px;
+        padding: 0 20px;
+    }
+    
+    .contact-hero {
+        text-align: center;
+        padding: 60px 0 40px;
+    }
+    
+    .contact-hero h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
+    
+    .contact-hero p {
+        max-width: 700px;
+        margin: 0 auto 40px;
+        font-size: 1.1rem;
+        color: var(--dark-color);
+    }
+    
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto 80px;
+    }
+    
+    .contact-form-container {
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .contact-form-container h2 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .contact-form-container h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        border-radius: 2px;
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--dark-color);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(25, 149, 224, 0.1);
+    }
+    
+    .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+    
+    .submit-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(25, 149, 224, 0.3);
+    }
+    
+    .contact-info-container {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+    }
+    
+    .contact-info-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        height: 100%;
+    }
+    
+    .contact-info-card h2 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .contact-info-card h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        border-radius: 2px;
+    }
+    
+    .contact-method {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+    
+    .contact-icon {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        flex-shrink: 0;
+    }
+    
+    .contact-icon i {
+        font-size: 20px;
+    }
+    
+    .contact-details h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: var(--dark-color);
+    }
+    
+    .contact-details p, 
+    .contact-details a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .contact-details a:hover {
+        color: var(--primary-color);
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        color: var(--dark-color);
+        transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        transform: translateY(-3px);
+    }
+    
+    .map-container {
+        margin-top: 40px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .map-container iframe {
+        width: 100%;
+        height: 250px;
+        border: none;
+    }
+    
+    .success-message {
+        display: none;
+        background: linear-gradient(135deg, var(--secondary-color), #1DC9A0);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+        .contact-hero {
+            padding: 40px 0 20px;
+        }
+        
+        .contact-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .contact-form-container,
+        .contact-info-card {
+            padding: 30px;
+        }
+        
+        .main-content {
+            margin-top: 80px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .contact-hero h1 {
+            font-size: 1.8rem;
+        }
+        
+        .contact-form-container h2,
+        .contact-info-card h2 {
+            font-size: 1.5rem;
+        }
+        
+        .contact-method {
+            flex-direction: column;
+        }
+        
+        .contact-icon {
+            margin-bottom: 15px;
+        }
+    }
+</style>
 </head>
+
 <body>
-<form >
-    <label for="name">
-    <input type="text" name="name" required="true" placeholder="Adınızı Yazınız" >
-    <span>
-    <div class="underline"></div>
-    </span>
-    </label>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> EcoVision
+                </a>
 
-       <label for="surname">
-    <input type="text" name="surname" required="true" placeholder="Soyadınızı Yazınız">
-    <span>
-    <div class="underline"></div>
-    </span>
-    </label>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__toggle-menu"></i>
+                    <i class="ri-close-line nav__toggle-close"></i>
+                </div>
+            </div>
 
-       <label for="phone">
-    <input type="text" name="phone" required="true" placeholder="Telefon Yazınız">
-    <span>
-    <div class="underline"></div>
-    </span>
-    </label>
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="index.html" class="nav__link">Anasayfa</a>
+                    </li>
 
-       <label for="email">
-    <input type="email" name="email" required="true" placeholder="Email Yazınız">
-    <span>
-    <div class="underline"></div>
-    </span>
-    </label>
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link dropdown__button">
+                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
 
-       <label for="Subject">
-    <input type="text" name="name" required="true" placeholder="Konuyu Yazınız">
-    <span>
-    <div class="underline"></div>
-    </span>
-    </label>
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-code-line"></i>
+                                    </div>
 
-<textarea cols="30" rows="10" ></textarea>
-<input class="button" type="button" value="Gönder">
+                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
 
-</form>
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                        </li>
+                                        <li>
+                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                        </li>
+                                        <li>
+                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-pen-nib-line"></i>
+                                    </div>
+
+                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                        </li>
+                                        <li>
+                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                        </li>
+                                        <li>
+                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                    </div>
+
+                                    <span class="dropdown__title">Enerji Tüketimi </span>
+
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                        </li>
+                                        <li>
+                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                                        </li>
+                                        <li>
+                                            <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                    <i class="ri-apps-2-line"></i>
+                                    </div>
+
+                                    <span class="dropdown__title">Doğa ve Canlılar</span>
+
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                        </li>
+                                        <li>
+                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                        </li>
+                                        <li>
+                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="bloglar.html" class="nav__link">Bloglar</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 3 ===============-->
+                    <li class="dropdown__item">                        
+                        <div class="nav__link dropdown__button">
+                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-community-line"></i>
+                                    </div>
+
+                                    <span class="dropdown__title">Hakkımızda</span>
+
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <a href="destek.html" class="dropdown__link">Destek</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-shield-line"></i>
+                                    </div>
+
+                                    <span class="dropdown__title">Konumumuz</span>
+
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="contact-hero">
+            <h1>Bizimle İletişime Geçin</h1>
+            <p>Sorularınız, önerileriniz veya işbirliği teklifleriniz için bize ulaşabilirsiniz. Ekibimiz en kısa sürede size dönüş yapacaktır.</p>
+        </section>
+
+        <div class="contact-container">
+            <div class="contact-form-container">
+                <h2>Mesaj Gönder</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Adınız Soyadınız *</label>
+                        <input type="text" id="name" name="name" placeholder="Adınız ve soyadınız" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-posta Adresiniz *</label>
+                        <input type="email" id="email" name="email" placeholder="ornek@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Konu</label>
+                        <select id="subject" name="subject">
+                            <option value="genel">Genel Soru</option>
+                            <option value="isbirligi">İşbirliği Teklifi</option>
+                            <option value="destek">Destek Talebi</option>
+                            <option value="diger">Diğer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mesajınız *</label>
+                        <textarea id="message" name="message" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Mesajı Gönder</button>
+                    
+                    <div id="successMessage" class="success-message">
+                        <i class="ri-checkbox-circle-fill" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <h3>Mesajınız başarıyla gönderildi!</h3>
+                        <p>En kısa sürede size dönüş yapacağız.</p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="contact-info-container">
+                <div class="contact-info-card">
+                    <h2>İletişim Bilgileri</h2>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adres</h3>
+                            <p>EcoVision Plaza, Çevre Sk. No:15<br>Beşiktaş, İstanbul</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefon</h3>
+                            <p><a href="tel:+902123456789">+90 212 345 67 89</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-posta</h3>
+                            <p><a href="mailto:iletisim@ecovision.org">iletisim@ecovision.org</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Çalışma Saatleri</h3>
+                            <p>Pazartesi - Cuma<br>09:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.279637145691!2d28.97885931571696!3d41.01908232689833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab776a6a6a6a7%3A0x3c3b3d3b3d3b3d3b!2sEcoVision!5e0!3m2!1sen!2str!4v1620000000000!5m2!1sen!2str" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Burada form verilerini işleyebilir veya AJAX ile sunucuya gönderebilirsiniz
+            // Örnek amaçlı sadece başarı mesajını gösteriyoruz
+            
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('contactForm').reset();
+            
+            // 5 saniye sonra başarı mesajını gizle
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ormanlar ve İklim | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== GOOGLE FONTS ===============-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        :root {
+            --forest-green: #388e3c;
+            --forest-dark: #1b5e20;
+            --forest-light: #e8f5e9;
+            --forest-brown: #5d4037;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--forest-green), var(--forest-dark));
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f9f9f9" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f9f9f9" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f9f9f9"/></svg>') no-repeat center/cover;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .forest-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--forest-brown);
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--forest-dark);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--forest-green);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--forest-dark);
+        }
+        
+        .card-text {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--forest-green);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--forest-dark);
+        }
+        
+        .forest-facts {
+            background: var(--forest-light);
+            padding: 60px 20px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+        
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .fact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .fact-icon {
+            font-size: 2.5rem;
+            color: var(--forest-green);
+            margin-bottom: 15px;
+        }
+        
+        .fact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--forest-dark);
+            margin-bottom: 10px;
+        }
+        
+        .fact-text {
+            color: #555;
+        }
+        
+        .action-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .action-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--forest-dark);
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .action-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .action-icon {
+            font-size: 2rem;
+            color: var(--forest-green);
+            margin-bottom: 15px;
+        }
+        
+        .action-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--forest-dark);
+        }
+        
+        .impact-list {
+            columns: 2;
+            column-gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        
+        .impact-list li {
+            margin-bottom: 15px;
+            break-inside: avoid;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .impact-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--forest-green);
+            border-radius: 50%;
+        }
+        
+        .benefit-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+        
+        .benefit-type {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--forest-green);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-list {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> EcoVision
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__toggle-menu"></i>
+                    <i class="ri-close-line nav__toggle-close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="index.html" class="nav__link">Anasayfa</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link dropdown__button">
+                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-code-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                        </li>
+                                        <li>
+                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                        </li>
+                                        <li>
+                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-pen-nib-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                        </li>
+                                        <li>
+                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                        </li>
+                                        <li>
+                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Enerji Tüketimi </span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                        </li>
+                                        <li>
+                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil Yakıtların Azaltılması</a>
+                                        </li>
+                                        <li>
+                                            <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                    <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="ormanlarveiklim.html" class="dropdown__link active">Ormanlar ve İklim</a>
+                                        </li>
+                                        <li>
+                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                        </li>
+                                        <li>
+                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="bloglar.html" class="nav__link">Bloglar</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 3 ===============-->
+                    <li class="dropdown__item">                        
+                        <div class="nav__link dropdown__button">
+                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-community-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Hakkımızda</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <a href="destek.html" class="dropdown__link">Destek</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-shield-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Konumumuz</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <i class="ri-leaf-line forest-icon"></i>
+        <h1 class="hero-title">Ormanlar ve İklim</h1>
+        <p class="hero-subtitle">Ormanların iklim değişikliğiyle mücadeledeki kritik rolünü keşfedin. Gezegenimizin akciğerlerini korumak için neler yapabileceğinizi öğrenin!</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <section>
+            <h2 class="section-title">Ormanların İklim Üzerindeki Etkileri</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Karbon Depolama" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Karbon Depolama</h3>
+                        <p class="card-text">Ormanlar dünyadaki karasal karbonun %80'ini depoluyor. Tek bir yetişkin ağaç yılda 22 kg CO2 emiyor ve oksijen üretiyor.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="İklim Düzenleme" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">İklim Düzenleme</h3>
+                        <p class="card-text">Ormanlar yerel ve küresel iklimi düzenler, yağış modellerini etkiler ve sıcaklık dalgalanmalarını azaltır.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Biyoçeşitlilik" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Biyoçeşitlilik</h3>
+                        <p class="card-text">Dünyadaki kara canlılarının %80'i ormanlarda yaşıyor. Ormansızlaşma her yıl binlerce türün yok olmasına neden oluyor.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Forest Facts Section -->
+        <section class="forest-facts">
+            <h2 class="section-title">Ormanlar Hakkında Çarpıcı Gerçekler</h2>
+            <div class="fact-grid">
+                <div class="fact-item">
+                    <i class="ri-tree-line fact-icon"></i>
+                    <div class="fact-number">31%</div>
+                    <p class="fact-text">Dünya karasal yüzeyinin ormanlarla kaplı olan kısmı</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-fire-line fact-icon"></i>
+                    <div class="fact-number">10 milyon</div>
+                    <p class="fact-text">Her yıl hektar cinsinden kaybedilen orman alanı</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-drop-line fact-icon"></i>
+                    <div class="fact-number">75%</div>
+                    <p class="fact-text">Dünyanın tatlı su kaynaklarının ormanlardan gelme oranı</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefit Types Section -->
+        <section>
+            <h2 class="section-title">Ormanların İklim İçin Faydaları</h2>
+            
+            <div class="benefit-types">
+                <div class="benefit-type">
+                    <i class="ri-cloudy-line benefit-icon"></i>
+                    <h3>Karbon Yutakları</h3>
+                    <p>Ormanlar atmosferdeki CO2'yi emerek küresel ısınmayı yavaşlatır. Tropik ormanlar yılda 2.4 milyar ton karbon emer.</p>
+                </div>
+                
+                <div class="benefit-type">
+                    <i class="ri-temp-cold-line benefit-icon"></i>
+                    <h3>Sıcaklık Düzenleme</h3>
+                    <p>Ormanlar yerel sıcaklıkları 2-8°C arasında düşürerek şehirlerde ısı adası etkisini azaltır.</p>
+                </div>
+                
+                <div class="benefit-type">
+                    <i class="ri-flood-line benefit-icon"></i>
+                    <h3>Sel Kontrolü</h3>
+                    <p>Ağaç kökleri toprağı tutar ve yağmur suyunun %80'ini emerek selleri önler.</p>
+                </div>
+                
+                <div class="benefit-type">
+                    <i class="ri-windy-line benefit-icon"></i>
+                    <h3>Rüzgar Kırıcı</h3>
+                    <p>Orman şeritleri rüzgar hızını %50-80 azaltarak toprak erozyonunu ve enerji tüketimini düşürür.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Impact Section -->
+        <section>
+            <h2 class="section-title">Ormansızlaşmanın İklim Üzerindeki Etkileri</h2>
+            
+            <ul class="impact-list">
+                <li><strong>Karbon salınımı:</strong> Ormansızlaşma küresel CO2 emisyonlarının %15'inden sorumlu</li>
+                <li><strong>Biyoçeşitlilik kaybı:</strong> Her gün 135 bitki, hayvan ve böcek türü yok oluyor</li>
+                <li><strong>Su döngüsü bozulması:</strong> Yağış modelleri değişiyor, kuraklık artıyor</li>
+                <li><strong>Toprak verimliliği azalması:</strong> Erozyonla verimli toprak tabakası kayboluyor</li>
+                <li><strong>Yerel iklim değişikliği:</strong> Orman kaybı bölgesel sıcaklık artışına neden oluyor</li>
+                <li><strong>Hava kalitesi düşüşü:</strong> Hava temizleme kapasitesi azalıyor</li>
+                <li><strong>Yangın riski artışı:</strong> Kurak alanların artması yangınları tetikliyor</li>
+                <li><strong>Ekonomik kayıplar:</strong> Orman ürünleri ve ekoturizm gelirleri azalıyor</li>
+            </ul>
+        </section>
+        
+        <!-- Solutions Section -->
+        <section>
+            <h2 class="section-title">Ormanları Koruma Çözümleri</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sürdürülebilir Ormancılık" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Sürdürülebilir Ormancılık</h3>
+                        <p class="card-text">Kontrollü kesim, ağaçlandırma ve FSC sertifikalı ürünlerin teşviki orman kaybını yavaşlatabilir.</p>
+                        <a href="#" class="btn">Çözümler</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Ağaçlandırma" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Ağaçlandırma Projeleri</h3>
+                        <p class="card-text">Dünya çapında 1 trilyon ağaç dikme girişimleri ve bozulan ekosistemlerin restorasyonu.</p>
+                        <a href="#" class="btn">Yöntemler</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Topluluk Katılımı" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Topluluk Katılımı</h3>
+                        <p class="card-text">Yerel halkın orman koruma çabalarına dahil edilmesi ve alternatif geçim kaynaklarının geliştirilmesi.</p>
+                        <a href="#" class="btn">Politika Önerileri</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Action Section -->
+        <section class="action-section">
+            <h2 class="action-title">Ormanları Korumak İçin Harekete Geçin!</h2>
+            <p style="max-width: 800px; margin: 0 auto 40px; color: #555;">Bireysel ve toplumsal olarak ormanların korunmasına katkı sağlamak için yapabilecekleriniz:</p>
+            
+            <div class="action-grid">
+                <div class="action-card">
+                    <i class="ri-seedling-line action-icon"></i>
+                    <h3 class="action-card-title">Ağaç Dikin</h3>
+                    <p>Yaşadığınız yerde ağaç dikme etkinliklerine katılın veya online ağaç dikme projelerini destekleyin.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-recycle-line action-icon"></i>
+                    <h3 class="action-card-title">Kağıt Tüketimini Azaltın</h3>
+                    <p>Dijital doküman kullanın, geri dönüşüme özen gösterin ve FSC sertifikalı ürünler satın alın.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-hand-coin-line action-icon"></i>
+                    <h3 class="action-card-title">Bilinçli Tüketici Olun</h3>
+                    <p>Palm yağı içeren ürünlerden kaçının, orman tahribatına neden olan şirketleri desteklemeyin.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-team-line action-icon"></i>
+                    <h3 class="action-card-title">Farkındalık Yaratın</h3>
+                    <p>Sosyal medyada ormanların önemi hakkında paylaşımlar yapın, yerel yönetimlerden koruma talebinde bulunun.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

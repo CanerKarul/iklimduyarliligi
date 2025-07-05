@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehirlerde Yeşil Alanların Önemi | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+   <style>
+        /* NAVIGASYON SONRASI BOŞLUK EKLENDİ */
+        body {
+            padding-top: 80px; /* Navigasyon yüksekliği kadar boşluk */
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .blog-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .date {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 40px 0;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .image-grid img:hover {
+            transform: scale(1.02);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 40px;
+            padding: 10px 20px;
+            border: 1px solid #3498db;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            position: relative;
+        }
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: #2ecc71;
+            opacity: 0.5;
+        }
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .benefit-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 15px;
+        }
+        .benefit-icon {
+            color: #2ecc71;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .benefits-list, .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-title {
+                font-size: 2rem;
+            }
+            .hero-image {
+                height: 250px;
+            }
+            body {
+                padding-top: 70px; /* Mobilde daha az boşluk */
+            }
+        }
+    </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__data">
+        <a href="/index.html" class="nav__logo">
+          <i class="ri-code-s-slash-line"></i> EcoVision
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__toggle-menu"></i>
+          <i class="ri-close-line nav__toggle-close"></i>
+        </div>
+      </div>
+
+      <!--=============== NAV MENU ===============-->
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li>
+            <a href="/index.html" class="nav__link">Anasayfa</a>
+          </li>
+
+          <!--=============== DROPDOWN 2 ===============-->
+          <li class="dropdown__item">
+            <div class="nav__link dropdown__button">
+              Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+            </div>
+
+            <div class="dropdown__container">
+              <div class="dropdown__content">
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-code-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                    </li>
+                    <li>
+                      <a href="/sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                    </li>
+                    <li>
+                      <a href="/denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-pen-nib-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                    </li>
+                    <li>
+                      <a href="/plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                    </li>
+                    <li>
+                      <a href="/elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-apps-2-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Enerji Tüketimi</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                    </li>
+                    <li>
+                      <a href="/fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                    </li>
+                    <li>
+                      <a href="/temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                  <i class="ri-apps-2-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Doğa ve Canlılar</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                    </li>
+                    <li>
+                      <a href="/biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                    </li>
+                    <li>
+                      <a href="/dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="/bloglar.html" class="nav__link">Bloglar</a>
+          </li>
+
+          <!--=============== DROPDOWN 3 ===============-->
+          <li class="dropdown__item">                        
+            <div class="nav__link dropdown__button">
+              Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+            </div>
+
+            <div class="dropdown__container">
+              <div class="dropdown__content">
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-community-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Hakkımızda</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                    </li>
+                    <li>
+                      <a href="/destek.html" class="dropdown__link">Destek</a>
+                    </li>
+                    <li>
+                      <a href="/iletisim.html" class="dropdown__link">İletişim</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-shield-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Konumumuz</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                    </li>
+                    <li>
+                      <a href="/iletisim.html" class="dropdown__link">İletişim</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="container-blog">
+    <h1 class="blog-title">Şehirlerde Yeşil Alanların Önemi: Modern Yaşamın Nefes Alanları</h1>
+    <p class="date"><i class="ri-calendar-line"></i> 03 Temmuz 2025</p>
+    
+    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Şehir parkı ve gökdelenler" class="hero-image">
+    
+    <div class="content-section">
+        <p>Modern şehir yaşamında yeşil alanlar, beton yığınları arasında kaybolan insanların doğayla yeniden bağ kurabilmesi için birer yaşam kaynağı haline geldi. Artan nüfus ve kontrolsüz yapılaşma, şehir merkezlerinde nefes alabileceğimiz alanları giderek azaltırken, yeşil alanların önemi de katlanarak artıyor.</p>
+    </div>
+    
+    <div class="highlight-box">
+        <p>Dünya Sağlık Örgütü'ne göre, sağlıklı bir kent yaşamı için kişi başına en az 9 m² yeşil alan düşmesi gerekiyor. Ancak birçok metropolde bu oran 2-3 m²'ye kadar düşebiliyor.</p>
+    </div>
+    
+    <div class="image-grid">
+        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Şehir parkında insanlar">
+        <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Kent ormanı">
+    </div>
+    
+    <div class="content-section">
+        <h2>Yeşil Alanların Şehir Yaşamına Katkıları</h2>
+        <p>Yeşil alanlar sadece estetik güzellik sağlamakla kalmaz, aynı zamanda şehir ekosisteminin sağlıklı işleyişi için kritik roller üstlenir:</p>
+    </div>
+    
+    <div class="benefits-list">
+        <div class="benefit-item">
+            <i class="ri-leaf-line benefit-icon"></i>
+            <div>
+                <h3>Hava Kalitesini İyileştirir</h3>
+                <p>Bitkiler karbondioksiti emer ve oksijen üreterek şehir havasını temizler. Özellikle trafiğin yoğun olduğu bölgelerde hava kirliliğini %60'a varan oranlarda azaltabilir.</p>
+            </div>
+        </div>
+        <div class="benefit-item">
+            <i class="ri-temp-cold-line benefit-icon"></i>
+            <div>
+                <h3>Isı Adası Etkisini Azaltır</h3>
+                <p>Beton ve asfalt yüzeyler ısıyı emerek şehirlerin daha sıcak olmasına neden olur. Yeşil alanlar bu etkiyi dengeleyerek yaz aylarında şehir sıcaklığını 2-8°C düşürebilir.</p>
+            </div>
+        </div>
+        <div class="benefit-item">
+            <i class="ri-heart-line benefit-icon"></i>
+            <div>
+                <h3>Ruh Sağlığını Destekler</h3>
+                <p>Yeşil alanlarda geçirilen zaman stresi azaltır, anksiyete ve depresyon belirtilerini hafifletir. Düzenli olarak parklarda vakit geçirenlerde mental sağlık sorunları %30 daha az görülür.</p>
+            </div>
+        </div>
+        <div class="benefit-item">
+            <i class="ri-team-line benefit-icon"></i>
+            <div>
+                <h3>Sosyal Bağları Güçlendirir</h3>
+                <p>Parklar ve bahçeler, farklı sosyal grupların bir araya geldiği, iletişim kurduğu ve toplumsal bağların güçlendiği ortak yaşam alanlarıdır.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quote">
+        "Şehirlerimiz ne kadar yükselirse yükselsin, ayaklarımızın toprağa değme ihtiyacı asla azalmayacak."
+    </div>
+    
+    <div class="content-section">
+        <h2>Yeşil Şehirler İçin Neler Yapabiliriz?</h2>
+        <p>Şehirlerimizi daha yaşanabilir kılmak için hem bireysel hem de toplumsal olarak atabileceğimiz adımlar var:</p>
+        <ul>
+            <li><strong>Balkon ve teras bahçeciliği:</strong> Küçük alanlarda bile bitki yetiştirerek şehrin yeşil dokusuna katkı sağlayabiliriz.</li>
+            <li><strong>Yerel yönetimlerle işbirliği:</strong> Park ve yeşil alan projelerini desteklemek, bu alanların korunması için girişimlerde bulunmak.</li>
+            <li><strong>Dikey bahçeler:</strong> Bina cephelerinde uygulanan dikey bahçeler, şehirlerin yeşil alan kapasitesini artırmanın etkili yollarından biri.</li>
+            <li><strong>Topluluk bahçeleri:</strong> Mahalle sakinlerinin birlikte sebze ve çiçek yetiştirdiği ortak alanlar oluşturmak.</li>
+        </ul>
+    </div>
+    
+    <div class="content-section">
+        <h2>Dünyadan İyi Örnekler</h2>
+        <p>Dünyanın önde gelen şehirleri, yeşil alanları şehir planlamasının merkezine koyarak örnek uygulamalar geliştiriyor:</p>
+        <p><strong>Singapur:</strong> "Bahçe Şehir" vizyonuyla binaları yeşille bütünleştiriyor. Marina Bay Sands gibi ikonik yapıların üzerinde devasa bahçeler bulunuyor.</p>
+        <p><strong>Kopenhag:</strong> Bisiklet yolları ve yeşil koridorlarla örülü bir şehir planlaması sunuyor. 2025 yılına kadar karbon nötr olmayı hedefliyor.</p>
+        <p><strong>Viyana:</strong> Şehrin %50'sinden fazlası yeşil alanlardan oluşuyor. Her mahallede yürüme mesafesinde parklar bulunuyor.</p>
+    </div>
+    
+    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Şehir manzarası ve park" class="hero-image">
+    
+    <div class="content-section">
+        <p>Şehirlerimiz büyüdükçe, içindeki yeşil alanların değeri de artıyor. Betonlaşmanın getirdiği monotonluktan kurtulmak ve daha sağlıklı nesiller yetiştirmek için yeşil alanları korumalı ve çoğaltmalıyız. Unutmayalım ki, doğayla uyum içinde yaşayan şehirler sadece bugünümüzü değil, yarınlarımızı da güzelleştirecek.</p>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+        <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

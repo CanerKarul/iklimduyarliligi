@@ -1,218 +1,74 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hakkımızda</title>
-<!--=============== REMIXICONS ===============-->
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<style>
-  /* Genel stiller */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    background-color: #f8fafc;
-    color: #334155;
-    line-height: 1.6;
-  }
-  
-  /* Container */
-  .main-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    margin-top: 100px; /* Header boşluğu */
-    margin-bottom: 80px;
-  }
-  
-  /* Hero Section */
-  .about-hero {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    margin-bottom: 80px;
-    flex-wrap: wrap;
-  }
-  
-  .hero-content {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 25px;
-    color: #10b981;
-    line-height: 1.2;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .hero-content h1::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 80px;
-    height: 4px;
-    background-color: #10b981;
-    border-radius: 2px;
-  }
-  
-  .hero-content p {
-    font-size: 1.1rem;
-    color: #475569;
-    margin-bottom: 30px;
-    max-width: 600px;
-  }
-  
-  .hero-image {
-    flex: 1;
-    min-width: 300px;
-    position: relative;
-  }
-  
-  .hero-image img {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .hero-image:hover img {
-    transform: translateY(-5px);
-  }
-  
-  .hero-image::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #10b981;
-    border-radius: 16px;
-    top: 20px;
-    left: 20px;
-    z-index: -1;
-    transition: all 0.3s ease;
-  }
-  
-  .hero-image:hover::before {
-    top: 15px;
-    left: 15px;
-  }
-  
-  /* Values Section */
-  .values-section {
-    margin-top: 60px;
-  }
-  
-  .section-title {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  
-  .section-title h2 {
-    font-size: 2.2rem;
-    color: #10b981;
-    margin-bottom: 15px;
-  }
-  
-  .section-title p {
-    color: #64748b;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-  
-  .value-card {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    border-bottom: 4px solid transparent;
-  }
-  
-  .value-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border-bottom-color: #10b981;
-  }
-  
-  .value-card h3 {
-    font-size: 1.5rem;
-    color: #10b981;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .value-card h3 i {
-    font-size: 1.8rem;
-  }
-  
-  .value-card p, .value-card ul {
-    color: #475569;
-    margin-bottom: 15px;
-  }
-  
-  .value-card ul {
-    padding-left: 20px;
-  }
-  
-  .value-card li {
-    margin-bottom: 10px;
-    position: relative;
-    list-style-type: none;
-    padding-left: 25px;
-  }
-  
-  .value-card li::before {
-    content: '✓';
-    color: #10b981;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .main-container {
-      margin-top: 80px;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destek ve Sıkça Sorulan Sorular</title>
+  <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
     
-    .about-hero {
-      flex-direction: column;
-      gap: 40px;
+  <style>
+    body {
+      font-family:Arial, Helvetica, sans-serif;
+      background-color: #f0f9f7;
+      color: #333;
+      margin: 0;
+      padding: 20px;
     }
-    
-    .hero-content h1 {
-      font-size: 2.5rem;
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 100px;
     }
-    
-    .hero-image::before {
-      display: none;
+    .faq-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #227c64;
     }
-    
-    .values-grid {
-      grid-template-columns: 1fr;
+    .faq-item {
+      border-bottom: 1px solid #ccc;
     }
-  }
-</style>
+    .faq-question {
+      background-color: #ffffff;
+      color: #227c64;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .faq-question:hover {
+      background-color: #e0f2f1;
+    }
+    .faq-question.active {
+      font-weight: bold;
+      background-color: #d0efec;
+    }
+    .faq-answer {
+      background-color: #f9f9f9;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+      padding: 0 15px;
+      font-size: 15px;
+      color: #555;
+    }
+    .faq-answer.open {
+      padding: 15px;
+    }
+  </style>
 </head>
 <body>
-          <header class="header">
+
+    <header class="header">
             <nav class="nav container">
                 <div class="nav__data">
                     <a href="index.html" class="nav__logo">
@@ -328,7 +184,7 @@
                         </li>
 
                         <li>
-                            <a href="bloglar/bloglar.html" class="nav__link">Bloglar</a>
+                            <a href="bloglar.html" class="nav__link">Bloglar</a>
                         </li>
 
                         <!--=============== DROPDOWN 3 ===============-->
@@ -351,10 +207,10 @@
                                                 <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
                                             </li>
                                             <li>
-                                                <a href="sikcasorulansorular.html" class="dropdown__link">Sıkça Sorulan Sorular</a>
+                                                <a href="destek.html" class="dropdown__link">Destek</a>
                                             </li>
                                             <li>
-                                                <a href="editorlerimiz.html" class="dropdown__link">Editörlerimiz</a>
+                                                <a href="iletisim.html" class="dropdown__link">İletişim</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -383,56 +239,70 @@
             </nav>
         </header>
 
-<main class="main-container">
-  <section class="about-hero">
-    <div class="hero-content">
-      <h1>EcoVision Hakkında</h1>
-      <p>
-        Biz, iklim değişikliğine karşı farkındalığı artırmak, doğayı korumak ve sürdürülebilir bir gelecek için somut adımlar atmak amacıyla bir araya gelmiş bir ekibiz. Toplumsal bilinçlenmeyi esas alarak; eğitimler, projeler ve kampanyalarla iklim krizinin etkilerini azaltmayı hedefliyoruz.
-      </p>
-      <p>
-        2015 yılından bu yana çevre dostu çözümler üreten ve uygulayan ekibimiz, her geçen gün büyüyen bir aile olarak çalışmalarını sürdürüyor.
-      </p>
-    </div>
-    <div class="hero-image">
-      <img src="resimler/hakkimizda.jpg" alt="EcoVision Ekibi">
-    </div>
-  </section>
+<div class="faq-container">
+  <h1>Destek ve Sıkça Sorulan Sorular</h1>
 
-  <section class="values-section">
-    <div class="section-title">
-      <h2>Değerlerimiz ve İlkelerimiz</h2>
-      <p>Çalışmalarımızı şekillendiren temel prensipler ve inandığımız değerler</p>
-    </div>
-    
-    <div class="values-grid">
-      <div class="value-card">
-        <h3><i class="ri-eye-line"></i> Vizyonumuz</h3>
-        <p>Doğal kaynakları koruyan, iklim krizine karşı farkındalığı artıran ve insan odaklı projeleriyle örnek alınan bir lider olmak.</p>
-        <p>2030 yılına kadar 1 milyon kişiye ulaşarak iklim değişikliği konusunda somut adımlar atmalarını sağlamayı hedefliyoruz.</p>
-      </div>
-      
-      <div class="value-card">
-        <h3><i class="ri-flashlight-line"></i> Misyonumuz</h3>
-        <p>Toplumu bilinçlendirmek, çevreye zarar vermeden teknolojiyi kullanmak ve her seviyede sürdürülebilir projeler geliştirmek.</p>
-        <p>Yerel ve küresel ölçekte işbirlikleriyle etki alanımızı genişletmeyi amaçlıyoruz.</p>
-      </div>
-      
-      <div class="value-card">
-        <h3><i class="ri-heart-line"></i> Değerlerimiz</h3>
-        <ul>
-          <li>Şeffaflık: Tüm faaliyetlerimizde açık ve hesap verebilir olmak</li>
-          <li>Sürdürülebilirlik: Kaynakları verimli kullanmak ve gelecek nesillere yaşanabilir bir dünya bırakmak</li>
-          <li>İş birliği: Farklı paydaşlarla dayanışma içinde hareket etmek</li>
-          <li>Toplumsal Sorumluluk: Çevre ve insan odaklı projeler üretmek ve topluma değer katmak</li>
-          <li>Yenilikçilik: Sürekli gelişim ve çevreci teknolojileri benimsemek</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</main>
+  <!-- Accordion Soruları -->
+  <div class="faq-item"><button class="faq-question">1. Derneğinizin amacı nedir?</button><div class="faq-answer">İklim bilincini artırmak ve sürdürülebilir yaşam için farkındalık yaratmak.</div></div>
+  <div class="faq-item"><button class="faq-question">2. Derneğiniz hangi alanlarda faaliyet gösteriyor?</button><div class="faq-answer">Çevre koruma, eğitim, geri dönüşüm, enerji tasarrufu ve iklim politikaları alanında çalışıyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">3. İklim duyarlılığı nedir ve neden önemlidir?</button><div class="faq-answer">İklim duyarlılığı, çevresel sorunlara karşı bilinçli olmayı ve sürdürülebilir davranışları benimsemeyi ifade eder.</div></div>
+  <div class="faq-item"><button class="faq-question">4. Derneğinize nasıl üye olabilirim?</button><div class="faq-answer">Üyelik formunu doldurarak ya da etkinliklerimize katılarak üye olabilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">5. Derneğinizi kimler kurdu ve yönetiyor?</button><div class="faq-answer">Çevre bilinci yüksek gönüllüler ve uzman akademisyenler tarafından yönetilmektedir.</div></div>
+  <div class="faq-item"><button class="faq-question">6. Derneğinize nasıl bağış yapabilirim?</button><div class="faq-answer">Web sitemizden kredi kartı ya da havale yoluyla bağış yapabilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">7. Bağışlarım nerelerde kullanılıyor?</button><div class="faq-answer">Bağışlar eğitim projeleri, ağaçlandırma çalışmaları ve bilinçlendirme kampanyalarında kullanılmaktadır.</div></div>
+  <div class="faq-item"><button class="faq-question">8. Online gönüllü olabilir miyim?</button><div class="faq-answer">Evet, içerik üretimi ve sosyal medya desteği gibi uzaktan gönüllülük seçeneklerimiz var.</div></div>
+  <div class="faq-item"><button class="faq-question">9. Etkinliklerinize nasıl katılabilirim?</button><div class="faq-answer">Etkinlik takvimimizi takip ederek katılım sağlayabilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">10. İklim duyarlılığı ile ilgili eğitimler veriyor musunuz?</button><div class="faq-answer">Evet, okullarda ve kurumlarda eğitim seminerleri düzenliyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">11. Okullarda eğitim semineri düzenliyor musunuz?</button><div class="faq-answer">Evet, ilkokuldan üniversiteye kadar çeşitli kademelerde eğitim veriyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">12. Kurumlara çevre bilinci eğitimi veriyor musunuz?</button><div class="faq-answer">Evet, şirketlere özel eğitim programları düzenliyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">13. Çocuklar için iklim bilinci çalışmaları yapıyor musunuz?</button><div class="faq-answer">Çocuklara özel atölyeler ve etkinlikler düzenliyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">14. Bilgilendirici kaynaklara nasıl ulaşabilirim?</button><div class="faq-answer">Web sitemizdeki kaynaklar bölümünden ulaşabilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">15. Şu anda yürüttüğünüz projeler nelerdir?</button><div class="faq-answer">Su tasarrufu kampanyası, geri dönüşüm projesi ve ağaçlandırma hareketi gibi projeler yürütüyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">16. Geçmişte hangi etkinlikleri düzenlediniz?</button><div class="faq-answer">Plaj temizliği, çevre yürüyüşleri ve atık toplama etkinlikleri düzenledik.</div></div>
+  <div class="faq-item"><button class="faq-question">17. Yerel yönetimlerle iş birliği yapıyor musunuz?</button><div class="faq-answer">Evet, belediyelerle ve sivil toplum kuruluşlarıyla ortak projeler yürütüyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">18. Projelerinize nasıl katılabilirim?</button><div class="faq-answer">Proje başvuru formunu doldurarak ya da bizimle iletişime geçerek katılabilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">19. Sürdürülebilirlik projelerine destek veriyor musunuz?</button><div class="faq-answer">Evet, sürdürülebilir yaşam projelerini destekliyoruz.</div></div>
+  <div class="faq-item"><button class="faq-question">20. Etkinliklerinize katılmak ücretli mi?</button><div class="faq-answer">Hayır, etkinliklerimizin çoğu ücretsizdir.</div></div>
+  <div class="faq-item"><button class="faq-question">21. Dernek faaliyetlerini nasıl takip edebilirim?</button><div class="faq-answer">Sosyal medya hesaplarımızdan ve e-posta bültenlerimizden takip edebilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">22. Sosyal medyada sizi nereden takip edebilirim?</button><div class="faq-answer">Instagram, Twitter ve LinkedIn hesaplarımızdan takip edebilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">23. Size nasıl ulaşabilirim?</button><div class="faq-answer">İletişim sayfamızdaki formu doldurarak ya da e-posta yoluyla bize ulaşabilirsiniz.</div></div>
+  <div class="faq-item"><button class="faq-question">24. Dernek ofisiniz nerede?</button><div class="faq-answer">İstanbul merkezli olup etkinliklerimizi farklı şehirlerde de yürütüyoruz.</div></div>
 
-<!--=============== MAIN JS ===============-->
+</div>
+
+
+
+<script>
+  const questions = document.querySelectorAll('.faq-question');
+  questions.forEach(question => {
+    question.addEventListener('click', () => {
+      const activeQuestion = document.querySelector('.faq-question.active');
+      const activeAnswer = document.querySelector('.faq-answer.open');
+
+      if (activeQuestion && activeQuestion !== question) {
+        activeQuestion.classList.remove('active');
+      }
+      if (activeAnswer && activeAnswer !== question.nextElementSibling) {
+        activeAnswer.style.maxHeight = null;
+        activeAnswer.classList.remove('open');
+      }
+
+      question.classList.toggle('active');
+      const answer = question.nextElementSibling;
+
+      if (answer.classList.contains('open')) {
+        answer.style.maxHeight = null;
+        answer.classList.remove('open');
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        answer.classList.add('open');
+      }
+    });
+  });
+</script>
+
+
+<!--=============== MAIN JS bunu al her sayfada en alta body üstüne yapıştır ===============-->
 <script src="assets/js/main.js"></script>
 </body>
 </html>

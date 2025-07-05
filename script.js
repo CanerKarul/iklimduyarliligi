@@ -43,6 +43,11 @@ scene1.to("#cloudStart-L", { x: -300 }, 0);
 scene1.to("#cloudStart-R", { x: 300 }, 0);
 
 //animate text
+
+
+
+
+
 scene1.to("#info", { y: 8 * speed }, 0);
 
 /*   Bird   */
@@ -211,9 +216,9 @@ scene3.fromTo("#h3-5", { y: 1000 }, { y: -550 }, 0.12);
 scene3.fromTo("#stars", { opacity: 0 }, { opacity: 0.5, y: -500 }, 0);
 
 // Scroll Back text
-scene3.fromTo("#arrow2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.25);
-scene3.fromTo("#text2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.3);
-scene3.to("footer", { opacity: 1 }, 0.3);
+//scene3.fromTo("#arrow2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.25);
+//scene3.fromTo("#text2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.3);
+//scene3.to("footer", { opacity: 1 }, 0.3);
 
 //gradient value change
 scene3.to("#bg2-grad", { attr: { cy: 600 } }, 0);
@@ -266,11 +271,23 @@ window.onbeforeunload = function () {
 //     return { x: Math.floor(cursorPt.x), y: Math.floor(cursorPt.y) }
 // }
 
-window.addEventListener('scroll', () => {
-  const scrollLimit = 6000;
-  if (window.scrollY > scrollLimit) {
-    document.querySelector("svg").style.display = "none";
-  } else {
-    document.querySelector("svg").style.display = "block";
-  }
+// Mevcut GSAP animasyonlarının altına ekleyin
+
+// Kart animasyonları
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.card');
+  
+  cards.forEach((card, index) => {
+    ScrollTrigger.create({
+      trigger: card,
+      start: "top 80%",
+      end: "top 20%",
+      onEnter: () => card.classList.add('visible'),
+      //onLeaveBack: () => card.classList.remove('visible'),
+      markers: false // Debug için true yapabilirsiniz
+    });
+  });
+  
+  // Mevcut scroll animasyonlarınız burada kalacak
+  // ...
 });

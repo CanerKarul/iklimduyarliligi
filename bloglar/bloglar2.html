@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Daha Fazla Blog | EcoVision</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <style>
+    :root {
+      --primary-color: #1995E0;
+      --secondary-color: #17B890;
+      --accent-color: #FF7E5F;
+      --dark-color: #2D3A3A;
+      --light-color: #F4F7FA;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    
+    .main-content {
+      margin-top: 120px;
+      padding: 40px 20px;
+    }
+    
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .page-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .blog-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .blog-image {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .category-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .blog-info {
+      padding: 25px;
+    }
+    
+    .blog-date {
+      display: flex;
+      align-items: center;
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    
+    .blog-date i {
+      margin-right: 8px;
+    }
+    
+    .blog-info h2 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--dark-color);
+    }
+    
+    .blog-desc {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .read-more i {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+      gap: 10px;
+    }
+    
+    .page-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      color: var(--dark-color);
+      border: 1px solid #ddd;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .page-btn.active-1 {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+   <header class="header">
+    <nav class="nav container">
+      <div class="nav__data">
+        <a href="/index.html" class="nav__logo">
+          <i class="ri-code-s-slash-line"></i> EcoVision
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__toggle-menu"></i>
+          <i class="ri-close-line nav__toggle-close"></i>
+        </div>
+      </div>
+
+      <!--=============== NAV MENU ===============-->
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li>
+            <a href="/index.html" class="nav__link">Anasayfa</a>
+          </li>
+
+          <!--=============== DROPDOWN 2 ===============-->
+          <li class="dropdown__item">
+            <div class="nav__link dropdown__button">
+              Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+            </div>
+
+            <div class="dropdown__container">
+              <div class="dropdown__content">
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-code-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                    </li>
+                    <li>
+                      <a href="/sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                    </li>
+                    <li>
+                      <a href="/denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-pen-nib-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                    </li>
+                    <li>
+                      <a href="/plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                    </li>
+                    <li>
+                      <a href="/elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-apps-2-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Enerji Tüketimi</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                    </li>
+                    <li>
+                      <a href="/fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                    </li>
+                    <li>
+                      <a href="/temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                  <i class="ri-apps-2-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Doğa ve Canlılar</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                    </li>
+                    <li>
+                      <a href="/biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                    </li>
+                    <li>
+                      <a href="/dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="/bloglar.html" class="nav__link">Bloglar</a>
+          </li>
+
+          <!--=============== DROPDOWN 3 ===============-->
+          <li class="dropdown__item">                        
+            <div class="nav__link dropdown__button">
+              Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+            </div>
+
+            <div class="dropdown__container">
+              <div class="dropdown__content">
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-community-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Hakkımızda</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                    </li>
+                    <li>
+                      <a href="/destek.html" class="dropdown__link">Destek</a>
+                    </li>
+                    <li>
+                      <a href="/iletisim.html" class="dropdown__link">İletişim</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown__group">
+                  <div class="dropdown__icon">
+                    <i class="ri-shield-line"></i>
+                  </div>
+
+                  <span class="dropdown__title">Konumumuz</span>
+
+                  <ul class="dropdown__list">
+                    <li>
+                      <a href="/haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                    </li>
+                    <li>
+                      <a href="/iletisim.html" class="dropdown__link">İletişim</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="page-header">
+      <h1>Daha Fazla Blog Yazısı</h1>
+      <p>İklim değişikliği ve sürdürülebilirlik hakkında diğer yazılarımız</p>
+    </section>
+
+    <div class="blog-container">
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="resimler/resim7.jpg" alt="İklim Değişikliği">
+          <span class="category-tag">İklim</span>
+        </div>
+        <div class="blog-info">
+          <div class="blog-date">
+            <i class="ri-calendar-line"></i> 10 Haziran 2025
+          </div>
+          <h2>İklim Değişikliği ile Mücadelede Bireysel Adımlar</h2>
+          <p class="blog-desc">Enerji tasarrufu, geri dönüşüm ve sürdürülebilir ulaşım alışkanlıklarıyla iklim değişikliğinin etkilerini azaltmak mümkün...</p>
+          <a href="blog7.html" class="read-more">Devamını Oku <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="resimler/resim8.jpg" alt="Geri Dönüşüm">
+          <span class="category-tag">Atık Yönetimi</span>
+        </div>
+        <div class="blog-info">
+          <div class="blog-date">
+            <i class="ri-calendar-line"></i> 25 Haziran 2025
+          </div>
+          <h2>Geri Dönüşümün Çevre ve Ekonomi Üzerindeki Etkisi</h2>
+          <p class="blog-desc">Atıkların geri dönüştürülmesi sadece çevre kirliliğini azaltmakla kalmıyor, aynı zamanda ekonomiye de katkı sağlıyor...</p>
+          <a href="blog8.html" class="read-more">Devamını Oku <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="resimler/resim9.jpg" alt="Doğal Yaşam">
+          <span class="category-tag">Doğa</span>
+        </div>
+        <div class="blog-info">
+          <div class="blog-date">
+            <i class="ri-calendar-line"></i> 20 Haziran 2025
+          </div>
+          <h2>Doğal Yaşam Alanlarının Korunması Neden Önemli?</h2>
+          <p class="blog-desc">Ormanlar, sulak alanlar ve meralar gibi doğal yaşam alanları, biyoçeşitliliğin devamı için kritik öneme sahip...</p>
+          <a href="blog9.html" class="read-more">Devamını Oku <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="resimler/resim10.jpg" alt="Yenilenebilir Enerji">
+          <span class="category-tag">Enerji</span>
+        </div>
+        <div class="blog-info">
+          <div class="blog-date">
+            <i class="ri-calendar-line"></i> 15 Haziran 2025
+          </div>
+          <h2>Yenilenebilir Enerji Kaynakları ve Gelecek</h2>
+          <p class="blog-desc">Güneş, rüzgar ve hidroelektrik gibi temiz enerji kaynakları, fosil yakıtlara olan bağımlılığı azaltıyor...</p>
+          <a href="blog10.html" class="read-more">Devamını Oku <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="resimler/resim11.jpg" alt="Sürdürülebilir Tarım">
+          <span class="category-tag">Tarım</span>
+        </div>
+        <div class="blog-info">
+          <div class="blog-date">
+            <i class="ri-calendar-line"></i> 5 Haziran 2025
+          </div>
+          <h2>Sürdürülebilir Tarım Uygulamaları</h2>
+          <p class="blog-desc">Organik tarım ve permakültür yöntemleriyle toprak sağlığını korurken verimli üretim yapmak mümkün...</p>
+          <a href="blog11.html" class="read-more">Devamını Oku <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="resimler/resim12.jpg" alt="Su Tasarrufu">
+          <span class="category-tag">Su</span>
+        </div>
+        <div class="blog-info">
+          <div class="blog-date">
+            <i class="ri-calendar-line"></i> 1 Haziran 2025
+          </div>
+          <h2>Evde Su Tasarrufu İçin Pratik Yöntemler</h2>
+          <p class="blog-desc">Günlük hayatta uygulayabileceğiniz basit yöntemlerle su tüketiminizi azaltabilir ve doğal kaynakları koruyabilirsiniz...</p>
+          <a href="blog12.html" class="read-more">Devamını Oku <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <a href="bloglar.html" class="page-btn"><i class="ri-arrow-left-line"></i></a>
+      <a href="bloglar.html" class="page-btn">1</a>
+      <a href="bloglar2.html" class="page-btn active-1">2</a>
+    </div>
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geri Dönüşümün İklime Katkısı | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== GOOGLE FONTS ===============-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        :root {
+            --recycle-green: #2e8b57;
+            --recycle-dark: #1e5631;
+            --recycle-light: #e8f5e9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--recycle-green), var(--recycle-dark));
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f9f9f9" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f9f9f9" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f9f9f9"/></svg>') no-repeat center/cover;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .recycle-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--recycle-dark);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--recycle-green);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--recycle-dark);
+        }
+        
+        .card-text {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--recycle-green);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--recycle-dark);
+        }
+        
+        .recycle-facts {
+            background: var(--recycle-light);
+            padding: 60px 20px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+        
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .fact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .fact-icon {
+            font-size: 2.5rem;
+            color: var(--recycle-green);
+            margin-bottom: 15px;
+        }
+        
+        .fact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--recycle-dark);
+            margin-bottom: 10px;
+        }
+        
+        .fact-text {
+            color: #555;
+        }
+        
+        .action-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .action-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--recycle-dark);
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .action-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .action-icon {
+            font-size: 2rem;
+            color: var(--recycle-green);
+            margin-bottom: 15px;
+        }
+        
+        .action-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--recycle-dark);
+        }
+        
+        .impact-list {
+            columns: 2;
+            column-gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        
+        .impact-list li {
+            margin-bottom: 15px;
+            break-inside: avoid;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .impact-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--recycle-green);
+            border-radius: 50%;
+        }
+        
+        .process-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .process-icon {
+            font-size: 2rem;
+            color: var(--recycle-green);
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-list {
+                columns: 1;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> EcoVision
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__toggle-menu"></i>
+                    <i class="ri-close-line nav__toggle-close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="index.html" class="nav__link">Anasayfa</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link dropdown__button">
+                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-code-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                        </li>
+                                        <li>
+                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                        </li>
+                                        <li>
+                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-pen-nib-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link active">Geri Dönüşümün İklime Katkısı</a>
+                                        </li>
+                                        <li>
+                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                        </li>
+                                        <li>
+                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Enerji Tüketimi </span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                        </li>
+                                        <li>
+                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                                        </li>
+                                        <li>
+                                            <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                    <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                        </li>
+                                        <li>
+                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                        </li>
+                                        <li>
+                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="bloglar.html" class="nav__link">Bloglar</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 3 ===============-->
+                    <li class="dropdown__item">                        
+                        <div class="nav__link dropdown__button">
+                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-community-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Hakkımızda</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <a href="destek.html" class="dropdown__link">Destek</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-shield-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Konumumuz</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <i class="ri-recycle-fill recycle-icon"></i>
+        <h1 class="hero-title">Geri Dönüşümün İklime Katkısı</h1>
+        <p class="hero-subtitle">Atıklarınızı dönüştürerek iklim değişikliğiyle mücadeleye nasıl katkı sağlayabileceğinizi keşfedin. Küçük adımlarla büyük farklar yaratın!</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <section>
+            <h2 class="section-title">Geri Dönüşüm İklimi Nasıl Korur?</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Karbon Salımı" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Karbon Ayak İzini Azaltır</h3>
+                        <p class="card-text">Geri dönüşüm, ham madde çıkarma ve işleme süreçlerini bypass ederek enerji tüketimini önemli ölçüde azaltır. Örneğin alüminyum geri dönüşümü %95 daha az enerji kullanır.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1585492568415-6f0a93c0e42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Atık Depolama" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Atık Depolama Alanlarını Azaltır</h3>
+                        <p class="card-text">Çöplüklerde biriken organik atıklar metan gazı üretir - CO2'den 25 kat daha güçlü bir sera gazı. Geri dönüşüm bu atık miktarını azaltır.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1481761289552-381112059e05?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Doğal Kaynaklar" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Doğal Kaynakları Korur</h3>
+                        <p class="card-text">1 ton kağıt geri dönüşümü 17 ağacı kurtarır. Plastik geri dönüşümü petrol tüketimini azaltır. Metal geri dönüşümü madencilik faaliyetlerini sınırlar.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Recycling Facts Section -->
+        <section class="recycle-facts">
+            <h2 class="section-title">Geri Dönüşümün Rakamlarla Etkisi</h2>
+            <div class="fact-grid">
+                <div class="fact-item">
+                    <i class="ri-leaf-line fact-icon"></i>
+                    <div class="fact-number">700 kg</div>
+                    <p class="fact-text">1 ton kağıt geri dönüşümü atmosferden 700 kg CO2 emisyonunu engeller</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-flashlight-line fact-icon"></i>
+                    <div class="fact-number">%75</div>
+                    <p class="fact-text">Plastik şişe geri dönüşümü enerji tüketimini %75 azaltır</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-tree-line fact-icon"></i>
+                    <div class="fact-number">24 ağaç</div>
+                    <p class="fact-text">1 ton gazete kağıdı geri dönüşümü 24 ağacın kesilmesini önler</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Recycling Process Section -->
+        <section>
+            <h2 class="section-title">Geri Dönüşüm Süreci ve İklim Etkisi</h2>
+            
+            <div class="process-container">
+                <div class="process-steps">
+                    <div class="process-step">
+                        <i class="ri-separator process-icon"></i>
+                        <h3>Ayırma</h3>
+                        <p>Atıkların türlerine göre ayrıştırılması</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <i class="ri-truck-line process-icon"></i>
+                        <h3>Toplama</h3>
+                        <p>Atıkların geri dönüşüm tesislerine taşınması</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <i class="ri-recycle-line process-icon"></i>
+                        <h3>İşleme</h3>
+                        <p>Atıkların yeniden ham maddeye dönüştürülmesi</p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <ul class="impact-list">
+                <li><strong>Enerji tasarrufu:</strong> Alüminyum geri dönüşümü %95, plastik %75, kağıt %60 enerji tasarrufu sağlar</li>
+                <li><strong>Su korunumu:</strong> Kağıt geri dönüşümü su tüketimini %50 azaltır</li>
+                <li><strong>Hava kirliliği:</strong> Geri dönüşüm hava kirliliğini %20-70 arasında azaltır</li>
+                <li><strong>Orman koruma:</strong> Kağıt geri dönüşümü ormansızlaşmayı yavaşlatır</li>
+                <li><strong>Ekonomi:</strong> Geri dönüşüm endüstrisi istihdam yaratır ve kaynak verimliliği sağlar</li>
+                <li><strong>Sürdürülebilirlik:</strong> Doğal kaynakların tükenmesini yavaşlatır</li>
+                <li><strong>Atık azaltma:</strong> Çöp depolama alanlarına giden atık miktarını düşürür</li>
+                <li><strong>Döngüsel ekonomi:</strong> "Al-yap-at" modelinden "azalt-yeniden kullan-dönüştür" modeline geçişi destekler</li>
+            </ul>
+        </section>
+        
+        <!-- Materials Section -->
+        <section>
+            <h2 class="section-title">Malzemelere Göre İklim Katkısı</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Plastik Geri Dönüşümü" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Plastik</h3>
+                        <p class="card-text">1 ton plastik geri dönüşümü 3.8 varil petrol tasarrufu sağlar. Plastik şişelerin geri dönüşümü enerji tüketimini %75 azaltır.</p>
+                        <a href="#" class="btn">Plastik Geri Dönüşümü</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1600228282594-4215fe2898a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kağıt Geri Dönüşümü" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Kağıt</h3>
+                        <p class="card-text">1 ton kağıt geri dönşümü 17 ağacı kurtarır, 26.000 litre su tasarrufu sağlar ve 4.000 kWh enerji tasarrufu yapar.</p>
+                        <a href="#" class="btn">Kağıt Geri Dönüşümü</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1601064676981-3dc9a1a6c9c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Metal Geri Dönüşümü" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Metal</h3>
+                        <p class="card-text">Alüminyum geri dönüşümü %95 enerji tasarrufu sağlar. 1 alüminyum kutu geri dönüşümü bir televizyonu 3 saat çalıştıracak enerjiyi kurtarır.</p>
+                        <a href="#" class="btn">Metal Geri Dönüşümü</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Action Section -->
+        <section class="action-section">
+            <h2 class="action-title">Harekete Geçin!</h2>
+            <p style="max-width: 800px; margin: 0 auto 40px; color: #555;">Geri dönüşümle iklim değişikliğine karşı mücadelede siz de rol alabilirsiniz:</p>
+            
+            <div class="action-grid">
+                <div class="action-card">
+                    <i class="ri-home-gear-line action-icon"></i>
+                    <h3 class="action-card-title">Evde Başlayın</h3>
+                    <p>Atıklarınızı kaynağında ayrıştırın, kompost yapın, tek kullanımlık ürünlerden kaçının.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-community-line action-icon"></i>
+                    <h3 class="action-card-title">Toplumu Bilinçlendirin</h3>
+                    <p>Mahallenizde geri dönüşüm programları başlatın, okullarda eğitimler düzenleyin.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-shopping-bag-line action-icon"></i>
+                    <h3 class="action-card-title">Bilinçli Tüketin</h3>
+                    <p>Geri dönüştürülmüş ürünler satın alın, ambalajsız ürünleri tercih edin.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

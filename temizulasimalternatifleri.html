@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temiz Ulaşım Alternatifleri | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== GOOGLE FONTS ===============-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        :root {
+            --transport-green: #43a047;
+            --transport-dark: #2e7d32;
+            --transport-light: #e8f5e9;
+            --transport-blue: #1e88e5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--transport-green), var(--transport-dark));
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f9f9f9" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f9f9f9" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f9f9f9"/></svg>') no-repeat center/cover;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .transport-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--transport-blue);
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--transport-dark);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--transport-green);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--transport-dark);
+        }
+        
+        .card-text {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--transport-green);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--transport-dark);
+        }
+        
+        .transport-facts {
+            background: var(--transport-light);
+            padding: 60px 20px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+        
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .fact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .fact-icon {
+            font-size: 2.5rem;
+            color: var(--transport-green);
+            margin-bottom: 15px;
+        }
+        
+        .fact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--transport-dark);
+            margin-bottom: 10px;
+        }
+        
+        .fact-text {
+            color: #555;
+        }
+        
+        .action-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .action-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--transport-dark);
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .action-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .action-icon {
+            font-size: 2rem;
+            color: var(--transport-green);
+            margin-bottom: 15px;
+        }
+        
+        .action-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--transport-dark);
+        }
+        
+        .impact-list {
+            columns: 2;
+            column-gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        
+        .impact-list li {
+            margin-bottom: 15px;
+            break-inside: avoid;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .impact-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--transport-green);
+            border-radius: 50%;
+        }
+        
+        .transport-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+        
+        .transport-type {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .transport-icon-sm {
+            font-size: 2.5rem;
+            color: var(--transport-green);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-list {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> EcoVision
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__toggle-menu"></i>
+                    <i class="ri-close-line nav__toggle-close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="index.html" class="nav__link">Anasayfa</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link dropdown__button">
+                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-code-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                        </li>
+                                        <li>
+                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                        </li>
+                                        <li>
+                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-pen-nib-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                        </li>
+                                        <li>
+                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                        </li>
+                                        <li>
+                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Enerji Tüketimi </span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                        </li>
+                                        <li>
+                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil Yakıtların Azaltılması</a>
+                                        </li>
+                                        <li>
+                                            <a href="temizulasimalternatifleri.html" class="dropdown__link active">Temiz Ulaşım Alternatifleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                    <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                        </li>
+                                        <li>
+                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                        </li>
+                                        <li>
+                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="bloglar.html" class="nav__link">Bloglar</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 3 ===============-->
+                    <li class="dropdown__item">                        
+                        <div class="nav__link dropdown__button">
+                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-community-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Hakkımızda</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <a href="destek.html" class="dropdown__link">Destek</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-shield-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Konumumuz</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <i class="ri-bus-line transport-icon"></i>
+        <h1 class="hero-title">Temiz Ulaşım Alternatifleri</h1>
+        <p class="hero-subtitle">Fosil yakıt bağımlılığını azaltan, çevre dostu ulaşım çözümlerini keşfedin. Daha temiz bir gelecek için harekete geçin!</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <section>
+            <h2 class="section-title">Geleneksel Ulaşımın Çevresel Etkileri</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Hava Kirliliği" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Hava Kirliliği</h3>
+                        <p class="card-text">Ulaşım sektörü küresel CO2 emisyonlarının %24'ünden sorumlu. Araç egzozları NOx ve PM2.5 gibi zararlı partiküller yayıyor.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sağlık Sorunları" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Sağlık Sorunları</h3>
+                        <p class="card-text">Trafik kaynaklı hava kirliliği her yıl 385.000 erken ölüme neden oluyor. Astım ve solunum hastalıkları riskini artırıyor.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1583997054032-9a1611777a8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Şehir Planlaması" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Şehir Planlaması Sorunları</h3>
+                        <p class="card-text">Araç odaklı şehirler yeşil alanları azaltıyor, gürültü kirliliği yaratıyor ve sosyal yaşam alanlarını sınırlıyor.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Transport Facts Section -->
+        <section class="transport-facts">
+            <h2 class="section-title">Ulaşım ve Çevre İle İlgili Çarpıcı Gerçekler</h2>
+            <div class="fact-grid">
+                <div class="fact-item">
+                    <i class="ri-roadster-line fact-icon"></i>
+                    <div class="fact-number">1.4 milyar</div>
+                    <p class="fact-text">Dünyadaki motorlu araç sayısı (2035'te 2 milyara ulaşacak)</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-leaf-line fact-icon"></i>
+                    <div class="fact-number">%73</div>
+                    <p class="fact-text">Elektrikli araçların 2050'de yeni araç satışlarındaki beklenen payı</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-time-line fact-icon"></i>
+                    <div class="fact-number">230 saat</div>
+                    <p class="fact-text">Ortalama bir sürücünün yılda trafikte geçirdiği süre</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Transport Types Section -->
+        <section>
+            <h2 class="section-title">Temiz Ulaşım Alternatifleri</h2>
+            
+            <div class="transport-types">
+                <div class="transport-type">
+                    <i class="ri-bike-line transport-icon-sm"></i>
+                    <h3>Bisiklet ve Yürüyüş</h3>
+                    <p>Kısa mesafeler için en sağlıklı ve sıfır emisyonlu seçenek. Bisiklet kullanımı Avrupa'da %5-30 arasında değişiyor.</p>
+                </div>
+                
+                <div class="transport-type">
+                    <i class="ri-bus-line transport-icon-sm"></i>
+                    <h3>Toplu Taşıma</h3>
+                    <p>Otobüs, metro, tramvay gibi sistemler kişi başı emisyonu özel araçlara göre %75 azaltıyor.</p>
+                </div>
+                
+                <div class="transport-type">
+                    <i class="ri-car-line transport-icon-sm"></i>
+                    <h3>Elektrikli Araçlar</h3>
+                    <p>Şarj edilebilir araçlar yaşam döngüsü boyunca %50 daha az CO2 salınımı yapıyor.</p>
+                </div>
+                
+                <div class="transport-type">
+                    <i class="ri-caravan-line transport-icon-sm"></i>
+                    <h3>Paylaşımlı Ulaşım</h3>
+                    <p>Araç paylaşım sistemleri şehirlerdeki araç sayısını %30'a kadar azaltabilir.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Impact Section -->
+        <section>
+            <h2 class="section-title">Temiz Ulaşımın Faydaları</h2>
+            
+            <ul class="impact-list">
+                <li><strong>Hava kalitesini iyileştirir:</strong> Egzoz emisyonlarını ve partikül maddeyi azaltır</li>
+                <li><strong>Sağlığı korur:</strong> Fiziksel aktiviteyi artırır, hava kirliliği kaynaklı hastalıkları azaltır</li>
+                <li><strong>Enerji verimliliği sağlar:</strong> Toplu taşıma kişi başına enerji tüketimini düşürür</li>
+                <li><strong>Şehir yaşamını iyileştirir:</strong> Gürültüyü azaltır, yeşil alanları artırır</li>
+                <li><strong>Ekonomik tasarruf sağlar:</strong> Yakıt, bakım ve park maliyetlerini düşürür</li>
+                <li><strong>Sosyal adaleti destekler:</strong> Ulaşım olanaklarına erişimi demokratikleştirir</li>
+                <li><strong>İklim değişikliğiyle mücadele eder:</strong> Ulaşımdan kaynaklanan sera gazlarını azaltır</li>
+                <li><strong>Yeni istihdam alanları yaratır:</strong> Temiz ulaşım sektöründe yeni iş imkanları doğar</li>
+            </ul>
+        </section>
+        
+        <!-- Solutions Section -->
+        <section>
+            <h2 class="section-title">Temiz Ulaşım Çözümleri</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Elektrikli Araçlar" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Elektrikli Araç Altyapısı</h3>
+                        <p class="card-text">Şarj istasyonu ağlarının genişletilmesi, batarya teknolojilerinin geliştirilmesi ve teşvik politikaları.</p>
+                        <a href="#" class="btn">Çözümler</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Toplu Taşıma" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Akıllı Toplu Taşıma Sistemleri</h3>
+                        <p class="card-text">Elektrikli otobüsler, raylı sistemlerin yaygınlaştırılması ve entegre ulaşım ağları.</p>
+                        <a href="#" class="btn">Yöntemler</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1607582278038-6a6aae6a0d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Şehir Planlaması" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Yaya Odaklı Şehir Planlaması</h3>
+                        <p class="card-text">Bisiklet yolları, yaya bölgeleri ve karma kullanımlı mahalleler oluşturulması.</p>
+                        <a href="#" class="btn">Politika Önerileri</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Action Section -->
+        <section class="action-section">
+            <h2 class="action-title">Temiz Ulaşım İçin Harekete Geçin!</h2>
+            <p style="max-width: 800px; margin: 0 auto 40px; color: #555;">Bireysel ve toplumsal olarak temiz ulaşımı desteklemek için yapabilecekleriniz:</p>
+            
+            <div class="action-grid">
+                <div class="action-card">
+                    <i class="ri-walk-line action-icon"></i>
+                    <h3 class="action-card-title">Aktif Ulaşım</h3>
+                    <p>Kısa mesafelerde yürüyün veya bisiklet kullanın. Sağlığınız ve çevre için en iyi seçenek.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-bus-2-line action-icon"></i>
+                    <h3 class="action-card-title">Toplu Taşıma Kullanın</h3>
+                    <p>Şehir içi ulaşımda metro, tramvay ve otobüsleri tercih edin.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-group-line action-icon"></i>
+                    <h3 class="action-card-title">Araç Paylaşımı</h3>
+                    <p>İşe giderken araç paylaşımı yapın veya paylaşımlı bisiklet/e-scooter kullanın.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-megaphone-line action-icon"></i>
+                    <h3 class="action-card-title">Savunuculuk Yapın</h3>
+                    <p>Yerel yönetimlerden bisiklet yolları ve temiz toplu taşıma talebinde bulunun.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

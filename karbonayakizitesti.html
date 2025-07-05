@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karbon Ayak İzi Hesaplayıcı | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== BOOTSTRAP ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--=============== GOOGLE FONTS ===============-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --accent-color: #f39c12;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --danger-color: #e74c3c;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/resimler/karbon-ayak-izi.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+        
+        .calculator-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .calculator-header h1 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .calculator-header p {
+            color: #7f8c8d;
+        }
+        
+        .calculator-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .form-label {
+            font-weight: 500;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .form-label i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .form-control {
+            border: 2px solid #dfe6e9;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.25);
+        }
+        
+        .btn-calculate {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn-calculate:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .result-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-header {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .result-score {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .result-message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        .low-impact {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 5px solid var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .medium-impact {
+            background-color: rgba(241, 196, 15, 0.1);
+            border-left: 5px solid var(--accent-color);
+            color: #d35400;
+        }
+        
+        .high-impact {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left: 5px solid var(--danger-color);
+            color: var(--danger-color);
+        }
+        
+        .progress-container {
+            height: 20px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        
+        .tips-container {
+            margin-top: 25px;
+        }
+        
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #dfe6e9;
+        }
+        
+        .tip-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .tip-content h5 {
+            color: var(--dark-color);
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .tip-content p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+            
+            .calculator-header h1 {
+                font-size: 24px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .calculator-container {
+                padding: 15px;
+            }
+            
+            .calculator-header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-wrapper">
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h1><i class="ri-leaf-fill"></i> Karbon Ayak İzi Hesaplayıcı</h1>
+                <p>Günlük alışkanlıklarınızın çevreye olan etkisini ölçün</p>
+            </div>
+            
+            <form id="carbonForm">
+                <div class="mb-4">
+                    <label for="carKm" class="form-label"><i class="ri-car-fill"></i> Haftalık araba kullanımı (km)</label>
+                    <input type="number" class="form-control" id="carKm" placeholder="Örneğin: 150" required>
+                    <small class="text-muted">Haftada kaç kilometre araba kullandığınızı yazın</small>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="flight" class="form-label"><i class="ri-plane-fill"></i> Yıllık uçuş sayısı</label>
+                    <input type="number" class="form-control" id="flight" placeholder="Örneğin: 2" required>
+                    <small class="text-muted">Bir yılda kaç kez uçakla seyahat ettiğinizi yazın</small>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="meat" class="form-label"><i class="ri-restaurant-fill"></i> Haftalık et tüketimi (gün)</label>
+                    <input type="number" class="form-control" id="meat" placeholder="Örneğin: 5" required>
+                    <small class="text-muted">Haftada kaç gün et yediğinizi yazın</small>
+                </div>
+                
+                <button type="submit" class="btn btn-calculate btn-lg">
+                    <i class="ri-calculator-fill"></i> HESAPLA
+                </button>
+            </form>
+            
+            <div class="result-container" id="result">
+                <div class="result-header">
+                    <span><i class="ri-bar-chart-fill"></i> SONUÇLAR</span>
+                    <span id="resultCategory"></span>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <div class="result-score">
+                    <span id="scoreText"></span>
+                </div>
+                
+                <div class="result-message" id="resultMessage">
+                    <p id="messageText"></p>
+                </div>
+                
+                <div class="tips-container">
+                    <h5><i class="ri-lightbulb-flash-fill"></i> İyileştirme Önerileri:</h5>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="ri-bike-fill"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Toplu taşıma kullanın</h5>
+                            <p>Haftada bir gün araba kullanmak yerine toplu taşıma kullanarak karbon ayak izinizi %15 azaltabilirsiniz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="ri-plant-fill"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Bitkisel beslenin</h5>
+                            <p>Haftada bir gün et yemeyerek yılda 200 kg karbon salınımını engelleyebilirsiniz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="ri-recycle-fill"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Geri dönüşüme önem verin</h5>
+                            <p>Plastik, cam ve kağıt atıklarınızı ayrıştırarak doğaya katkı sağlayabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("carbonForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Verileri al
+            const carKm = parseFloat(document.getElementById("carKm").value) || 0;
+            const flight = parseFloat(document.getElementById("flight").value) || 0;
+            const meat = parseFloat(document.getElementById("meat").value) || 0;
+
+            // Puan hesaplama
+            const score = (carKm * 0.2) + (flight * 2.5) + (meat * 1.2);
+            const roundedScore = Math.round(score * 10) / 10;
+            
+            // Sonuç kategorisini belirleme
+            let category = "";
+            let message = "";
+            let progressColor = "";
+            let messageClass = "";
+            
+            if (score < 20) {
+                category = "DÜŞÜK ETKİ";
+                message = `Tebrikler! Karbon ayak iziniz (${roundedScore} puan) ortalamanın oldukça altında. Çevre dostu yaşam tarzınızla örnek olmaya devam edin!`;
+                progressColor = "var(--primary-color)";
+                messageClass = "low-impact";
+            } else if (score < 40) {
+                category = "ORTA ETKİ";
+                message = `Karbon ayak iziniz (${roundedScore} puan) ortalama seviyede. Küçük değişikliklerle çevreye olan etkinizi azaltabilirsiniz.`;
+                progressColor = "var(--accent-color)";
+                messageClass = "medium-impact";
+            } else {
+                category = "YÜKSEK ETKİ";
+                message = `Karbon ayak iziniz (${roundedScore} puan) ortalamanın üzerinde. Yaşam tarzınızda yapacağınız değişikliklerle doğaya katkı sağlayabilirsiniz.`;
+                progressColor = "var(--danger-color)";
+                messageClass = "high-impact";
+            }
+            
+            // Sonuçları göster
+            document.getElementById("scoreText").innerHTML = `<i class="ri-footprint-fill"></i> Karbon Ayak İzi Puanı: <strong>${roundedScore}</strong>`;
+            document.getElementById("messageText").innerText = message;
+            document.getElementById("resultCategory").innerText = category;
+            
+            // Progress bar'ı güncelle
+            const progressBar = document.getElementById("progressBar");
+            progressBar.style.width = `${Math.min(score, 60)}%`;
+            progressBar.style.backgroundColor = progressColor;
+            
+            // Mesaj stilini ayarla
+            const resultMessage = document.getElementById("resultMessage");
+            resultMessage.className = `result-message ${messageClass}`;
+            
+            // Sonuçları göster
+            document.getElementById("result").style.display = "block";
+            
+            // Sayfayı sonuca kaydır
+            document.getElementById("result").scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+    
+    <!--=============== BOOTSTRAP JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

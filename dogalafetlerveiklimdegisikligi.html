@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğal Afetler ve İklim Değişikliği | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== GOOGLE FONTS ===============-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        :root {
+            --disaster-orange: #fb8c00;
+            --disaster-dark: #e65100;
+            --disaster-light: #fff3e0;
+            --disaster-red: #e53935;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--disaster-orange), var(--disaster-dark));
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f9f9f9" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f9f9f9" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f9f9f9"/></svg>') no-repeat center/cover;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .disaster-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--disaster-red);
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--disaster-dark);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--disaster-orange);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--disaster-dark);
+        }
+        
+        .card-text {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--disaster-orange);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--disaster-dark);
+        }
+        
+        .disaster-facts {
+            background: var(--disaster-light);
+            padding: 60px 20px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+        
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .fact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .fact-icon {
+            font-size: 2.5rem;
+            color: var(--disaster-orange);
+            margin-bottom: 15px;
+        }
+        
+        .fact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--disaster-dark);
+            margin-bottom: 10px;
+        }
+        
+        .fact-text {
+            color: #555;
+        }
+        
+        .action-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .action-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--disaster-dark);
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .action-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .action-icon {
+            font-size: 2rem;
+            color: var(--disaster-orange);
+            margin-bottom: 15px;
+        }
+        
+        .action-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--disaster-dark);
+        }
+        
+        .impact-list {
+            columns: 2;
+            column-gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        
+        .impact-list li {
+            margin-bottom: 15px;
+            break-inside: avoid;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .impact-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--disaster-orange);
+            border-radius: 50%;
+        }
+        
+        .disaster-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+        
+        .disaster-type {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .disaster-icon-sm {
+            font-size: 2.5rem;
+            color: var(--disaster-orange);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-list {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> EcoVision
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__toggle-menu"></i>
+                    <i class="ri-close-line nav__toggle-close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="index.html" class="nav__link">Anasayfa</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link dropdown__button">
+                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-code-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                        </li>
+                                        <li>
+                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                        </li>
+                                        <li>
+                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-pen-nib-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                        </li>
+                                        <li>
+                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                        </li>
+                                        <li>
+                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Enerji Tüketimi </span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                        </li>
+                                        <li>
+                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil Yakıtların Azaltılması</a>
+                                        </li>
+                                        <li>
+                                            <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                    <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                        </li>
+                                        <li>
+                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                        </li>
+                                        <li>
+                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link active">Doğal Afetler ve İklim Değişikliği</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="bloglar.html" class="nav__link">Bloglar</a>
+                    </li>
+
+                    <!--=============== DROPDOWN 3 ===============-->
+                    <li class="dropdown__item">                        
+                        <div class="nav__link dropdown__button">
+                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-community-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Hakkımızda</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <a href="destek.html" class="dropdown__link">Destek</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-shield-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Konumumuz</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <i class="ri-flood-line disaster-icon"></i>
+        <h1 class="hero-title">Doğal Afetler ve İklim Değişikliği</h1>
+        <p class="hero-subtitle">İklim değişikliğinin doğal afetlerin sıklığı ve şiddeti üzerindeki etkisini keşfedin. Hazırlıklı olmak için harekete geçin!</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <section>
+            <h2 class="section-title">İklim Değişikliğinin Afetlere Etkisi</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sel ve Taşkınlar" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Sel ve Taşkınlar</h3>
+                        <p class="card-text">Son 20 yılda sel afetleri %134 arttı. İklim değişikliği aşırı yağış olaylarını %40 artırdı.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Orman Yangınları" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Orman Yangınları</h3>
+                        <p class="card-text">Küresel ısınma yangın mevsimini 3 ay uzattı. 2020'de ABD'de yanan alan 4 milyon hektarı aştı.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1561484930-974554019ade?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kuraklık" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Kuraklık</h3>
+                        <p class="card-text">Dünya nüfusunun %40'ı su kıtlığı riski altında. 2050'de 5.7 milyar insan su stresi yaşayabilir.</p>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Disaster Facts Section -->
+        <section class="disaster-facts">
+            <h2 class="section-title">Doğal Afetlerle İlgili Çarpıcı Gerçekler</h2>
+            <div class="fact-grid">
+                <div class="fact-item">
+                    <i class="ri-fire-line fact-icon"></i>
+                    <div class="fact-number">%76</div>
+                    <p class="fact-text">2000-2019 arasındaki doğal afetlerin iklimle bağlantılı olma oranı</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-money-dollar-circle-line fact-icon"></i>
+                    <div class="fact-number">2.97 trilyon $</div>
+                    <p class="fact-text">Son 20 yılda iklim afetlerinin küresel maliyeti</p>
+                </div>
+                
+                <div class="fact-item">
+                    <i class="ri-user-line fact-icon"></i>
+                    <div class="fact-number">1.23 milyon</div>
+                    <p class="fact-text">2000-2019 arasında afetlerde hayatını kaybeden insan sayısı</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Disaster Types Section -->
+        <section>
+            <h2 class="section-title">İklim Değişikliğiyle Bağlantılı Afet Türleri</h2>
+            
+            <div class="disaster-types">
+                <div class="disaster-type">
+                    <i class="ri-temp-hot-line disaster-icon-sm"></i>
+                    <h3>Sıcak Hava Dalgaları</h3>
+                    <p>Son 20 yılda 2 kat arttı. 2003'te Avrupa'da 70.000, 2010'da Rusya'da 56.000 ölüme neden oldu.</p>
+                </div>
+                
+             
+                
+                <div class="disaster-type">
+                    <i class="ri-flood-line disaster-icon-sm"></i>
+                    <h3>Ani Seller</h3>
+                    <p>Şehirlerdeki betonlaşma ve aşırı yağışlar birleşince ölümcül sonuçlar doğuruyor. 1995-2015 arasında 157.000 can kaybı.</p>
+                </div>
+                
+                <div class="disaster-type">
+                    <i class="ri-earthquake-line disaster-icon-sm"></i>
+                    <h3>Erozyon ve Toprak Kaymaları</h3>
+                    <p>Aşırı yağışlar ve ormansızlaşma toprak kaymalarını tetikliyor. Yılda 300 milyar ton verimli toprak kaybediliyor.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Impact Section -->
+        <section>
+            <h2 class="section-title">İklim Değişikliğinin Afetlere Etkileri</h2>
+            
+            <ul class="impact-list">
+                <li><strong>Artık frekans:</strong> 1960'lara göre iklim afetleri 5 kat daha sık yaşanıyor</li>
+                <li><strong>Şiddet artışı:</strong> Kasırgalar %8 daha güçlü, yağışlar %20 daha yoğun</li>
+                <li><strong>Mekansal yayılım:</strong> Daha önce görülmeyen bölgelerde afetler oluşuyor</li>
+                <li><strong>Bileşik afetler:</strong> Aynı anda birden fazla afetin (örn. sıcak dalgası + kuraklık + orman yangını) görülmesi</li>
+                <li><strong>Ekonomik kayıplar:</strong> 1998-2017 arasında iklim afetlerinin maliyeti 2.25 trilyon dolar</li>
+                <li><strong>Göç hareketleri:</strong> Her yıl 21.5 milyon insan iklim afetleri nedeniyle yer değiştiriyor</li>
+                <li><strong>Sağlık etkileri:</strong> Isı stresi, solunum hastalıkları ve bulaşıcı hastalıklarda artış</li>
+                <li><strong>Gıda güvenliği:</strong> Aşırı hava olayları tarımsal üretimi tehdit ediyor</li>
+            </ul>
+        </section>
+        
+        <!-- Solutions Section -->
+        <section>
+            <h2 class="section-title">İklim Afetlerine Karşı Alınabilecek Önlemler</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Erken Uyarı Sistemleri" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Erken Uyarı Sistemleri</h3>
+                        <p class="card-text">Gelişmiş meteoroloji teknolojileri ve toplum tabanlı uyarı mekanizmaları can kaybını %30 azaltabilir.</p>
+                        <a href="#" class="btn">Çözümler</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1431794062232-2a99a5431c6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Doğa Temelli Çözümler" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Doğa Temelli Çözümler</h3>
+                        <p class="card-text">Mangrov ormanları, sulak alan restorasyonu ve yeşil altyapı projeleri afet riskini azaltıyor.</p>
+                        <a href="#" class="btn">Yöntemler</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a7b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Toplumsal Hazırlık" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Toplumsal Hazırlık</h3>
+                        <p class="card-text">Afet eğitimleri, tahliye planları ve dayanıklı yapılaşma hayatta kalma şansını artırıyor.</p>
+                        <a href="#" class="btn">Politika Önerileri</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Action Section -->
+        <section class="action-section">
+            <h2 class="action-title">İklim Afetlerine Hazırlık İçin Harekete Geçin!</h2>
+            <p style="max-width: 800px; margin: 0 auto 40px; color: #555;">Bireysel ve toplumsal olarak iklim afetlerine karşı hazırlıklı olmak için yapabilecekleriniz:</p>
+            
+            <div class="action-grid">
+                <div class="action-card">
+                    <i class="ri-home-gear-line action-icon"></i>
+                    <h3 class="action-card-title">Ev Hazırlığı</h3>
+                    <p>Sel bariyerleri, yangına dayanıklı malzemeler kullanın. Acil durum çantası ve iletişim planı hazırlayın.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-community-line action-icon"></i>
+                    <h3 class="action-card-title">Toplumsal Organizasyon</h3>
+                    <p>Mahallenizde afet gönüllü ağı oluşturun, yerel yönetimlerden risk haritaları talep edin.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-leaf-line action-icon"></i>
+                    <h3 class="action-card-title">İklim Eylemi</h3>
+                    <p>Karbon ayak izinizi azaltarak uzun vadede iklim değişikliğini yavaşlatın.</p>
+                </div>
+                
+                <div class="action-card">
+                    <i class="ri-alarm-warning-line action-icon"></i>
+                    <h3 class="action-card-title">Bilgi Edinin</h3>
+                    <p>Yerel afet risklerini öğrenin, erken uyarı sistemlerine kaydolun, düzenli tatbikatlara katılın.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

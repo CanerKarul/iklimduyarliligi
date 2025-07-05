@@ -1,178 +1,769 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bağış Sayfası</title>
-
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9f9f9;
-    margin: 0; padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color:#27ae60;
-  }
-
-  .container {
-    background: white;
-    max-width: 900px;
-    width: 90%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: flex;
-    padding: 30px;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .qr-section {
-    flex: 1 1 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .qr-section img {
-    max-width: 220px;
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  }
-
- form > div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-label {
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #333;
-  display: block; /* blok yapar, alt satıra geçer */
-}
-
-input[type="text"],
-input[type="number"] {
-  width: 100%;      /* inputlar form divinin tamamını kaplar */
-  padding: 12px 15px;
-  font-size: 1rem;
-  border: 1.8px solid #ccc;
-  border-radius: 8px;
-  transition: border-color 0.3s ease;
-  box-sizing: border-box;  /* padding ve border genişlikten sayılır */
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-  border-color:#27ae60;
-  outline: none;
-}
-
-  button {
-    margin-top: 30px;
-    background-color:#27ae60;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: 700;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color:black;
-  }
-
-  @media (max-width: 700px) {
-    .container {
-      flex-direction: column;
-      padding: 20px;
-      gap: 30px;
-    }
-    .qr-section, form {
-      flex: 1 1 100%;
-    }
-    .qr-section img {
-      max-width: 180px;
-    }
-  }
-
-.qr-section {
-  display: flex;
-  flex-direction: column;    /* Yukarıdan aşağıya yerleşim */
-  align-items: center;       /* Ortala yatayda */
-}
-
-.qr-section img {
-  max-width: 220px;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-.qr-text {
-  margin-top: 12px;          /* Üstten boşluk */
-  font-size: 1rem;
-  color: #444;
-  font-weight: 600;
-  text-align: center;        /* Ortala yazıyı */
-}
-
-
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EcoVision | Bağış Yap</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        :root {
+            --primary-color: #27ae60;
+            --primary-dark: #219653;
+            --secondary-color: #2d3436;
+            --light-color: #f5f6fa;
+            --gray-color: #dfe6e9;
+            --text-color: #2d3436;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .donation-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.1) 0%, rgba(45, 52, 54, 0.1) 100%);
+            padding: 2rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .donation-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+        
+        .donation-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            flex: 1 1 500px;
+            max-width: 600px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .donation-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .donation-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .donation-header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .donation-body {
+            padding: 2rem;
+        }
+        
+        .donation-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .method-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--gray-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-color);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+        }
+        
+        .donation-amounts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .amount-btn {
+            padding: 0.75rem;
+            background: var(--light-color);
+            border: 1px solid var(--gray-color);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .amount-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+        
+        .amount-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+        
+        .custom-amount {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .custom-amount span {
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .qr-section {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            flex: 1 1 400px;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .qr-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .qr-code {
+            width: 220px;
+            height: 220px;
+            margin-bottom: 1.5rem;
+            border: 10px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        
+        .qr-info {
+            margin-top: 1.5rem;
+        }
+        
+        .qr-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .qr-info p {
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            width: 60px;
+            height: 40px;
+            object-fit: contain;
+            filter: grayscale(30%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .donation-benefits {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 12px;
+        }
+        
+        .donation-benefits h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .benefits-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .donation-container {
+                flex-direction: column;
+            }
+            
+            .donation-card, .qr-section {
+                max-width: 100%;
+            }
+            
+            .donation-amounts {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Header Styles */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+        
+        .nav__logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav__logo i {
+            font-size: 1.5rem;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(39, 174, 96, 0.2);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
 </head>
 <body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> EcoVision
+                </a>
+    
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__toggle-menu"></i>
+                    <i class="ri-close-line nav__toggle-close"></i>
+                </div>
+            </div>
 
-<div class="container">
-    <!-- qr kısmı -->
-  <div class="qr-section">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=IBAN-Numaraniz-Buraya" alt="Bağış QR Kodu" />
-    <p class="qr-aciklama" >Lütfen bu QR kodu kullanarak bağışınızı yapınız.</p>
-  </div>
-  <form id="donationForm" onsubmit="return validateForm()">
-    <div>
-      <label for="adSoyad">Ad Soyad</label>
-      <input type="text" id="adSoyad" name="adSoyad" placeholder="Adınız ve Soyadınız" required />
-    </div>
-    <br>
-    <div>
-      <label for="bagisMiktari">Bağış Miktarı (TL)</label>
-      <input type="number" id="bagisMiktari" name="bagisMiktari" placeholder="Örnek: 100 TL " min="1" required />
-    </div>
-    <br>
-    <div>
-      <label for="iban">IBAN Numarası</label>
-      <input type="text" id="iban" name="iban" placeholder="TRxx xxxx xxxx xxxx xxxx xxxx xx" required pattern="TR[0-9]{2} ?[0-9]{4} ?[0-9]{4} ?[0-9]{4} ?[0-9]{4} ?[0-9]{2}" />
-    </div>
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li>
+                        <a href="index.html" class="nav__link">Anasayfa</a>
+                    </li>
 
-    <button type="submit">Ödeme Tutarını Gönder</button>
-  </form>
-</div>
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link dropdown__button">
+                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
 
-<script>
-  function validateForm() {
-    const ibanInput = document.getElementById('iban');
-    const ibanValue = ibanInput.value.replace(/\s+/g, '').toUpperCase();
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-code-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                        </li>
+                                        <li>
+                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                        </li>
+                                        <li>
+                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-pen-nib-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                        </li>
+                                        <li>
+                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                        </li>
+                                        <li>
+                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Enerji Tüketimi </span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                        </li>
+                                        <li>
+                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                                        </li>
+                                        <li>
+                                            <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
 
-    // Basit IBAN doğrulama: TR ile başlayıp 26 karakter olmalı
-    if (!/^TR[0-9]{24}$/.test(ibanValue)) {
-      alert('Lütfen geçerli bir TR IBAN numarası giriniz.');
-      ibanInput.focus();
-      return false;
-    }
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                    <i class="ri-apps-2-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                        </li>
+                                        <li>
+                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                        </li>
+                                        <li>
+                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-    // Diğer alanlar required olduğu için otomatik kontrol yapılır
-    alert('Bağış formu başarıyla gönderildi!'); // Bu kısmı kendi ödeme entegrasyonuna göre düzenle
-    return true; 
-  }
-</script>
+                    <li>
+                        <a href="bloglar.html" class="nav__link">Bloglar</a>
+                    </li>
 
+                    <!--=============== DROPDOWN 3 ===============-->
+                    <li class="dropdown__item">                        
+                        <div class="nav__link dropdown__button">
+                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <div class="dropdown__container">
+                            <div class="dropdown__content">
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-community-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Hakkımızda</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                        </li>
+                                        <li>
+                                            <a href="destek.html" class="dropdown__link">Destek</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="dropdown__group">
+                                    <div class="dropdown__icon">
+                                        <i class="ri-shield-line"></i>
+                                    </div>
+    
+                                    <span class="dropdown__title">Konumumuz</span>
+    
+                                    <ul class="dropdown__list">
+                                        <li>
+                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                        </li>
+                                        <li>
+                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="donation-page">
+        <div class="container">
+            <div class="donation-container">
+                <!-- Bağış Formu Kartı -->
+                <div class="donation-card">
+                    <div class="donation-header">
+                        <h2>EcoVision'a Destek Olun</h2>
+                        <p>Yaptığınız her bağış, daha yeşil bir gelecek için atılmış bir adımdır.</p>
+                    </div>
+                    
+                    <div class="donation-body">
+                        <div class="success-message" id="successMessage">
+                            <h3>Teşekkürler!</h3>
+                            <p>Bağışınız başarıyla alındı. Desteğiniz için minnettarız.</p>
+                        </div>
+                        
+                        <div class="donation-methods">
+                            <div class="method-tabs">
+                                <button class="tab-btn active" data-tab="credit-card">Kredi Kartı</button>
+                                <button class="tab-btn" data-tab="bank-transfer">Banka Transferi</button>
+                            </div>
+                            
+                            <!-- Kredi Kartı Formu -->
+                            <div class="tab-content active" id="credit-card">
+                                <form id="donationForm">
+                                    <div class="form-group">
+                                        <label for="fullName">Ad Soyad</label>
+                                        <input type="text" id="fullName" class="form-control" placeholder="Kart üzerindeki isim" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="cardNumber">Kredi Kartı Numarası</label>
+                                        <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" required>
+                                    </div>
+                                    
+                                    <div style="display: flex; gap: 1rem;">
+                                        <div class="form-group" style="flex: 1;">
+                                            <label for="expiryDate">Son Kullanma Tarihi</label>
+                                            <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY" required>
+                                        </div>
+                                        
+                                        <div class="form-group" style="flex: 1;">
+                                            <label for="cvv">CVV</label>
+                                            <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Bağış Miktarı (TL)</label>
+                                        <div class="donation-amounts">
+                                            <button type="button" class="amount-btn" data-amount="50">50 TL</button>
+                                            <button type="button" class="amount-btn" data-amount="100">100 TL</button>
+                                            <button type="button" class="amount-btn" data-amount="250">250 TL</button>
+                                            <button type="button" class="amount-btn" data-amount="500">500 TL</button>
+                                            <button type="button" class="amount-btn" data-amount="1000">1000 TL</button>
+                                        </div>
+                                        
+                                        <div class="custom-amount">
+                                            <span>Veya:</span>
+                                            <input type="number" id="customAmount" class="form-control" placeholder="Özel miktar girin" min="1">
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn">Bağış Yap</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Banka Transferi Formu -->
+                            <div class="tab-content" id="bank-transfer">
+                                <form id="bankTransferForm">
+                                    <div class="form-group">
+                                        <label for="bankFullName">Ad Soyad</label>
+                                        <input type="text" id="bankFullName" class="form-control" placeholder="Adınız ve soyadınız" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="ibanNumber">IBAN Numarası</label>
+                                        <input type="text" id="ibanNumber" class="form-control" placeholder="TRXX XXXX XXXX XXXX XXXX XXXX XX" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="bankAmount">Bağış Miktarı (TL)</label>
+                                        <input type="number" id="bankAmount" class="form-control" placeholder="Bağış miktarını girin" min="1" required>
+                                    </div>
+                                    
+                                    <div class="donation-benefits">
+                                        <h3>Bağışınız Ne Yapacak?</h3>
+                                        <ul class="benefits-list">
+                                            <li>Yeni ağaçlandırma projelerini destekleyecek</li>
+                                            <li>Çevre eğitim programlarına katkı sağlayacak</li>
+                                            <li>Sürdürülebilir enerji araştırmalarını finanse edecek</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn">Bilgileri Kaydet</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QR Kod ve Banka Bilgileri -->
+                <div class="qr-section">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=IBAN-Numaraniz-Buraya" alt="Bağış QR Kodu" class="qr-code">
+                    
+                    <div class="qr-info">
+                        <h3>Banka Transferi ile Destek Olun</h3>
+                        <p>QR kodu okutarak veya aşağıdaki bilgileri kullanarak bağış yapabilirsiniz.</p>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; text-align: left; width: 100%;">
+                        <div style="background: rgba(39, 174, 96, 0.1); padding: 1rem; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">Banka Bilgileri:</p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>Banka Adı:</strong> EcoVision Bank</p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>Hesap Adı:</strong> EcoVision Derneği</p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>IBAN:</strong> TR00 0000 0000 0000 0000 0000 00</p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>Şube Kodu:</strong> 0000</p>
+                            <p style="font-size: 0.9rem;"><strong>Hesap No:</strong> 00000000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" class="payment-method">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard" class="payment-method">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="American Express" class="payment-method">
+                        <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="PayPal" class="payment-method">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Tab geçişleri
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Tüm tab butonlarını ve içeriklerini pasif yap
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Tıklanan buton ve içeriği aktif yap
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Bağış miktarı butonları
+        const amountBtns = document.querySelectorAll('.amount-btn');
+        const customAmountInput = document.getElementById('customAmount');
+        
+        amountBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                amountBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                customAmountInput.value = '';
+            });
+        });
+        
+        customAmountInput.addEventListener('input', () => {
+            amountBtns.forEach(b => b.classList.remove('active'));
+        });
+        
+        // Form gönderimi
+        const donationForm = document.getElementById('donationForm');
+        const bankTransferForm = document.getElementById('bankTransferForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        if (donationForm) {
+            donationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Burada ödeme işlemi yapılacak
+                successMessage.classList.add('show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+                donationForm.reset();
+            });
+        }
+        
+        if (bankTransferForm) {
+            bankTransferForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // IBAN doğrulama
+                const iban = document.getElementById('ibanNumber').value;
+                if (!validateIBAN(iban)) {
+                    alert('Lütfen geçerli bir IBAN numarası giriniz.');
+                    return;
+                }
+                
+                successMessage.classList.add('show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+                bankTransferForm.reset();
+            });
+        }
+        
+        function validateIBAN(iban) {
+            // Basit IBAN doğrulama
+            const cleaned = iban.replace(/\s+/g, '').toUpperCase();
+            return /^TR[0-9]{24}$/.test(cleaned);
+        }
+    </script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

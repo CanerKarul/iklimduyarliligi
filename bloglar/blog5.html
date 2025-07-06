@@ -1,19 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-   
-  </head>
-  <body>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İklim Eylemi: Küçük Değişimlerle Büyük Etki | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+   <style>
+        /* NAVIGASYON SONRASI BOŞLUK EKLENDİ */
+        body {
+            padding-top: 80px; /* Navigasyon yüksekliği kadar boşluk */
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .blog-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .date {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 40px 0;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .image-grid img:hover {
+            transform: scale(1.02);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 40px;
+            padding: 10px 20px;
+            border: 1px solid #3498db;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            position: relative;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+        }
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: #2ecc71;
+            opacity: 0.5;
+        }
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .action-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 3px solid #2ecc71;
+            transition: transform 0.3s;
+        }
+        .action-card:hover {
+            transform: translateY(-5px);
+        }
+        .action-icon {
+            color: #2ecc71;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .impact-meter {
+            margin: 30px 0;
+        }
+        .impact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .impact-icon {
+            color: #2ecc71;
+            font-size: 1.8rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .impact-bar {
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .impact-level {
+            height: 100%;
+            background: linear-gradient(90deg, #2ecc71, #3498db);
+            border-radius: 4px;
+        }
+        @media (max-width: 768px) {
+            .action-cards {
+                grid-template-columns: 1fr;
+            }
+            .blog-title {
+                font-size: 2rem;
+            }
+            .hero-image {
+                height: 250px;
+            }
+            body {
+                padding-top: 70px;
+            }
+            .image-grid img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
   <header class="header">
     <nav class="nav container">
       <div class="nav__data">
@@ -181,28 +351,134 @@
     </nav>
   </header>
 
-    <div class="container-blog">
-      <h1>İklim Eylemi: Küçük Değişimlerle Büyük Etki</h1>
-      <p class="date">📅 03 Temmuz 2025</p>
-      <img src="resimler/resim5.jpg" alt="İklim eylemi" />
-      <p>
-        Günlük hayatımızdaki küçük değişiklikler, iklim değişikliğiyle
-        mücadelede büyük fark yaratabilir. Su tasarrufu yapmak, enerji
-        tüketimini azaltmak ve atıkları doğru yönetmek önemli adımlardır.
-      </p>
-      <p>
-        Bireysel bilinçlenme ve toplumsal farkındalık arttıkça, sürdürülebilir
-        yaşam biçimleri yaygınlaşır. Böylece çevreye daha az zarar veren
-        alışkanlıklar benimsenmiş olur.
-      </p>
-      <p>
-        Unutulmamalıdır ki her küçük adım, geleceğimizi korumak için atılmış
-        büyük bir adımdır.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <div class="container-blog">
+    <h1 class="blog-title">İklim Eylemi: Küçük Değişimlerle Büyük Etki</h1>
+    <p class="date"><i class="ri-calendar-line"></i> 31 Temmuz 2025</p>
+    
+    <img src="resimler/iklimetkisi1.png" alt="İklim eylemi konsepti" class="hero-image">
+    
+    <div class="content-section">
+        <p>İklim krizi karşısında harekete geçmek için büyük adımlar atmak zorunda değiliz. Günlük yaşamımızda yapacağımız küçük değişiklikler, bir araya geldiğinde büyük bir etki yaratabilir. İşte iklim değişikliğiyle mücadelede bireysel olarak uygulayabileceğiniz ve çevrenize ilham verebileceğiniz pratik çözümler...</p>
+    </div>
+    
+    <div class="highlight-box">
+        <p>Birleşmiş Milletler verilerine göre, bireysel eylemler küresel karbon emisyonlarının %60'ını oluşturan tüketim alışkanlıklarını doğrudan etkiliyor. Her birimizin yapacağı küçük değişimler büyük farklar yaratabilir.</p>
+    </div>
+    
+    <div class="image-grid">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sürdürülebilir yaşam">
+        <img src="resimler/iklimetkisi2.png" alt="Yenilenebilir enerji">
+    </div>
+    
+    <div class="content-section">
+        <h2>Günlük Yaşamda 9 Etkili İklim Eylemi</h2>
+        <p>İşte bugünden başlayarak uygulayabileceğiniz ve karbon ayak izinizi azaltacak basit ama etkili yöntemler:</p>
+    </div>
+    
+    <div class="action-cards">
+        <div class="action-card">
+            <i class="ri-leaf-line action-icon"></i>
+            <h3>Bitki Bazlı Beslenin</h3>
+            <p>Haftada bir gün et tüketmeyerek yılda 170 kg karbon tasarrufu sağlayabilirsiniz.</p>
+        </div>
+        <div class="action-card">
+            <i class="ri-bike-line action-icon"></i>
+            <h3>Toplu Taşıma Kullanın</h3>
+            <p>Haftada 2 gün araba yerine toplu taşıma kullanmak yılda 1.5 ton CO₂ tasarrufu demek.</p>
+        </div>
+        <div class="action-card">
+            <i class="ri-plug-line action-icon"></i>
+            <h3>Enerji Tasarrufu Yapın</h3>
+            <p>LED ampuller ve A+++ cihazlarla enerji tüketiminizi %70'e varan oranda azaltın.</p>
+        </div>
+        <div class="action-card">
+            <i class="ri-shopping-bag-line action-icon"></i>
+            <h3>Bilinçli Tüketin</h3>
+            <p>İkinci el alışveriş yaparak üretim kaynaklı emisyonları %80 azaltabilirsiniz.</p>
+        </div>
+        <div class="action-card">
+            <i class="ri-recycle-line action-icon"></i>
+            <h3>Geri Dönüştürün</h3>
+            <p>Evsel atıklarınızın %60'ını geri dönüştürerek çöp sahalarına giden atığı azaltın.</p>
+        </div>
+        <div class="action-card">
+            <i class="ri-cloud-line action-icon"></i>
+            <h3>Dijital Karbonu Azaltın</h3>
+            <p>Gereksiz e-postaları silerek ve bulut depolamayı azaltarak dijital karbon ayak izinizi küçültün.</p>
+        </div>
+    </div>
+    
+    <div class="quote">
+        "Dünyayı değiştirmek için milyonlarca insan gerekmiyor. Sadece tutarlı bir şekilde harekete geçen bir avuç insan yeter."
+    </div>
+    
+    <div class="content-section">
+        <h2>Eylemlerinizin Etki Derecesi</h2>
+        <p>Yapacağınız değişikliklerin iklim üzerindeki etkisini gösteren karşılaştırmalı tablo:</p>
+        
+        <div class="impact-meter">
+            <div class="impact-item">
+                <i class="ri-car-line impact-icon"></i>
+                <div>
+                    <h3>Araba Kullanmayı Azaltmak</h3>
+                    <p>Haftada 1 gün araba kullanmayarak yılda 0.5 ton CO₂ tasarrufu</p>
+                    <div class="impact-bar"><div class="impact-level" style="width: 90%"></div></div>
+                </div>
+            </div>
+            <div class="impact-item">
+                <i class="ri-t-shirt-line impact-icon"></i>
+                <div>
+                    <h3>Tekstil Tüketimini Azaltmak</h3>
+                    <p>Yılda 5 parça daha az giysi alarak 0.3 ton CO₂ tasarrufu</p>
+                    <div class="impact-bar"><div class="impact-level" style="width: 70%"></div></div>
+                </div>
+            </div>
+            <div class="impact-item">
+                <i class="ri-restaurant-line impact-icon"></i>
+                <div>
+                    <h3>Gıda İsrafını Önlemek</h3>
+                    <p>Gıda israfını yarıya indirerek yılda 0.4 ton CO₂ tasarrufu</p>
+                    <div class="impact-bar"><div class="impact-level" style="width: 80%"></div></div>
+                </div>
+            </div>
+            <div class="impact-item">
+                <i class="ri-home-4-line impact-icon"></i>
+                <div>
+                    <h3>Evin Isı Yalıtımı</h3>
+                    <p>İyi yalıtımlı bir evle yılda 1.2 ton CO₂ tasarrufu</p>
+                    <div class="impact-bar"><div class="impact-level" style="width: 95%"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="image-grid">
+        <img src="resimler/iklimetkisi3.png" alt="">
+        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bitki bazlı beslenme">
+    </div>
+    
+    <div class="content-section">
+        <h2>Toplumsal Etki Yaratmanın Yolları</h2>
+        <p>Bireysel eylemlerinizle yetinmeyin, çevrenizdeki insanlara ilham olun:</p>
+        <ul>
+            <li><strong>İş yerinizde sürdürülebilirlik programları</strong> başlatın veya destekleyin</li>
+            <li><strong>Yerel yönetimlerin iklim eylem planlarına</strong> katkı sağlayın</li>
+            <li><strong>Sosyal medyada bilinçli içerikler</strong> paylaşarak farkındalık yaratın</li>
+            <li><strong>Çocuklarınıza çevre bilinci</strong> aşılayın - onlar geleceğin karar vericileri</li>
+            <li><strong>İklim dostu işletmeleri</strong> tercih edin ve destekleyin</li>
+        </ul>
+    </div>
+    
+    <div class="content-section">
+        <p>İklim krizi karşısında her birimizin sorumluluğu var. Büyük değişimler küçük adımlarla başlar. Bugün yapacağınız bir tercih, yarının dünyasını şekillendirecek. Unutmayın, dünyayı kurtarmak için mükemmel olmak zorunda değilsiniz, ama herkes biraz daha iyisini yapmak zorunda. Harekete geçme zamanı!</p>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+        <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

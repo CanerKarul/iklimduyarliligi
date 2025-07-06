@@ -1,19 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-   <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  
-  </head>
-  <body>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Su Kıtlığı ve Tasarruf Teknolojileri: Geleceğin Su Yönetimi | EcoVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        body {
+            padding-top: 80px;
+            background-color: #f9f9f7;
+            color: #333;
+            line-height: 1.7;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 30px;
+            color: white;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            margin: 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #eee;
+            margin-top: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #00b4d8;
+        }
+        
+        .impact-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .impact-title {
+            font-size: 1.8rem;
+            color: #00b4d8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .impact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-icon {
+            font-size: 2rem;
+            color: #00b4d8;
+            margin-bottom: 15px;
+        }
+        
+        .impact-card h3 {
+            color: #0077b6;
+            margin-top: 0;
+        }
+        
+        .statistics-section {
+            background-color: #3a506b;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .statistics-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #00b4d8;
+            margin: 10px 0;
+        }
+        
+        .solution-section {
+            margin: 40px 0;
+        }
+        
+        .solution-card {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .solution-image {
+            width: 40%;
+            object-fit: cover;
+        }
+        
+        .solution-content {
+            padding: 30px;
+            width: 60%;
+        }
+        
+        .solution-title {
+            color: #0077b6;
+            margin-top: 0;
+        }
+        
+        .comparison-section {
+            display: flex;
+            margin: 40px 0;
+            gap: 30px;
+        }
+        
+        .comparison-card {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .comparison-content {
+            padding: 20px;
+        }
+        
+        .comparison-title {
+            color: #0077b6;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .quote-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .quote-section::before {
+            content: '"';
+            font-size: 4rem;
+            color: #00b4d8;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background-color: #0077b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .back-link:hover {
+            background-color: #023e8a;
+            transform: translateX(-5px);
+        }
+        
+        .tip-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #00b4d8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-title {
+            color: #0077b6;
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .impact-grid, .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-card, .comparison-section {
+                flex-direction: column;
+            }
+            
+            .solution-image, .solution-content, .comparison-card {
+                width: 100%;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
   <header class="header">
     <nav class="nav container">
       <div class="nav__data">
@@ -180,27 +456,213 @@
       </div>
     </nav>
   </header>
-    <div class="container-blog">
-      <h1>Yenilenebilir Enerji Kaynakları ve Gelecek</h1>
-      <p class="date">📅 15 Haziran 2025</p>
-      <img src="resimler/resim5.jpg" alt="Yenilenebilir enerji" />
-      <p>
-        Güneş, rüzgar ve hidroelektrik gibi yenilenebilir enerji kaynakları,
-        fosil yakıtlara olan bağımlılığı azaltarak sürdürülebilir bir gelecek
-        sağlar.
-      </p>
-      <p>
-        Yenilenebilir enerji yatırımları arttıkça, karbon salımı azalır ve çevre
-        koruma güçlenir.
-      </p>
-      <p>
-        Teknolojik gelişmelerle birlikte bu enerji kaynaklarının daha verimli ve
-        erişilebilir hale gelmesi beklenmektedir.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+
+  <div class="container-blog">
+    <div class="hero-section">
+      <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Su kıtlığı ve tasarruf teknolojileri" class="hero-image">
+      <div class="hero-content">
+        <h1 class="blog-title">Su Kıtlığı ve Tasarruf Teknolojileri: Geleceğin Su Yönetimi</h1>
+        <p class="date"><i class="ri-calendar-line"></i> 5 Ağustos 2025 | <i class="ri-time-line"></i> 9 dakika okuma</p>
+      </div>
+    </div>
+    
+    <div class="intro-text">
+      <p>Dünya nüfusunun artması, iklim değişikliği ve yanlış su yönetimi politikaları nedeniyle temiz su kaynakları hızla tükeniyor. Bugün dünya nüfusunun %40'ı su kıtlığından etkileniyor ve bu oranın 2030'a kadar %60'a çıkması bekleniyor. Ancak yağmur suyu hasadı, akıllı sulama sistemleri ve bireysel tasarruf yöntemleri gibi yenilikçi çözümlerle bu krizi yönetmek mümkün. Bu makalede, su tasarruf teknolojilerini ve günlük hayatta uygulayabileceğiniz pratik çözümleri keşfedeceğiz.</p>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Küresel Su Krizi: Gerçekler ve Rakamlar</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-drop-line impact-icon"></i>
+          <h3>Su Kıtlığı</h3>
+          <p>Dünya nüfusunun %40'ı su kıtlığı yaşıyor. 2025 yılına kadar 1.8 milyar insanın mutlak su kıtlığı olan bölgelerde yaşayacağı tahmin ediliyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-home-gear-line impact-icon"></i>
+          <h3>Evsel Kullanım</h3>
+          <p>Gelişmiş ülkelerde kişi başına günlük su tüketimi 300-400 litre arasında değişirken, su kıtlığı çeken bölgelerde bu miktar 20 litrenin altında.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-leaf-line impact-icon"></i>
+          <h3>Tarımsal Tüketim</h3>
+          <p>Dünyadaki tatlı su kaynaklarının %70'i tarım için kullanılıyor. Geleneksel sulama yöntemleriyle bu suyun %60'ı israf ediliyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-factory-line impact-icon"></i>
+          <h3>Endüstriyel Kullanım</h3>
+          <p>Bir kot pantolon üretmek için yaklaşık 7,500 litre, bir araba üretmek için ise 148,000 litre su tüketiliyor.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="statistics-section">
+      <h2 class="statistics-title">Çarpıcı Su İstatistikleri</h2>
+      
+      <div class="statistics-grid">
+        <div class="stat-item">
+          <div class="stat-value">2.2B</div>
+          <p>Dünyada güvenli içme suyuna erişimi olmayan insan sayısı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">%80</div>
+          <p>Atık suların arıtılmadan doğaya geri bırakılma oranı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">4X</div>
+          <p>2050'de su talebinin bugünkünden 4 kat fazla olacağı tahmini</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="solution-section">
+      <h2 class="impact-title">Yenilikçi Su Tasarruf Teknolojileri</h2>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1622480771645-8fe1955f8578?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Yağmur suyu hasadı" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Yağmur Suyu Hasadı Sistemleri</h3>
+          <p>Yağmur suyunu toplayarak evsel ve tarımsal kullanım için depolayan sistemler su kıtlığına karşı etkili bir çözüm sunuyor.</p>
+          <ul>
+            <li>Çatı toplama sistemleri: Yağmur suyunu çatılardan toplayarak depolama tanklarına yönlendirir</li>
+            <li>Yeraltı sarnıçları: Büyük ölçekli su depolama için kullanılır</li>
+            <li>Permakültür tasarımları: Peyzajı yağmur suyunu en verimli şekilde toplayacak şekilde düzenler</li>
+            <li>Akıllı filtreleme: Toplanan suyun kalitesini artırır</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Evde Uygulama</h4>
+            <p>Küçük ölçekli yağmur suyu hasadı için balkonunuza veya bahçenize bir varil yerleştirebilirsiniz. Topladığınız suyu bitkilerinizi sulamak veya araba yıkamak için kullanabilirsiniz.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Akıllı sulama sistemleri" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Akıllı Sulama Teknolojileri</h3>
+          <p>Geleneksel sulama yöntemlerine göre %70'e varan su tasarrufu sağlayan akıllı sistemler.</p>
+          <ul>
+            <li>Toprak nem sensörleri: Bitkilerin ihtiyacı olduğunda sulama yapar</li>
+            <li>Damla sulama sistemleri: Suyu doğrudan bitki köklerine ulaştırır</li>
+            <li>Hava durumu entegrasyonu: Yağmur yağacaksa sulamayı erteler</li>
+            <li>Uzaktan kontrol: Mobil uygulamalarla sulamayı yönetme</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Evde Uygulama</h4>
+            <p>Küçük bahçeniz veya saksı bitkileriniz için basit bir zamanlayıcılı damla sulama sistemi kurabilirsiniz. Bu sistemler su tüketimini %50'ye varan oranda azaltır.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="Su geri dönüşüm sistemleri" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Gri Su Geri Dönüşüm Sistemleri</h3>
+          <p>Banyo, lavabo ve çamaşır makinelerinden gelen az kirli suların arıtılarak yeniden kullanımı.</p>
+          <ul>
+            <li>Evsel gri su sistemleri: Duş ve lavabo sularını tuvalet rezervuarında kullanır</li>
+            <li>Biyolojik arıtma: Bitkiler ve mikroorganizmalar kullanarak suyu temizler</li>
+            <li>Endüstriyel ölçekli sistemler: Büyük binalarda su tüketimini %40 azaltır</li>
+            <li>Kompost tuvaletler: Su kullanımını %90'a varan oranda düşürür</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Evde Uygulama</h4>
+            <p>Duş alırken ısınmasını beklerken akan suyu bir kovada biriktirip bitkilerinizi sulamak veya temizlik yapmak için kullanabilirsiniz. Bu basit yöntemle ayda 200 litreye kadar su tasarrufu yapabilirsiniz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="comparison-section">
+      <div class="comparison-card">
+        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Geleneksel su kullanımı" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Geleneksel Su Kullanımı</h3>
+          <ul>
+            <li>Yüksek su israfı</li>
+            <li>Lineer kullan-at modeli</li>
+            <li>Merkezi su kaynaklarına bağımlılık</li>
+            <li>Enerji yoğun arıtma süreçleri</li>
+            <li>Kuraklığa karşı savunmasızlık</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="comparison-card">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="Sürdürülebilir su yönetimi" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Sürdürülebilir Su Yönetimi</h3>
+          <ul>
+            <li>Döngüsel su kullanımı</li>
+            <li>Yerel kaynaklardan yararlanma</li>
+            <li>Akıllı izleme ve kontrol</li>
+            <li>Enerji verimli teknolojiler</li>
+            <li>İklim değişikliğine direnç</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Günlük Hayatta Su Tasarrufu İçin 10 Pratik Öneri</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-shower-line impact-icon"></i>
+          <h3>Duş Süresini Kısaltın</h3>
+          <p>5 dakikalık bir duş, 10 dakikalık duşa göre %50 su tasarrufu sağlar. Su akışını kısıtlayan duş başlıkları kullanın.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-tap-line impact-icon"></i>
+          <h3>Muslukları Tamir Edin</h3>
+          <p>Damlatan bir musluk yılda 10,000 litre su israf eder. Contaları değiştirerek bu kaybı önleyebilirsiniz.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-cup-line impact-icon"></i>
+          <h3>Bulaşıkları Elde Yıkamayın</h3>
+          <p>Bulaşık makinesi kullanmak, elde yıkamaya göre %75 daha az su tüketir. Makineyi tam doldurarak çalıştırın.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-t-shirt-line impact-icon"></i>
+          <h3>Çamaşır Makinesini Verimli Kullanın</h3>
+          <p>Her çamaşır yıkamada 50-100 litre su tüketilir. Makineyi tam doldurarak ve ekonomik programları kullanarak tasarruf edin.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quote-section">
+      <p>"Su, yaşamın kaynağıdır ve her damlası değerlidir. Bugün suyu korumak için attığımız her adım, gelecek nesiller için temiz suya erişimi garanti altına alacaktır."</p>
+      <p>- Maude Barlow, Su Aktivisti ve Yazar</p>
+    </div>
+    
+    <div class="intro-text">
+      <h3>Sonuç</h3>
+      <p>Su kıtlığı küresel bir sorun olsa da, bireyler ve topluluklar olarak alabileceğimiz önlemlerle bu krizi yönetmek mümkün. Yağmur suyu hasadı sistemleri, akıllı sulama teknolojileri ve gri su geri dönüşümü gibi yenilikçi çözümlerin yanı sıra günlük alışkanlıklarımızda yapacağımız küçük değişiklikler büyük farklar yaratabilir. Unutmayın, suyu korumak sadece bir tercih değil, gezegenimizin geleceği için bir zorunluluktur. Bugünden başlayarak su ayak izinizi azaltacak en az bir önlem alın ve bu bilinci çevrenizle paylaşın.</p>
+      
+      <div class="tip-box">
+        <h4 class="tip-title">Harekete Geçin</h4>
+        <p>Bu hafta su tüketiminizi gözlemleyin ve en az bir tasarruf yöntemini uygulamaya başlayın. Ailenizle birlikte bir "su denetimi" yaparak evinizdeki su israfı kaynaklarını belirleyin ve çözümler üretin.</p>
+      </div>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+      <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

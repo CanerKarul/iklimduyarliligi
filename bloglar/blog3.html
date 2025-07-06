@@ -1,20 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-   <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-
-    
-  </head>
-  <body>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evde Geri Dönüşüm Alışkanlığı Kazanmanın 10 Kolay Yolu | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+   <style>
+        /* NAVIGASYON SONRASI BOŞLUK EKLENDİ */
+        body {
+            padding-top: 80px; /* Navigasyon yüksekliği kadar boşluk */
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .blog-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .date {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 40px 0;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .image-grid img:hover {
+            transform: scale(1.02);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 40px;
+            padding: 10px 20px;
+            border: 1px solid #3498db;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            position: relative;
+        }
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: #2ecc71;
+            opacity: 0.5;
+        }
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .benefit-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 15px;
+        }
+        .benefit-icon {
+            color: #2ecc71;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .numbered-list {
+            counter-reset: item-counter;
+            margin: 30px 0;
+        }
+        .numbered-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .numbered-item::before {
+            counter-increment: item-counter;
+            content: counter(item-counter);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: rgba(46, 204, 113, 0.2);
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            line-height: 1;
+        }
+        .numbered-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .benefits-list, .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-title {
+                font-size: 2rem;
+            }
+            .hero-image {
+                height: 250px;
+            }
+            body {
+                padding-top: 70px; /* Mobilde daha az boşluk */
+            }
+            .numbered-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
   <header class="header">
     <nav class="nav container">
       <div class="nav__data">
@@ -181,29 +343,173 @@
       </div>
     </nav>
   </header>
-    <div class="container-blog">
-      <h1>Evde Geri Dönüşüm Alışkanlığı Nasıl Kazanılır?</h1>
-      <p class="date">📅 03 Temmuz 2025</p>
-      <img src="resimler/resim3.jpg" alt="Geri dönüşüm kutuları" />
-      <p>
-        Geri dönüşüm, bireysel düzeyde yapılabilecek en önemli çevreci
-        alışkanlıklardan biridir. Evde plastik, kağıt, cam ve metal atıklarını
-        ayrı kutularda biriktirerek geri dönüşüme katkıda bulunabilirsiniz.
-      </p>
-      <p>
-        Ayrıca kullanılmayan eşyaların ihtiyaç sahiplerine verilmesi veya
-        değerlendirilmesi, israfı önlemek adına önemli bir adımdır. Geri
-        dönüştürülebilir ürünleri tercih ederek bu alışkanlığı
-        destekleyebilirsiniz.
-      </p>
-      <p>
-        Çocuklara da bu bilinci aşılayarak sürdürülebilir bir çevre için yeni
-        nesillerin daha duyarlı olmasını sağlayabilirsiniz.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+
+  <div class="container-blog">
+    <h1 class="blog-title">Evde Geri Dönüşüm Alışkanlığı Kazanmanın 10 Kolay Yolu</h1>
+    <p class="date"><i class="ri-calendar-line"></i> 17 Temmuz 2025</p>
+    
+    <img src="resimler/geridonusum.png" alt="Evde geri dönüşüm" class="hero-image">
+    
+    <div class="content-section">
+        <p>Geri dönüşüm, sürdürülebilir bir yaşamın olmazsa olmazlarından. Ancak çoğumuz bu alışkanlığı evimize nasıl taşıyacağımızı bilemiyoruz. Oysa küçük adımlarla başlayarak hem çevreyi koruyabilir hem de ev ekonomisine katkı sağlayabiliriz. İşte evinizde kolayca uygulayabileceğiniz 10 pratik geri dönüşüm yöntemi:</p>
+    </div>
+    
+    <div class="highlight-box">
+        <p>Birleşmiş Milletler verilerine göre, evsel atıkların %60'ı geri dönüştürülebilir malzemelerden oluşuyor. Ancak ne yazık ki bu potansiyelin sadece %15'i geri kazanılıyor.</p>
+    </div>
+    
+    <div class="image-grid">
+        <img src="resimler/geridonusum1.png" alt="Renkli geri dönüşüm kutuları">
+        <img src="resimler/geridonusum2.png" alt="Evde atık ayrıştırma">
+    </div>
+    
+    <div class="content-section">
+        <h2>Neden Evde Geri Dönüşüm?</h2>
+        <p>Evsel atıklarımızı doğru şekilde ayrıştırmak ve geri dönüşüme kazandırmak, hem bireysel hem de toplumsal olarak pek çok fayda sağlar:</p>
+        <ul>
+            <li>Doğal kaynakların korunmasına katkı sağlar</li>
+            <li>Enerji tasarrufu sağlar (örneğin alüminyum geri dönüşümü %95 enerji tasarrufu sağlar)</li>
+            <li>Atık depolama alanlarının ömrünü uzatır</li>
+            <li>Karbon ayak izimizi azaltır</li>
+            <li>Yeni iş alanları yaratır</li>
+        </ul>
+    </div>
+    
+    <div class="numbered-list">
+        <div class="numbered-item">
+            <div>
+                <h3>Geri Dönüşüm İstasyonu Kurun</h3>
+                <p>Mutfakta veya balkonda kolay ulaşılabilir bir yere kağıt, cam, plastik ve metal için ayrı kutular yerleştirin. Renkli etiketlerle işaretleyerek aile bireylerinin kolayca ayırt etmesini sağlayın.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Atıkları Temizleyerek Atın</h3>
+                <p>Geri dönüşüme gönderdiğiniz kapları (yoğurt kabı, konserve kutusu vb.) suyla çalkalayın. Yağlı veya kirli atıklar geri dönüşüm sürecini zorlaştırır ve maliyeti artırır.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Kompost Yapmayı Öğrenin</h3>
+                <p>Meyve sebze atıklarınızı çöpe atmak yerine kompost yapın. Balkonda küçük bir kompost kutusuyla kendi organik gübrenizi üretebilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Tek Kullanımlık Ürünleri Azaltın</h3>
+                <p>Plastik pipet, çatal-bıçak, tabak gibi tek kullanımlık ürünler yerine yeniden kullanılabilir alternatifleri tercih edin.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Alışveriş Alışkanlıklarınızı Değiştirin</h3>
+                <p>Ambalajsız ürünleri tercih edin, bez çanta kullanın, büyük boy ürünler alarak ambalaj atığını azaltın.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Elektronik Atıkları Ayrı Toplayın</h3>
+                <p>Piller, eski telefonlar, şarj aletleri gibi elektronik atıkları diğer çöplerden ayrı biriktirin ve belediyenin elektronik atık toplama noktalarına bırakın.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Yeniden Kullanımı Keşfedin</h3>
+                <p>Cam kavanozları saklama kabına, eski tişörtleri bez çantaya dönüştürün. Yaratıcılığınızı kullanarak atık olarak gördüğünüz pek çok şeye ikinci bir hayat verebilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Çocuklara Öğretin</h3>
+                <p>Evin küçük bireylerine geri dönüşümü oyunlarla ve etkinliklerle öğretin. Örneğin, boş kutulardan oyuncak yapmak hem eğlenceli hem de öğretici olacaktır.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Mahalle Geri Dönüşüm Noktalarını Öğrenin</h3>
+                <p>Yaşadığınız yerdeki geri dönüşüm noktalarını, atık toplama günlerini ve kurallarını öğrenin. Belediyenizin çevre koruma birimiyle iletişime geçin.</p>
+            </div>
+        </div>
+        
+        <div class="numbered-item">
+            <div>
+                <h3>Küçük Başlayın, Tutarlı Olun</h3>
+                <p>Bir anda mükemmel olmak zorunda değilsiniz. Önce en kolay uygulayabileceğiniz birkaç yöntemle başlayın ve zamanla alışkanlıklarınızı genişletin.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quote">
+        "Dünyayı değiştirmek için evinizden başlayın. Küçük adımlar büyük farklar yaratır."
+    </div>
+    
+    <div class="content-section">
+        <h2>Geri Dönüşümde Sık Yapılan Hatalar</h2>
+        <p>İyi niyetle yapılan bazı hatalar geri dönüşüm sürecini olumsuz etkileyebilir:</p>
+        
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <i class="ri-close-circle-line benefit-icon"></i>
+                <div>
+                    <h3>Yağlı Pizza Kutuları</h3>
+                    <p>Yağ emmiş karton kutular geri dönüştürülemez. Temiz karton kısımlarını ayırın, yağlı kısımları atın.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="ri-close-circle-line benefit-icon"></i>
+                <div>
+                    <h3>Cam ve Porselen Karışımı</h3>
+                    <p>Porselen, seramik gibi malzemeler cam geri dönüşümünü bozar. Sadece cam şişe ve kavanozları atın.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="ri-close-circle-line benefit-icon"></i>
+                <div>
+                    <h3>Plastik Poşetlerde Atık</h3>
+                    <p>Geri dönüşüm kutularına plastik poşetlerle atık atmayın. Poşetler makinalara zarar verir.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="ri-close-circle-line benefit-icon"></i>
+                <div>
+                    <h3>Kırık Camlar</h3>
+                    <p>Kırık camlar işçiler için tehlikelidir. Kalın kağıda sarıp normal çöpe atın veya özel atık merkezlerine götürün.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <img src="resimler/geridonusum3.png" alt="Geri dönüşüm sembolü" class="hero-image">
+    
+    <div class="content-section">
+        <h2>Geri Dönüşümün Ekonomiye Katkısı</h2>
+        <p>Evsel geri dönüşümün sadece çevresel değil, ekonomik faydaları da büyük:</p>
+        <ul>
+            <li>1 ton kağıdın geri dönüşümü 17 ağacın kesilmesini önler</li>
+            <li>1 alüminyum kutunun geri dönüşümü 100 watt'lık bir ampulü 20 saat çalıştıracak enerji tasarrufu sağlar</li>
+            <li>Plastik geri dönüşümü petrol tüketimini azaltır</li>
+            <li>Cam %100 geri dönüştürülebilir ve sonsuz kez kullanılabilir</li>
+        </ul>
+    </div>
+    
+    <div class="content-section">
+        <p>Geri dönüşüm, artık lüks değil bir zorunluluk. Evinizde uygulayacağınız bu basit yöntemlerle hem çevre korumaya katkı sağlayabilir hem de gelecek nesillere daha yaşanabilir bir dünya bırakabilirsiniz. Unutmayın, değişim evde başlar!</p>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+        <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

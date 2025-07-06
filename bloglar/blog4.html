@@ -1,19 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-   <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-    
-  </head>
-  <body>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğaya Saygılı Kamp ve Yürüyüş Rehberi | EcoVision</title>
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+   <style>
+        /* NAVIGASYON SONRASI BOŞLUK EKLENDİ */
+        body {
+            padding-top: 80px; /* Navigasyon yüksekliği kadar boşluk */
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .blog-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .date {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 40px 0;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .image-grid img:hover {
+            transform: scale(1.02);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 40px;
+            padding: 10px 20px;
+            border: 1px solid #3498db;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            position: relative;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+        }
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: #2ecc71;
+            opacity: 0.5;
+        }
+        .principles-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .principle-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            border-top: 3px solid #2ecc71;
+        }
+        .principle-icon {
+            color: #2ecc71;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        .checklist {
+            margin: 30px 0;
+        }
+        .checklist-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        .checklist-icon {
+            color: #2ecc71;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        @media (max-width: 768px) {
+            .principles-list {
+                grid-template-columns: 1fr;
+            }
+            .blog-title {
+                font-size: 2rem;
+            }
+            .hero-image {
+                height: 250px;
+            }
+            body {
+                padding-top: 70px;
+            }
+            .image-grid img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
   <header class="header">
     <nav class="nav container">
       <div class="nav__data">
@@ -180,28 +335,184 @@
       </div>
     </nav>
   </header>
-    <div class="container-blog">
-      <h1>Doğaya Saygılı Kamp ve Yürüyüş Rehberi</h1>
-      <p class="date">📅 03 Temmuz 2025</p>
-      <img src="resimler/resim4.jpg" alt="Doğada kamp yapanlar" />
-      <p>
-        Doğada vakit geçirirken çevreye zarar vermemek için dikkat edilmesi
-        gereken birçok detay vardır. Öncelikle atıkları doğada bırakmamak, kamp
-        alanını temiz teslim etmek büyük önem taşır.
-      </p>
-      <p>
-        Doğal yaşamı rahatsız etmemek, gürültü yapmamak ve kamp ateşi gibi
-        faaliyetleri kontrollü yapmak çevre dostu bir deneyim sağlar. Ekosisteme
-        zarar vermemek için izmarit ve plastik gibi atıkları toplamak şarttır.
-      </p>
-      <p>
-        Ayrıca yaban hayvanlarına zarar vermemek, patikalardan çıkmamak ve doğa
-        dostu ürünler kullanmak doğaya saygılı bir kamp için olmazsa olmazdır.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+
+  <div class="container-blog">
+    <h1 class="blog-title">Doğaya Saygılı Kamp ve Yürüyüş Rehberi: Ayak İzinizden Başka Bir Şey Bırakmayın</h1>
+    <p class="date"><i class="ri-calendar-line"></i> 24 Temmuz 2025</p>
+    
+    <img src="resimler/dogayurusu1.png" alt="Doğada kamp yapan insanlar" class="hero-image">
+    
+    <div class="content-section">
+        <p>Doğayla iç içe geçireceğiniz zamanlar, ruhunuzu beslerken aynı zamanda bu güzellikleri koruma sorumluluğunu da beraberinde getirir. "Ayak izinizden başka bir şey bırakmayın" felsefesiyle hazırladığımız bu rehber, doğa sporları tutkunlarının ekosisteme zarar vermeden keyifli vakit geçirebilmeleri için temel prensipleri içeriyor.</p>
+    </div>
+    
+    <div class="highlight-box">
+        <p>Dünya Doğayı Koruma Vakfı (WWF) verilerine göre, doğa turizmi sırasında yapılan bilinçsiz davranışlar, her yıl 1 milyon hektardan fazla doğal alanın bozulmasına neden oluyor.</p>
+    </div>
+    
+    <div class="image-grid">
+        <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Doğada yürüyüş yapan insanlar">
+        <img src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80" alt="Doğada kamp kurma">
+    </div>
+    
+    <div class="content-section">
+        <h2>Doğada Sorumluluk Sahibi Olmanın 7 Altın Kuralı</h2>
+        <p>Doğa sporlarının temel etik kurallarını oluşturan "Leave No Trace" (Hiçbir İz Bırakma) prensipleri:</p>
+    </div>
+    
+    <div class="principles-list">
+        <div class="principle-item">
+            <i class="ri-planet-line principle-icon"></i>
+            <div>
+                <h3>Önceden Planlayın ve Hazırlanın</h3>
+                <p>Hava durumunu, bölgenin özelliklerini ve olası tehlikeleri öğrenin. Böylece gereksiz ekipman taşımaz ve doğaya daha az zarar verirsiniz.</p>
+            </div>
+        </div>
+        <div class="principle-item">
+            <i class="ri-footprint-line principle-icon"></i>
+            <div>
+                <h3>Dayanıklı Yüzeylerde Seyahat Edin ve Kamp Kurun</h3>
+                <p>Var olan patika ve kamp alanlarını kullanın. Çiğnenmemiş alanlara girmek bitki örtüsüne zarar verir.</p>
+            </div>
+        </div>
+        <div class="principle-item">
+            <i class="ri-delete-bin-line principle-icon"></i>
+            <div>
+                <h3>Atıklarınızı Uygun Şekilde Bertaraf Edin</h3>
+                <p>Çöplerinizi toplayıp geri götürün. Organik atıklar bile doğada uzun süre kalabilir ve yaban hayatını etkileyebilir.</p>
+            </div>
+        </div>
+        <div class="principle-item">
+            <i class="ri-leaf-line principle-icon"></i>
+            <div>
+                <h3>Bulduğunuz Gibi Bırakın</h3>
+                <p>Taş, bitki, tarihi eser gibi doğal ve kültürel objeleri olduğu yerde bırakın. Anı olarak sadece fotoğraf çekin.</p>
+            </div>
+        </div>
+        <div class="principle-item">
+            <i class="ri-fire-line principle-icon"></i>
+            <div>
+                <h3>Kamp Ateşinin Etkisini En Aza İndirin</h3>
+                <p>Mümkünse kamp ocağı kullanın. Ateş yakacaksanız var olan ateş çukurlarını kullanın ve tamamen söndürdüğünüzden emin olun.</p>
+            </div>
+        </div>
+        <div class="principle-item">
+            <i class="ri-team-line principle-icon"></i>
+            <div>
+                <h3>Yaban Hayatına Saygı Gösterin</h3>
+                <p>Hayvanları uzaktan izleyin, beslemeyin ve rahatsız etmeyin. Yiyeceklerinizi güvenli şekilde saklayın.</p>
+            </div>
+        </div>
+        <div class="principle-item" style="grid-column: span 2;">
+            <i class="ri-group-line principle-icon"></i>
+            <div>
+                <h3>Diğer Ziyaretçileri Düşünün</h3>
+                <p>Doğada sessizliği koruyun, yüksek sesli müzik çalmayın. Başkalarının doğa deneyimine saygı gösterin.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quote">
+        "Doğa bize miras değil, gelecek nesillerden ödünç aldığımız bir emanettir."
+    </div>
+    
+    <div class="content-section">
+        <h2>Eksiksiz ve Çevre Dostu Kamp Çantası Checklist</h2>
+        <p>Doğaya minimum etki bırakmak için ihtiyacınız olan temel ekipmanlar:</p>
+        
+        <div class="checklist">
+            <div class="checklist-item">
+                <i class="ri-checkbox-circle-line checklist-icon"></i>
+                <div><strong>Yeniden kullanılabilir su matarası ve filtre:</strong> Plastik şişe kullanımını azaltır</div>
+            </div>
+            <div class="checklist-item">
+                <i class="ri-checkbox-circle-line checklist-icon"></i>
+                <div><strong>Biyolojik olarak parçalanabilir sabun ve şampuan:</strong> Doğada kimyasal bırakmaz</div>
+            </div>
+            <div class="checklist-item">
+                <i class="ri-checkbox-circle-line checklist-icon"></i>
+                <div><strong>Katlanır çatal-bıçak seti ve yeniden kullanılabilir kap:</strong> Tek kullanımlık ürünleri ortadan kaldırır</div>
+            </div>
+            <div class="checklist-item">
+                <i class="ri-checkbox-circle-line checklist-icon"></i>
+                <div><strong>Çöp torbaları ve eldiven:</strong> Kendi çöplerinizi ve karşılaştıklarınızı toplamak için</div>
+            </div>
+            <div class="checklist-item">
+                <i class="ri-checkbox-circle-line checklist-icon"></i>
+                <div><strong>Güneş enerjili şarj cihazı veya powerbank:</strong> Elektrik ihtiyacınız için sürdürülebilir çözüm</div>
+            </div>
+            <div class="checklist-item">
+                <i class="ri-checkbox-circle-line checklist-icon"></i>
+                <div><strong>Çok amaçlı bez parçaları:</strong> Kağıt havlu ve peçete kullanımını azaltır</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="image-grid">
+        <img src="https://images.unsplash.com/photo-1534187886935-1e1236e856c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80" alt="Kamp ekipmanları">
+        <img src="resimler/doga2.png" alt="Doğada yemek yapma">
+    </div>
+    
+    <div class="content-section">
+        <h2>Türkiye'nin En Güzel ve Hassas Doğa Alanları</h2>
+        <p>Bu özel bölgeleri ziyaret ederken ekstra özen göstermelisiniz:</p>
+        
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <i class="ri-landscape-line benefit-icon"></i>
+                <div>
+                    <h3>Kaçkar Dağları (Rize)</h3>
+                    <p>Alpin çayırları ve endemik bitkileriyle dünyanın önemli biyolojik çeşitlilik noktalarından. Kamp ateşi kesinlikle yasak.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="ri-landscape-line benefit-icon"></i>
+                <div>
+                    <h3>Göreme Milli Parkı (Nevşehir)</h3>
+                    <p>Peri bacalarının hassas yapısını korumak için belirlenen yollar dışına çıkmayın.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="ri-landscape-line benefit-icon"></i>
+                <div>
+                    <h3>Datça Yarımadası (Muğla)</h3>
+                    <p>Akdeniz foklarının yaşam alanı. Sahil şeridinde kamp yaparken sessiz olun.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="ri-landscape-line benefit-icon"></i>
+                <div>
+                    <h3>Sultan Sazlığı (Kayseri)</h3>
+                    <p>300'den fazla kuş türüne ev sahipliği yapan bu sulak alanda yürüyüş parkurlarını aşmayın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2>Doğa Yürüyüşlerinde Dikkat Edilecekler</h2>
+        <p>Yürüyüş sırasında doğaya minimum etki bırakmak için:</p>
+        <ul>
+            <li>Patikalardan ayrılmayın - bitki örtüsüne zarar vermeyin</li>
+            <li>Tek sıra yürüyün - patikanın genişlemesine neden olmayın</li>
+            <li>Taş ve kütükleri yerinden oynatmayın - mikro habitatları bozmayın</li>
+            <li>Yüksek sesle konuşmayın ve müzik çalmayın - yaban hayatını rahatsız etmeyin</li>
+            <li>Dik yamaçlarda kestirme yollar açmaya çalışmayın - erozyona neden olabilirsiniz</li>
+        </ul>
+    </div>
+    
+    <img src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Doğada yürüyüş yapan grup" class="hero-image">
+    
+    <div class="content-section">
+        <p>Doğayla iç içe geçirdiğimiz her an, aslında onun bir parçası olduğumuzu hatırlatır bize. Bu güzellikleri korumak ve gelecek nesillere aktarmak ise hepimizin ortak sorumluluğu. Unutmayın, doğaya saygılı bir kampçı veya yürüyüşçü olmak, sadece kurallara uymak değil, aynı zamanda bir yaşam felsefesini benimsemektir. Bir sonraki maceranızda bu prensipleri uygulayarak doğanın kalbinde ama onun bir misafiri olarak var olabilirsiniz.</p>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+        <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

@@ -25,7 +25,7 @@
         }
         
         body {
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           
             background-color: #f9f9f9;
             color: var(--text-color);
             line-height: 1.6;
@@ -37,7 +37,7 @@
             padding: 2rem 0;
         }
         
-        .container {
+        .container-bagis {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
@@ -342,28 +342,9 @@
         
         /* Header Styles */
         .header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
-        }
-        
-        .nav__logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
         
         .nav__logo i {
@@ -384,178 +365,216 @@
             display: block;
             animation: fadeIn 0.5s ease;
         }
+
+        /* Anasayfaya Dön Butonu */
+        .home-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .home-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .home-button {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__data">
-                <a href="index.html" class="nav__logo">
-                    <i class="ri-code-s-slash-line"></i> EcoVision
-                </a>
+          <header class="header">
+            <nav class="nav container-bagis">
+                <div class="nav__data">
+                    <a href="index.html" class="nav__logo">
+                        <i class="ri-code-s-slash-line"></i> EcoVision
+                    </a>
     
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-menu-line nav__toggle-menu"></i>
-                    <i class="ri-close-line nav__toggle-close"></i>
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line nav__toggle-menu"></i>
+                        <i class="ri-close-line nav__toggle-close"></i>
+                    </div>
                 </div>
-            </div>
 
-            <!--=============== NAV MENU ===============-->
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li>
-                        <a href="index.html" class="nav__link">Anasayfa</a>
-                    </li>
+                <!--=============== NAV MENU ===============-->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li>
+                            <a href="index.html" class="nav__link">Anasayfa</a>
+                        </li>
 
-                    <!--=============== DROPDOWN 2 ===============-->
-                    <li class="dropdown__item">
-                        <div class="nav__link dropdown__button">
-                            Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
+                       
 
-                        <div class="dropdown__container">
-                            <div class="dropdown__content">
-                                <div class="dropdown__group">
-                                    <div class="dropdown__icon">
-                                        <i class="ri-code-line"></i>
+                        <!--=============== DROPDOWN 2 ===============-->
+                        <li class="dropdown__item">
+                            <div class="nav__link dropdown__button">
+                                Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-code-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                            </li>
+                                            <li>
+                                                <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                            </li>
+                                            <li>
+                                                <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                            </li>
+                                        </ul>
                                     </div>
     
-                                    <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-pen-nib-line"></i>
+                                        </div>
     
-                                    <ul class="dropdown__list">
-                                        <li>
-                                            <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
-                                        </li>
-                                        <li>
-                                            <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
-                                        </li>
-                                        <li>
-                                            <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                        <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
     
-                                <div class="dropdown__group">
-                                    <div class="dropdown__icon">
-                                        <i class="ri-pen-nib-line"></i>
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                            </li>
+                                            <li>
+                                                <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                            </li>
+                                            <li>
+                                                <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                            </li>
+                                        </ul>
                                     </div>
     
-                                    <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-apps-2-line"></i>
+                                        </div>
     
-                                    <ul class="dropdown__list">
-                                        <li>
-                                            <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
-                                        </li>
-                                        <li>
-                                            <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
-                                        </li>
-                                        <li>
-                                            <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                        <span class="dropdown__title">Enerji Tüketimi </span>
     
-                                <div class="dropdown__group">
-                                    <div class="dropdown__icon">
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                            </li>
+                                            <li>
+                                                <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                                            </li>
+                                            <li>
+                                                <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                       <div class="dropdown__group">
+                                        <div class="dropdown__icon">
                                         <i class="ri-apps-2-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                            </li>
+                                            <li>
+                                                <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                            </li>
+                                            <li>
+                                                <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                            </li>
+                                        </ul>
+                                        
                                     </div>
-    
-                                    <span class="dropdown__title">Enerji Tüketimi </span>
-    
-                                    <ul class="dropdown__list">
-                                        <li>
-                                            <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
-                                        </li>
-                                        <li>
-                                            <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
-                                        </li>
-                                        <li>
-                                            <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="dropdown__group">
-                                    <div class="dropdown__icon">
-                                    <i class="ri-apps-2-line"></i>
-                                    </div>
-    
-                                    <span class="dropdown__title">Doğa ve Canlılar</span>
-    
-                                    <ul class="dropdown__list">
-                                        <li>
-                                            <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
-                                        </li>
-                                        <li>
-                                            <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
-                                        </li>
-                                        <li>
-                                            <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <li>
-                        <a href="bloglar.html" class="nav__link">Bloglar</a>
-                    </li>
+                        <li>
+                            <a href="bloglar/bloglar.html" class="nav__link">Bloglar</a>
+                        </li>
 
-                    <!--=============== DROPDOWN 3 ===============-->
-                    <li class="dropdown__item">                        
-                        <div class="nav__link dropdown__button">
-                            Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
+                        <!--=============== DROPDOWN 3 ===============-->
+                        <li class="dropdown__item">                        
+                            <div class="nav__link dropdown__button">
+                                Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
 
-                        <div class="dropdown__container">
-                            <div class="dropdown__content">
-                                <div class="dropdown__group">
-                                    <div class="dropdown__icon">
-                                        <i class="ri-community-line"></i>
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-community-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Hakkımızda</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                            </li>
+                                            <li>
+                                                <a href="sikcasorulansorular.html" class="dropdown__link">Sıkça Sorulan Sorular</a>
+                                            </li>
+                                            <li>
+                                                <a href="editorlerimiz.html" class="dropdown__link">Editörlerimiz</a>
+                                            </li>
+                                        </ul>
                                     </div>
     
-                                    <span class="dropdown__title">Hakkımızda</span>
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-shield-line"></i>
+                                        </div>
     
-                                    <ul class="dropdown__list">
-                                        <li>
-                                            <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
-                                        </li>
-                                        <li>
-                                            <a href="destek.html" class="dropdown__link">Destek</a>
-                                        </li>
-                                        <li>
-                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                        <span class="dropdown__title">Konumumuz</span>
     
-                                <div class="dropdown__group">
-                                    <div class="dropdown__icon">
-                                        <i class="ri-shield-line"></i>
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                            </li>
+                                            <li>
+                                                <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                            </li>
+                                        </ul>
                                     </div>
-    
-                                    <span class="dropdown__title">Konumumuz</span>
-    
-                                    <ul class="dropdown__list">
-                                        <li>
-                                            <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
-                                        </li>
-                                        <li>
-                                            <a href="iletisim.html" class="dropdown__link">İletişim</a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
 
     <section class="donation-page">
-        <div class="container">
+        <div class="container-bagis">
             <div class="donation-container">
                 <!-- Bağış Formu Kartı -->
                 <div class="donation-card">
@@ -609,11 +628,14 @@
                                             <button type="button" class="amount-btn" data-amount="250">250 TL</button>
                                             <button type="button" class="amount-btn" data-amount="500">500 TL</button>
                                             <button type="button" class="amount-btn" data-amount="1000">1000 TL</button>
+                                            <button type="button" class="amount-btn" data-amount="1000">2000 TL</button>
+                                            <button type="button" class="amount-btn" data-amount="1000">10000 TL</button>
+                                            <button type="button" class="amount-btn" data-amount="1000">100000 TL</button>
                                         </div>
                                         
                                         <div class="custom-amount">
                                             <span>Veya:</span>
-                                            <input type="number" id="customAmount" class="form-control" placeholder="Özel miktar girin" min="1">
+                                            <input type="number" id="customAmount" class="form-control" placeholder="Özel miktar girin" min="20">
                                         </div>
                                     </div>
                                     
@@ -665,7 +687,7 @@
                     </div>
                     
                     <div style="margin-top: 1.5rem; text-align: left; width: 100%;">
-                        <div style="background: rgba(39, 174, 96, 0.1); padding: 1rem; border-radius: 8px;">
+                        <div style="background:var(--primary-color); color: white; padding: 1rem; border-radius: 8px;">
                             <p style="font-weight: 600; margin-bottom: 0.5rem;">Banka Bilgileri:</p>
                             <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>Banka Adı:</strong> EcoVision Bank</p>
                             <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>Hesap Adı:</strong> EcoVision Derneği</p>
@@ -685,6 +707,11 @@
             </div>
         </div>
     </section>
+
+    <!-- Anasayfaya Dön Butonu -->
+    <a href="index.html" class="home-button">
+        <i class="ri-home-2-fill"></i>
+    </a>
 
     <script>
         // Tab geçişleri
@@ -761,7 +788,43 @@
             const cleaned = iban.replace(/\s+/g, '').toUpperCase();
             return /^TR[0-9]{24}$/.test(cleaned);
         }
+
+document.getElementById('expiryDate').addEventListener('input', function(e) {
+    // Sadece sayıları kabul et
+    let value = e.target.value.replace(/\D/g, '');
+    
+    // İlk 2 haneden sonra / ekle
+    if (value.length > 2) {
+      value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    }
+    
+    // Maksimum 5 karakter (MM/YY)
+    if (value.length > 5) {
+      value = value.substring(0, 5);
+    }
+    
+    e.target.value = value;
+  });
+
+// Klavye kontrolü eklemek isterseniz
+document.getElementById('expiryDate').addEventListener('keydown', function(e) {
+  // Geri tuşuna basıldığında / silmeyi engelle
+  if (e.key === 'Backspace' && this.value.length === 3) {
+    e.preventDefault();
+    this.value = this.value.substring(0, 2);
+  }
+});
+
+// Odak kaybedince format kontrolü
+document.getElementById('expiryDate').addEventListener('blur', function() {
+  if (this.value.length === 2 && this.value !== '') {
+    this.value = this.value + '/';
+  }
+});
+
     </script>
+
+    
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>

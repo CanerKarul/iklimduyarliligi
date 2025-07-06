@@ -1,19 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-   
-  </head>
-  <body>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İklim Değişikliğinin Cinsiyete Bağlı Etkileri | EcoVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        body {
+            padding-top: 80px;
+            background-color: #f9f9f7;
+            color: #333;
+            line-height: 1.7;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 30px;
+            color: white;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            margin: 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #eee;
+            margin-top: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #e91e63;
+        }
+        
+        .impact-section {
+            background-color: #f8f0f5;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .impact-title {
+            font-size: 1.8rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .impact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-icon {
+            font-size: 2rem;
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+        
+        .impact-card h3 {
+            color: #e91e63;
+            margin-top: 0;
+        }
+        
+        .statistics-section {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .statistics-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #e91e63;
+            margin: 10px 0;
+        }
+        
+        .solution-section {
+            margin: 40px 0;
+        }
+        
+        .solution-card {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .solution-image {
+            width: 40%;
+            object-fit: cover;
+        }
+        
+        .solution-content {
+            padding: 30px;
+            width: 60%;
+        }
+        
+        .solution-title {
+            color: #e91e63;
+            margin-top: 0;
+        }
+        
+        .quote-section {
+            background-color: #f8f0f5;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .quote-section::before {
+            content: '"';
+            font-size: 4rem;
+            color: #e91e63;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background-color: #e91e63;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .back-link:hover {
+            background-color: #c2185b;
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .impact-grid, .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-card {
+                flex-direction: column;
+            }
+            
+            .solution-image, .solution-content {
+                width: 100%;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
   <header class="header">
     <nav class="nav container">
       <div class="nav__data">
@@ -181,28 +414,147 @@
     </nav>
   </header>
 
-    <div class="container-blog">
-      <h1>Şehirlerde Yeşil Alanların Önemi</h1>
-      <p class="date">📅 03 Temmuz 2025</p>
-      <img src="resimler/resim1.jpg" alt="Şehirde yeşil alan" />
-      <p>
-        Betonlaşan kentlerde yeşil alanların azalması, iklim dengesi ve insan
-        sağlığı üzerinde olumsuz etkiler yaratıyor. Parklar, bahçeler ve
-        ormanlık alanlar şehirlerdeki yaşam kalitesini artırır.
-      </p>
-      <p>
-        Yeşil alanlar hava kalitesini iyileştirir, sıcaklıkları dengeler ve
-        biyoçeşitliliği destekler. Ayrıca insanların stresini azaltır ve sosyal
-        etkileşimi artırır.
-      </p>
-      <p>
-        Şehir planlamalarında yeşil alanların korunması ve artırılması,
-        sürdürülebilir ve sağlıklı kent yaşamı için kritik öneme sahiptir.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <div class="container-blog">
+    <div class="hero-section">
+      <img src="resimler/kadınlar.png" alt="Kadınlar ve iklim değişikliği" class="hero-image">
+      <div class="hero-content">
+        <h1 class="blog-title">İklim Değişikliğinin Cinsiyete Bağlı Etkileri: Kadınlar Neden Daha Fazla Etkileniyor?</h1>
+        <p class="date"><i class="ri-calendar-line"></i> 20 Temmuz 2025 | <i class="ri-time-line"></i> 7 dakika okuma</p>
+      </div>
+    </div>
+    
+    <div class="intro-text">
+      <p>İklim değişikliği herkesi etkilese de, bu etkiler toplumun tüm kesimlerine eşit dağılmıyor. Özellikle kadınlar, iklim değişikliğinin olumsuz sonuçlarından erkeklere göre orantısız bir şekilde daha fazla etkileniyor. Bu makalede, iklim değişikliğinin cinsiyete bağlı etkilerini, kadınların neden daha savunmasız olduğunu ve bu adaletsizliği gidermek için neler yapabileceğimizi ele alacağız.</p>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">İklim Değişikliği Kadınları Nasıl Daha Fazla Etkiliyor?</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-water-flash-line impact-icon"></i>
+          <h3>Yoksulluk ve Kaynaklara Erişim</h3>
+          <p>Dünya genelinde kadınların yoksulluk oranı daha yüksektir ve bu durum iklim felaketleri karşısında daha savunmasız olmalarına neden olur. Temiz su ve gıdaya erişimde yaşanan sorunlar kadınları daha fazla etkiler.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-heart-pulse-line impact-icon"></i>
+          <h3>Sağlık Riskleri</h3>
+          <p>İklim değişikliğine bağlı hastalıklar, hamile kadınlar ve çocuklar için daha büyük risk oluşturur. Hava kirliliği, sıcak dalgaları ve bulaşıcı hastalıkların artışı kadın sağlığını olumsuz etkiler.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-home-4-line impact-icon"></i>
+          <h3>Ev İçi Sorumluluklar</h3>
+          <p>Su ve yakıt toplama gibi geleneksel olarak kadınlara yüklenen görevler, iklim değişikliğiyle birlikte daha zor ve zaman alıcı hale gelir. Kuraklık durumunda kadınlar su bulmak için daha uzun mesafeler katetmek zorunda kalır.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-team-line impact-icon"></i>
+          <h3>Eğitim Eşitsizliği</h3>
+          <p>İklim felaketleri sonrası aileler, kız çocuklarının eğitimini erkek çocuklarına göre daha erken kesme eğilimindedir. Bu da kadınların iklim değişikliğine uyum sağlama kapasitelerini azaltır.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="statistics-section">
+      <h2 class="statistics-title">Çarpıcı İstatistikler</h2>
+      
+      <div class="statistics-grid">
+        <div class="stat-item">
+          <div class="stat-value">%80</div>
+          <p>İklim değişikliğinden yerinden edilenlerin tahmini kadın oranı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">14x</div>
+          <p>Doğal afetlerde kadınların ölme olasılığının erkeklere göre artışı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">%60</div>
+          <p>Küresel gıda üretiminde kadınların payı (ancak toprak sahipliği %20'den az)</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="solution-section">
+      <h2 class="impact-title">Ne Yapabiliriz? Çözüm Önerileri</h2>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Kadın liderler" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Kadın Liderliğini Desteklemek</h3>
+          <p>İklim politikalarında ve karar alma mekanizmalarında kadın temsilini artırmak. Araştırmalar, kadın liderlerin çevre politikalarına daha fazla öncelik verdiğini gösteriyor.</p>
+          <ul>
+            <li>Yerel ve ulusal düzeyde kadın temsilini artırmak</li>
+            <li>Kadın kooperatiflerini desteklemek</li>
+            <li>İklim müzakerelerinde cinsiyet eşitliğini sağlamak</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Kadın eğitimi" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Eğitim ve Farkındalık</h3>
+          <p>Kadınların iklim değişikliğine uyum sağlama kapasitelerini artırmak için eğitim programları geliştirmek.</p>
+          <ul>
+            <li>İklim okuryazarlığı programları</li>
+            <li>Sürdürülebilir tarım teknikleri eğitimleri</li>
+            <li>Afet risk yönetimi eğitimleri</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ekonomik güçlendirme" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Ekonomik Güçlendirme</h3>
+          <p>Kadınların ekonomik bağımsızlığını artırarak iklim değişikliğinin etkilerine karşı direncini yükseltmek.</p>
+          <ul>
+            <li>Mikro kredi programları</li>
+            <li>Yeşil iş fırsatları yaratmak</li>
+            <li>Toprak ve mülkiyet haklarında eşitlik</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quote-section">
+      <p>"Kadınlar iklim değişikliğinin en savunmasız kurbanları arasında, ancak aynı zamanda en güçlü çözüm sağlayıcılarından biri. Onları güçlendirmek, gezegenimizi korumanın en etkili yollarından biridir."</p>
+      <p>- Mary Robinson, Eski İrlanda Cumhurbaşkanı ve İklim Aktivisti</p>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Başarı Hikayeleri</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-leaf-line impact-icon"></i>
+          <h3>Wangari Maathai ve Yeşil Kuşak Hareketi</h3>
+          <p>Kenyalı aktivist Wangari Maathai'nin kurduğu hareket, Afrika'da kadınlar liderliğinde 51 milyondan fazla ağaç dikerek hem iklim değişikliğiyle mücadele etti hem de binlerce kadını güçlendirdi.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-sun-line impact-icon"></i>
+          <h3>Hindistan'da Güneş Enerjisi Mühendisleri</h3>
+          <p>Hindistan'ın kırsal bölgelerinde eğitilen "güneş anneleri", köylerine temiz enerji getirerek hem karbon emisyonlarını azaltıyor hem de toplumdaki rollerini güçlendiriyor.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="intro-text">
+      <h3>Sonuç</h3>
+      <p>İklim değişikliği bir adalet meselesidir ve bu adaletsizlik en çok kadınları etkilemektedir. Ancak kadınlar aynı zamanda iklim krizinin çözümünde de kilit aktörlerdir. Kadınları güçlendiren politikalar ve programlar, iklim değişikliğiyle mücadelede daha etkili ve sürdürülebilir sonuçlar verecektir. Hepimizin bu konuda yapabileceği bir şeyler var - kadın liderleri desteklemekten, cinsiyet eşitliğini savunan organizasyonlara katkıda bulunmaya kadar. Unutmayın, iklim adaleti ancak cinsiyet adaletiyle mümkündür.</p>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+      <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

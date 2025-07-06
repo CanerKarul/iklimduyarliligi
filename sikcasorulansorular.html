@@ -3,72 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Destek ve Sıkça Sorulan Sorular</title>
-  <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    
+  <title>Destek ve Sıkça Sorulan Sorular | EcoVision</title>
+  <!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  
   <style>
-    body {
-      font-family:Arial, Helvetica, sans-serif;
-      background-color: #f0f9f7;
-      color: #333;
-      margin: 0;
-      padding: 20px;
+    :root {
+      --primary-color: #2e8b57;
+      --primary-light: #e8f5e9;
+      --dark-color: #263238;
+      --light-color: #f5f5f5;
+      --gray-color: #757575;
+      --white-color: #ffffff;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
     }
-    .faq-container {
-      max-width: 900px;
+    
+    body {
+
+      background-color: #f9f9f9;
+      color: var(--dark-color);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    .container-sorular {
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-top: 100px;
+      padding-top: 20px;
     }
-    .faq-container h1 {
+    
+    .faq-hero {
+      background: linear-gradient(135deg, var(--primary-color), #3bb78f);
+      color: white;
+      padding: 60px 20px;
       text-align: center;
-      margin-bottom: 20px;
-      color: #227c64;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+      margin-top: 80px;
     }
+    
+    .faq-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .faq-hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .faq-container {
+      background-color: var(--white-color);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+    
     .faq-item {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #e0e0e0;
+      transition: var(--transition);
     }
+    
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    
     .faq-question {
-      background-color: #ffffff;
-      color: #227c64;
+      background-color: var(--white-color);
+      color: var(--dark-color);
       cursor: pointer;
-      padding: 15px;
+      padding: 20px;
       width: 100%;
       text-align: left;
       border: none;
       outline: none;
-      font-size: 16px;
-      transition: background-color 0.3s;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
     }
+    
     .faq-question:hover {
-      background-color: #e0f2f1;
+      background-color: var(--primary-light);
     }
+    
     .faq-question.active {
-      font-weight: bold;
-      background-color: #d0efec;
+      background-color: var(--primary-light);
+      color: var(--primary-color);
     }
+    
+    .faq-question i {
+      transition: var(--transition);
+    }
+    
+    .faq-question.active i {
+      transform: rotate(180deg);
+    }
+    
     .faq-answer {
-      background-color: #f9f9f9;
+      background-color: var(--white-color);
       overflow: hidden;
       max-height: 0;
       transition: max-height 0.4s ease;
-      padding: 0 15px;
-      font-size: 15px;
-      color: #555;
+      padding: 0 20px;
+      font-size: 1rem;
+      color: var(--gray-color);
     }
+    
     .faq-answer.open {
-      padding: 15px;
+      padding: 0 20px 20px;
+      max-height: 500px;
+    }
+    
+    .faq-answer p {
+      margin-top: 0;
+    }
+    
+    .search-container {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .search-container input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 50px;
+      font-size: 1rem;
+      box-shadow: var(--shadow);
+      padding-left: 50px;
+    }
+    
+    .search-container i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-color);
+    }
+    
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary-color), #3bb78f);
+      color: white;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    
+    .contact-box h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    
+    .contact-box p {
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+    
+    .contact-btn {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary-color);
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .faq-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .faq-question {
+        padding: 15px;
+        font-size: 1rem;
+      }
+      
+      .faq-answer.open {
+        padding: 0 15px 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-    <header class="header">
+          <header class="header">
             <nav class="nav container">
                 <div class="nav__data">
                     <a href="index.html" class="nav__logo">
@@ -184,7 +321,7 @@
                         </li>
 
                         <li>
-                            <a href="bloglar.html" class="nav__link">Bloglar</a>
+                            <a href="bloglar/bloglar.html" class="nav__link">Bloglar</a>
                         </li>
 
                         <!--=============== DROPDOWN 3 ===============-->
@@ -207,10 +344,10 @@
                                                 <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
                                             </li>
                                             <li>
-                                                <a href="destek.html" class="dropdown__link">Destek</a>
+                                                <a href="sikcasorulansorular.html" class="dropdown__link">Sıkça Sorulan Sorular</a>
                                             </li>
                                             <li>
-                                                <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                                <a href="editorlerimiz.html" class="dropdown__link">Editörlerimiz</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -239,70 +376,167 @@
             </nav>
         </header>
 
-<div class="faq-container">
-  <h1>Destek ve Sıkça Sorulan Sorular</h1>
+  <div class="faq-hero">
+    <h1>Yardıma mı İhtiyacınız Var?</h1>
+    <p>EcoVision hakkında merak ettiğiniz tüm soruların cevaplarını burada bulabilirsiniz. Bulamadığınız bir şey olursa bizimle iletişime geçmekten çekinmeyin.</p>
+  </div>
 
-  <!-- Accordion Soruları -->
-  <div class="faq-item"><button class="faq-question">1. Derneğinizin amacı nedir?</button><div class="faq-answer">İklim bilincini artırmak ve sürdürülebilir yaşam için farkındalık yaratmak.</div></div>
-  <div class="faq-item"><button class="faq-question">2. Derneğiniz hangi alanlarda faaliyet gösteriyor?</button><div class="faq-answer">Çevre koruma, eğitim, geri dönüşüm, enerji tasarrufu ve iklim politikaları alanında çalışıyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">3. İklim duyarlılığı nedir ve neden önemlidir?</button><div class="faq-answer">İklim duyarlılığı, çevresel sorunlara karşı bilinçli olmayı ve sürdürülebilir davranışları benimsemeyi ifade eder.</div></div>
-  <div class="faq-item"><button class="faq-question">4. Derneğinize nasıl üye olabilirim?</button><div class="faq-answer">Üyelik formunu doldurarak ya da etkinliklerimize katılarak üye olabilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">5. Derneğinizi kimler kurdu ve yönetiyor?</button><div class="faq-answer">Çevre bilinci yüksek gönüllüler ve uzman akademisyenler tarafından yönetilmektedir.</div></div>
-  <div class="faq-item"><button class="faq-question">6. Derneğinize nasıl bağış yapabilirim?</button><div class="faq-answer">Web sitemizden kredi kartı ya da havale yoluyla bağış yapabilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">7. Bağışlarım nerelerde kullanılıyor?</button><div class="faq-answer">Bağışlar eğitim projeleri, ağaçlandırma çalışmaları ve bilinçlendirme kampanyalarında kullanılmaktadır.</div></div>
-  <div class="faq-item"><button class="faq-question">8. Online gönüllü olabilir miyim?</button><div class="faq-answer">Evet, içerik üretimi ve sosyal medya desteği gibi uzaktan gönüllülük seçeneklerimiz var.</div></div>
-  <div class="faq-item"><button class="faq-question">9. Etkinliklerinize nasıl katılabilirim?</button><div class="faq-answer">Etkinlik takvimimizi takip ederek katılım sağlayabilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">10. İklim duyarlılığı ile ilgili eğitimler veriyor musunuz?</button><div class="faq-answer">Evet, okullarda ve kurumlarda eğitim seminerleri düzenliyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">11. Okullarda eğitim semineri düzenliyor musunuz?</button><div class="faq-answer">Evet, ilkokuldan üniversiteye kadar çeşitli kademelerde eğitim veriyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">12. Kurumlara çevre bilinci eğitimi veriyor musunuz?</button><div class="faq-answer">Evet, şirketlere özel eğitim programları düzenliyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">13. Çocuklar için iklim bilinci çalışmaları yapıyor musunuz?</button><div class="faq-answer">Çocuklara özel atölyeler ve etkinlikler düzenliyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">14. Bilgilendirici kaynaklara nasıl ulaşabilirim?</button><div class="faq-answer">Web sitemizdeki kaynaklar bölümünden ulaşabilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">15. Şu anda yürüttüğünüz projeler nelerdir?</button><div class="faq-answer">Su tasarrufu kampanyası, geri dönüşüm projesi ve ağaçlandırma hareketi gibi projeler yürütüyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">16. Geçmişte hangi etkinlikleri düzenlediniz?</button><div class="faq-answer">Plaj temizliği, çevre yürüyüşleri ve atık toplama etkinlikleri düzenledik.</div></div>
-  <div class="faq-item"><button class="faq-question">17. Yerel yönetimlerle iş birliği yapıyor musunuz?</button><div class="faq-answer">Evet, belediyelerle ve sivil toplum kuruluşlarıyla ortak projeler yürütüyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">18. Projelerinize nasıl katılabilirim?</button><div class="faq-answer">Proje başvuru formunu doldurarak ya da bizimle iletişime geçerek katılabilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">19. Sürdürülebilirlik projelerine destek veriyor musunuz?</button><div class="faq-answer">Evet, sürdürülebilir yaşam projelerini destekliyoruz.</div></div>
-  <div class="faq-item"><button class="faq-question">20. Etkinliklerinize katılmak ücretli mi?</button><div class="faq-answer">Hayır, etkinliklerimizin çoğu ücretsizdir.</div></div>
-  <div class="faq-item"><button class="faq-question">21. Dernek faaliyetlerini nasıl takip edebilirim?</button><div class="faq-answer">Sosyal medya hesaplarımızdan ve e-posta bültenlerimizden takip edebilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">22. Sosyal medyada sizi nereden takip edebilirim?</button><div class="faq-answer">Instagram, Twitter ve LinkedIn hesaplarımızdan takip edebilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">23. Size nasıl ulaşabilirim?</button><div class="faq-answer">İletişim sayfamızdaki formu doldurarak ya da e-posta yoluyla bize ulaşabilirsiniz.</div></div>
-  <div class="faq-item"><button class="faq-question">24. Dernek ofisiniz nerede?</button><div class="faq-answer">İstanbul merkezli olup etkinliklerimizi farklı şehirlerde de yürütüyoruz.</div></div>
+  <div class="container-sorular">
+    <div class="search-container">
+      <i class="ri-search-line"></i>
+      <input type="text" placeholder="Sorularınızı burada arayın...">
+    </div>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question active">EcoVision nedir ve ne yapar?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer open">
+          <p>EcoVision, iklim değişikliği ve çevre sorunlarına karşı farkındalık yaratmayı ve sürdürülebilir çözümler üretmeyi amaçlayan bir sivil toplum kuruluşudur. Çevre koruma, eğitim, geri dönüşüm, enerji tasarrufu ve iklim politikaları alanlarında çalışmalar yürütüyoruz. Amacımız, bireylerin ve kurumların çevre dostu uygulamalar benimsemesine yardımcı olmak ve daha yeşil bir gelecek için çalışmaktır.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">EcoVision'a nasıl üye olabilirim?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Web sitemizdeki üyelik formunu doldurarak ya da etkinliklerimize katılarak EcoVision'a üye olabilirsiniz. Üyelik tamamen ücretsizdir ve size özel içerikler, etkinlik davetleri ve güncel duyurulara erişim sağlar. Ayrıca gönüllü olarak projelerimize destek verebilir veya bağış yaparak kuruluşumuza katkıda bulunabilirsiniz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Gönüllü olarak nasıl katkı sağlayabilirim?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>EcoVision'da birçok gönüllülük fırsatı bulunmaktadır. Yerel etkinliklerde görev alabilir, sosyal medya içerikleri oluşturabilir, çeviri yapabilir veya teknik becerilerinizi projelerimiz için kullanabilirsiniz. Online gönüllülük seçeneklerimiz de mevcuttur. Gönüllü olmak için web sitemizdeki formu doldurabilir veya bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Bağışlarınız nerelerde kullanılıyor?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Yaptığınız bağışlar, ağaçlandırma projeleri, çevre eğitim programları, bilinçlendirme kampanyaları ve sürdürülebilirlik araştırmaları gibi çalışmalarımızda kullanılmaktadır. Tüm harcamalarımız şeffaf bir şekilde raporlanmakta ve web sitemizde yayınlanmaktadır. Küçük bağışlar bile büyük değişimler yaratabilir!</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Etkinliklerinize nasıl katılabilirim?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Etkinlik takvimimizi web sitemizden veya sosyal medya hesaplarımızdan takip edebilirsiniz. Katılmak istediğiniz etkinlik için kayıt formunu doldurmanız yeterli. Çoğu etkinliğimiz ücretsizdir. Özel etkinlikler için bazen küçük bir katılım ücreti talep edebiliriz ki bu da doğrudan projelerimize aktarılır.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Okulum/kurumum için eğitim talep edebilir miyim?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Evet! Okullara, üniversitelere ve şirketlere özel çevre eğitimleri ve atölye çalışmaları düzenliyoruz. İlkokuldan yetişkin eğitimine kadar her seviyeye uygun içeriklerimiz mevcut. Eğitim talepleriniz için iletişim sayfamızdaki formu doldurabilir veya e-posta yoluyla bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Şu anda yürüttüğünüz projeler neler?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Şu anda "Şehirlerde Biyoçeşitlilik", "Sıfır Atık Okullar" ve "Yenilenebilir Enerji Kooperatifleri" gibi birçok proje yürütüyoruz. Projelerimizin detaylarını web sitemizin "Projeler" bölümünden inceleyebilirsiniz. Ayrıca sosyal medya hesaplarımızdan güncel gelişmeleri takip edebilirsiniz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Kurumsal iş birlikleri yapıyor musunuz?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Evet, sürdürülebilirlik odaklı şirketlerle iş birlikleri yapıyoruz. Kurumsal sosyal sorumluluk projeleri geliştiriyor, çevre dostu uygulamaların yaygınlaştırılması için çalışıyoruz. Kurumsal iş birliği teklifleriniz için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Yerel yönetimlerle çalışıyor musunuz?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Belediyeler ve diğer kamu kuruluşlarıyla ortak projeler yürütüyor, çevre politikalarının geliştirilmesine katkı sağlıyoruz. Yerel yönetimler için sürdürülebilirlik eğitimleri, atık yönetimi danışmanlığı ve iklim eylem planları hazırlıyoruz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Sizi nasıl takip edebilirim?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Bizi Instagram, Twitter, LinkedIn ve Facebook'ta @EcoVisionSTK kullanıcı adıyla takip edebilirsiniz. Ayrıca aylık bültenimize abone olarak etkinliklerimiz ve projelerimiz hakkında güncel bilgiler alabilirsiniz. Web sitemizi ziyaret ederek tüm içeriklerimize ulaşabilirsiniz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Ofisinizi ziyaret edebilir miyim?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Tabii ki! Ofisimiz İstanbul'da bulunuyor ve randevu alarak ziyaret edebilirsiniz. Ayrıca belirli günlerde halka açık etkinlikler düzenliyoruz. Ziyaret saatleri ve etkinlik takvimi için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">Çocuklar için etkinlikleriniz var mı?<i class="ri-arrow-down-s-line"></i></button>
+        <div class="faq-answer">
+          <p>Evet, çocuklara yönelik birçok etkinliğimiz var! Doğa atölyeleri, geri dönüşüm oyunları, çevre temalı sanat çalışmaları gibi birçok etkinlik düzenliyoruz. Ayrıca okullara özel programlarımız da mevcut. Çocuk etkinliklerimizi sosyal medya hesaplarımızdan takip edebilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="contact-box">
+      <h2>Cevabını bulamadın mı?</h2>
+      <p>Bizimle iletişime geçmekten çekinme! Ekibimiz sorularını cevaplamak için her zaman hazır.</p>
+      <a href="iletisim.html" class="contact-btn">İletişime Geç</a>
+    </div>
+  </div>
 
-</div>
-
-
-
-<script>
-  const questions = document.querySelectorAll('.faq-question');
-  questions.forEach(question => {
-    question.addEventListener('click', () => {
-      const activeQuestion = document.querySelector('.faq-question.active');
-      const activeAnswer = document.querySelector('.faq-answer.open');
-
-      if (activeQuestion && activeQuestion !== question) {
-        activeQuestion.classList.remove('active');
-      }
-      if (activeAnswer && activeAnswer !== question.nextElementSibling) {
-        activeAnswer.style.maxHeight = null;
-        activeAnswer.classList.remove('open');
-      }
-
-      question.classList.toggle('active');
-      const answer = question.nextElementSibling;
-
-      if (answer.classList.contains('open')) {
-        answer.style.maxHeight = null;
-        answer.classList.remove('open');
-      } else {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-        answer.classList.add('open');
-      }
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const questions = document.querySelectorAll('.faq-question');
+      
+      // İlk soruyu açık bırak
+      const firstQuestion = document.querySelector('.faq-question');
+      const firstAnswer = document.querySelector('.faq-answer');
+      
+      questions.forEach(question => {
+        question.addEventListener('click', () => {
+          // Tıklanan soru zaten aktifse, sadece kapat
+          if (question.classList.contains('active')) {
+            question.classList.remove('active');
+            const answer = question.nextElementSibling;
+            answer.classList.remove('open');
+            answer.style.maxHeight = null;
+            return;
+          }
+          
+          // Önce tüm soruları kapat
+          questions.forEach(q => {
+            q.classList.remove('active');
+            const a = q.nextElementSibling;
+            a.classList.remove('open');
+            a.style.maxHeight = null;
+          });
+          
+          // Sonra tıklanan soruyu aç
+          question.classList.add('active');
+          const answer = question.nextElementSibling;
+          answer.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        });
+      });
+      
+      // Arama fonksiyonelliği
+      const searchInput = document.querySelector('.search-container input');
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question').textContent.toLowerCase();
+          const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+          
+          if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
     });
-  });
-</script>
+  </script>
 
+  <!--=============== MAIN JS ===============-->
+  <script src="assets/js/main.js"></script>
 
-<!--=============== MAIN JS bunu al her sayfada en alta body üstüne yapıştır ===============-->
-<script src="assets/js/main.js"></script>
 </body>
 </html>

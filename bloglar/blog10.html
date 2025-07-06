@@ -1,20 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-    
-  </head>
-  <body>
-   <header class="header">
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karbon Ayak İzinizi Azaltmanın Yolları: Ulaşım ve Seyahat Önerileri | EcoVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        body {
+            padding-top: 80px;
+            background-color: #f9f9f7;
+            color: #333;
+            line-height: 1.7;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 30px;
+            color: white;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            margin: 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #eee;
+            margin-top: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .impact-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .impact-title {
+            font-size: 1.8rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .impact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-icon {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .impact-card h3 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        
+        .statistics-section {
+            background-color: #3a506b;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .statistics-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #4CAF50;
+            margin: 10px 0;
+        }
+        
+        .solution-section {
+            margin: 40px 0;
+        }
+        
+        .solution-card {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .solution-image {
+            width: 40%;
+            object-fit: cover;
+        }
+        
+        .solution-content {
+            padding: 30px;
+            width: 60%;
+        }
+        
+        .solution-title {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        
+        .comparison-section {
+            display: flex;
+            margin: 40px 0;
+            gap: 30px;
+        }
+        
+        .comparison-card {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .comparison-content {
+            padding: 20px;
+        }
+        
+        .comparison-title {
+            color: #4CAF50;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .quote-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .quote-section::before {
+            content: '"';
+            font-size: 4rem;
+            color: #4CAF50;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .back-link:hover {
+            background-color: #3e8e41;
+            transform: translateX(-5px);
+        }
+        
+        .tip-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-title {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .impact-grid, .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-card, .comparison-section {
+                flex-direction: column;
+            }
+            
+            .solution-image, .solution-content, .comparison-card {
+                width: 100%;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header class="header">
     <nav class="nav container">
       <div class="nav__data">
         <a href="/index.html" class="nav__logo">
@@ -181,27 +457,212 @@
     </nav>
   </header>
 
-    <div class="container-blog">
-      <h1>Doğal Yaşam Alanlarının Korunması Neden Önemli?</h1>
-      <p class="date">📅 20 Haziran 2025</p>
-      <img src="resimler/resim4.jpg" alt="Doğal yaşam" />
-      <p>
-        Ormanlar, sulak alanlar ve meralar gibi doğal yaşam alanları,
-        biyoçeşitliliğin korunması ve iklim dengesinin sağlanması için hayati
-        öneme sahiptir.
-      </p>
-      <p>
-        Bu alanların tahrip edilmesi ekosistemin bozulmasına ve iklim
-        değişikliğinin hızlanmasına neden olur.
-      </p>
-      <p>
-        Doğal yaşam alanlarının korunması, sürdürülebilir çevre ve yaşam
-        kalitesi için gereklidir.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <div class="container-blog">
+    <div class="hero-section">
+      <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sürdürülebilir ulaşım yöntemleri" class="hero-image">
+      <div class="hero-content">
+        <h1 class="blog-title">Karbon Ayak İzinizi Azaltmanın Yolları: Ulaşım ve Seyahat Önerileri</h1>
+        <p class="date"><i class="ri-calendar-line"></i> 30 Temmuz 2025 | <i class="ri-time-line"></i> 7 dakika okuma</p>
+      </div>
+    </div>
+    
+    <div class="intro-text">
+      <p>Günlük ulaşım alışkanlıklarımız ve seyahat tercihlerimiz, karbon ayak izimizin önemli bir bölümünü oluşturuyor. Araba kullanımından uçak yolculuklarına kadar pek çok ulaşım yöntemi, iklim değişikliğine katkıda bulunuyor. Ancak doğru tercihlerle bu etkiyi önemli ölçüde azaltmak mümkün. Bu rehberde, günlük yaşamınızda ve seyahatlerinizde karbon ayak izinizi nasıl azaltabileceğinizi keşfedeceğiz.</p>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Ulaşımın İklim Üzerindeki Etkisi</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-car-line impact-icon"></i>
+          <h3>Karayolu Ulaşımı</h3>
+          <p>Dünyadaki karbon emisyonlarının %17'si karayolu taşımacılığından kaynaklanıyor. Tek bir araba yılda ortalama 4.6 ton CO2 üretiyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-plane-line impact-icon"></i>
+          <h3>Havayolu Ulaşımı</h3>
+          <p>Uçaklar, kilometre başına en çok karbon salan ulaşım aracı. Tek bir transatlantik uçuş, kişi başına 1.6 ton CO2 emisyonuna neden oluyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-ship-line impact-icon"></i>
+          <h3>Deniz Ulaşımı</h3>
+          <p>Küresel ticaretin %90'ı deniz yoluyla yapılıyor. Gemiler, düşük kaliteli yakıt kullanımı nedeniyle önemli hava kirliliği kaynakları.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-roadster-line impact-icon"></i>
+          <h3>Kentsel Trafik</h3>
+          <p>Şehirlerdeki trafik sıkışıklığı, yakıt tüketimini %40 artırıyor. Toplu taşıma kullanımı bu etkiyi büyük ölçüde azaltabilir.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="statistics-section">
+      <h2 class="statistics-title">Çarpıcı Ulaşım İstatistikleri</h2>
+      
+      <div class="statistics-grid">
+        <div class="stat-item">
+          <div class="stat-value">25%</div>
+          <p>Küresel enerji kaynaklı CO2 emisyonlarının ulaşımdan kaynaklanan oranı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">50x</div>
+          <p>Bir uçağın bir trene göre yolcu başına 50 kat daha fazla CO2 üretmesi</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">75%</div>
+          <p>Elektrikli araç kullanımının karbon ayak izini azaltma potansiyeli</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="solution-section">
+      <h2 class="impact-title">Günlük Yaşamda Sürdürülebilir Ulaşım Çözümleri</h2>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toplu taşıma" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Toplu Taşıma Kullanımı</h3>
+          <p>Toplu taşıma araçları, bireysel araç kullanımına göre çok daha az karbon emisyonu üretir.</p>
+          <ul>
+            <li>Otobüs kullanmak, özel araba kullanmaya göre %50 daha az CO2 emisyonu demek</li>
+            <li>Metro ve tramvay sistemleri elektrikle çalıştığı için daha temiz alternatifler</li>
+            <li>Toplu taşıma araçları trafik yoğunluğunu azaltarak genel emisyonları düşürür</li>
+            <li>Birçok şehirde toplu taşıma kartları ekonomik ve pratik çözümler sunuyor</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Uygulama Önerisi</h4>
+            <p>Şehrinizdeki toplu taşıma rotalarını öğrenmek için mobil uygulamalar kullanın. Haftada en az 2 gün araba kullanmak yerine toplu taşımayı tercih edin.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1635&q=80" alt="Bisiklet ve yürüyüş" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Bisiklet ve Yürüyüş</h3>
+          <p>Kısa mesafelerde bisiklet kullanmak veya yürümek hem sağlıklı hem de sıfır emisyonlu bir seçenek.</p>
+          <ul>
+            <li>5 km'den kısa mesafeler için bisiklet ideal bir ulaşım aracı</li>
+            <li>Yürüyüş yapmak karbon ayak izinizi sıfırlar ve sağlığınızı iyileştirir</li>
+            <li>Bisiklet paylaşım sistemleri birçok şehirde mevcut</li>
+            <li>Elektrikli bisikletler daha uzun mesafeler için pratik çözümler sunar</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Uygulama Önerisi</h4>
+            <p>İşe giderken arabanızı evinizden 1-2 km uzağa park edip geri kalan mesafeyi yürüyün. Haftada bir gün tamamen bisikletle ulaşım sağlamayı deneyin.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1593941707882-a5bba53b0998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Elektrikli araçlar" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Elektrikli Araçlar</h3>
+          <p>Elektrikli araçlar, fosil yakıtlı araçlara göre çok daha düşük karbon ayak izine sahip.</p>
+          <ul>
+            <li>Tam elektrikli araçlar sıfır egzoz emisyonu üretir</li>
+            <li>Şarj maliyetleri benzin/dizel maliyetlerinden daha düşük</li>
+            <li>Hibrit araçlar geçiş dönemi için iyi bir seçenek</li>
+            <li>Birçok ülkede elektrikli araç alımlarında teşvikler mevcut</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Uygulama Önerisi</h4>
+            <p>Yeni bir araba alacaksanız elektrikli veya hibrit modelleri değerlendirin. Kısa süreli kullanımlar için elektrikli araç paylaşım sistemlerini deneyin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="comparison-section">
+      <div class="comparison-card">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1583&q=80" alt="Geleneksel ulaşım" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Geleneksel Ulaşım</h3>
+          <ul>
+            <li>Yüksek karbon emisyonu</li>
+            <li>Fosil yakıt bağımlılığı</li>
+            <li>Trafik sıkışıklığı</li>
+            <li>Yüksek yakıt maliyetleri</li>
+            <li>Hava kirliliği</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="comparison-card">
+        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sürdürülebilir ulaşım" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Sürdürülebilir Ulaşım</h3>
+          <ul>
+            <li>Düşük/zero emisyon</li>
+            <li>Yenilenebilir enerji kaynakları</li>
+            <li>Verimli alan kullanımı</li>
+            <li>Uzun vadede ekonomik</li>
+            <li>Temiz hava</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Sürdürülebilir Seyahat Önerileri</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-train-line impact-icon"></i>
+          <h3>Trenle Seyahat</h3>
+          <p>Trenler, uçaklara göre yolcu başına %80-90 daha az CO2 emisyonu üretir. Özellikle Avrupa'da yüksek hızlı tren ağları, uçak alternatifi olarak kullanılabilir.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-leaf-line impact-icon"></i>
+          <h3>Karbon Nötr Uçuşlar</h3>
+          <p>Uçak yolculuğu yapmanız gerekiyorsa, karbon ayak izinizi dengelemek için karbon ofset programlarına katılabilirsiniz. Birçok havayolu bu seçeneği sunuyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-group-line impact-icon"></i>
+          <h3>Ortak Araç Kullanımı</h3>
+          <p>Aynı yöne giden kişilerle araç paylaşımı yapmak, hem maliyetleri hem de karbon ayak izini azaltır. BlaBlaCar gibi uygulamalar bu konuda yardımcı olabilir.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-calendar-event-line impact-icon"></i>
+          <h3>Uzaktan Çalışma</h3>
+          <p>İş seyahatleri yerine video konferans araçlarını kullanmak önemli ölçüde emisyon tasarrufu sağlar. Haftada bir gün evden çalışmak bile fark yaratır.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quote-section">
+      <p>"Bireysel ulaşım tercihlerimizde yapacağımız küçük değişiklikler, kolektif olarak büyük bir fark yaratabilir. Her gün yaptığımız seçimler, dünyanın geleceğini şekillendiriyor."</p>
+      <p>- Jane Goodall, Çevre Aktivist ve Primatolog</p>
+    </div>
+    
+    <div class="intro-text">
+      <h3>Sonuç</h3>
+      <p>Ulaşım ve seyahat alışkanlıklarımızı gözden geçirerek karbon ayak izimizi önemli ölçüde azaltabiliriz. Toplu taşıma kullanmak, bisiklete binmek, elektrikli araçları tercih etmek ve uçak yolculuklarını azaltmak gibi basit değişiklikler büyük farklar yaratabilir. Unutmayın, her küçük adım önemli. Bugün yapacağınız bir değişiklik, yarın daha temiz bir dünya için atılmış bir adım olacak. Sürdürülebilir ulaşım tercihleriyle hem gezegenimize hem de cebinize iyilik yapın.</p>
+      
+      <div class="tip-box">
+        <h4 class="tip-title">Harekete Geçin</h4>
+        <p>Önümüzdeki hafta için bir sürdürülebilir ulaşım hedefi belirleyin. Örneğin: "Bu hafta işe iki gün bisikletle gideceğim" veya "Toplu taşıma kullanımımı %50 artıracağım". Küçük başlayın ve zamanla bu alışkanlıkları genişletin.</p>
+      </div>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+      <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

@@ -1,19 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-   
-  </head>
-  <body>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda Endüstrisinin İklim Ayak İzi | EcoVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        body {
+            padding-top: 80px;
+            background-color: #f9f9f7;
+            color: #333;
+            line-height: 1.7;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 30px;
+            color: white;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            margin: 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #eee;
+            margin-top: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #4a6fa5;
+        }
+        
+        .impact-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .impact-title {
+            font-size: 1.8rem;
+            color: #4a6fa5;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .impact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-icon {
+            font-size: 2rem;
+            color: #4a6fa5;
+            margin-bottom: 15px;
+        }
+        
+        .impact-card h3 {
+            color: #4a6fa5;
+            margin-top: 0;
+        }
+        
+        .statistics-section {
+            background-color: #3a506b;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .statistics-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #4a6fa5;
+            margin: 10px 0;
+        }
+        
+        .solution-section {
+            margin: 40px 0;
+        }
+        
+        .solution-card {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .solution-image {
+            width: 40%;
+            object-fit: cover;
+        }
+        
+        .solution-content {
+            padding: 30px;
+            width: 60%;
+        }
+        
+        .solution-title {
+            color: #4a6fa5;
+            margin-top: 0;
+        }
+        
+        .comparison-section {
+            display: flex;
+            margin: 40px 0;
+            gap: 30px;
+        }
+        
+        .comparison-card {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .comparison-content {
+            padding: 20px;
+        }
+        
+        .comparison-title {
+            color: #4a6fa5;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .quote-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .quote-section::before {
+            content: '"';
+            font-size: 4rem;
+            color: #4a6fa5;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background-color: #4a6fa5;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .back-link:hover {
+            background-color: #3a5a78;
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .impact-grid, .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-card, .comparison-section {
+                flex-direction: column;
+            }
+            
+            .solution-image, .solution-content, .comparison-card {
+                width: 100%;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
   <header class="header">
     <nav class="nav container">
       <div class="nav__data">
@@ -181,27 +444,180 @@
     </nav>
   </header>
 
-    <div class="container-blog">
-      <h1>Geri Dönüşümün Çevre ve Ekonomi Üzerindeki Etkisi</h1>
-      <p class="date">📅 25 Haziran 2025</p>
-      <img src="resimler/resim3.jpg" alt="Geri dönüşüm" />
-      <p>
-        Atıkların geri dönüştürülmesi, çevre kirliliğini azaltmakla kalmaz, aynı
-        zamanda ekonomik açıdan da fayda sağlar. Doğal kaynakların daha verimli
-        kullanılmasını sağlar.
-      </p>
-      <p>
-        Geri dönüşüm sayesinde enerji tasarrufu yapılır ve atık miktarı azalır.
-        Bu da hem doğaya hem ekonomiye katkıda bulunur.
-      </p>
-      <p>
-        Toplum olarak geri dönüşüm kültürünü benimsemek, sürdürülebilir geleceğe
-        katkı sağlamak açısından büyük önem taşır.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <div class="container-blog">
+    <div class="hero-section">
+      <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Moda endüstrisi ve sürdürülebilirlik" class="hero-image">
+      <div class="hero-content">
+        <h1 class="blog-title">Moda Endüstrisinin İklim Ayak İzi: Sürdürülebilir Moda Mümkün mü?</h1>
+        <p class="date"><i class="ri-calendar-line"></i> 25 Temmuz 2025 | <i class="ri-time-line"></i> 8 dakika okuma</p>
+      </div>
+    </div>
+    
+    <div class="intro-text">
+      <p>Moda endüstrisi, dünyanın en büyük kirletici sektörlerinden biri olarak iklim krizinde önemli bir rol oynuyor. Hızlı moda kültürü, aşırı tüketim ve atık sorunuyla birleşince çevreye verilen zarar katlanıyor. Ancak sürdürülebilir moda hareketiyle bu gidişatı tersine çevirmek mümkün. Bu makalede, moda endüstrisinin iklim üzerindeki etkilerini ve daha yeşil bir moda geleceği için neler yapabileceğimizi keşfedeceğiz.</p>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Moda Endüstrisinin Çevresel Etkileri</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-water-flash-line impact-icon"></i>
+          <h3>Su Tüketimi</h3>
+          <p>Tek bir tişört üretmek için yaklaşık 2,700 litre su tüketiliyor. Bu, bir insanın 2.5 yıllık içme suyu ihtiyacına eşdeğer. Pamuk üretimi özellikle su yoğun bir süreç.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-fire-line impact-icon"></i>
+          <h3>Karbon Emisyonları</h3>
+          <p>Moda endüstrisi küresel karbon emisyonlarının %10'unu oluşturuyor. Bu, uluslararası uçuşlar ve deniz taşımacılığının toplamından daha fazla.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-delete-bin-line impact-icon"></i>
+          <h3>Atık Sorunu</h3>
+          <p>Her yıl 92 milyon ton tekstil atığı oluşuyor. Bu, her saniye bir çöp kamyonu dolusu giysinin çöpe atılması anlamına geliyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-chemical-line impact-icon"></i>
+          <h3>Kimyasal Kirlilik</h3>
+          <p>Tekstil boyama işlemi, endüstriyel su kirliliğinin %20'sinden sorumlu. Birçok nehir, moda endüstrisinin zehirli atıklarıyla kirleniyor.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="statistics-section">
+      <h2 class="statistics-title">Çarpıcı Moda İstatistikleri</h2>
+      
+      <div class="statistics-grid">
+        <div class="stat-item">
+          <div class="stat-value">%60</div>
+          <p>Üretilen giysilerin ilk bir yıl içinde çöpe atılan oranı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">20x</div>
+          <p>2000 yılına göre bugün 20 kat daha fazla giysi satın alıyoruz</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">35%</div>
+          <p>Okyanuslardaki mikroplastiklerin moda endüstrisi kaynaklı oranı</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="solution-section">
+      <h2 class="impact-title">Sürdürülebilir Moda Çözümleri</h2>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Organik pamuk" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Sürdürülebilir Malzemeler</h3>
+          <p>Geleneksel tekstil malzemelerine alternatifler geliştirerek çevresel etkiyi azaltmak mümkün.</p>
+          <ul>
+            <li>Organik pamuk (normal pamuğa göre %91 daha az su kullanır)</li>
+            <li>Kenevir, bambu ve keten gibi doğal lifler</li>
+            <li>Mantar derisi ve ananas yapraklarından elde edilen Piñatex</li>
+            <li>Geri dönüştürülmüş polyester ve naylon</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="İkinci el moda" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Döngüsel Moda Ekonomisi</h3>
+          <p>Ürünlerin kullanım ömrünü uzatarak ve geri dönüşümü artırarak atık sorununu çözebiliriz.</p>
+          <ul>
+            <li>İkinci el ve vintage alışverişin yaygınlaştırılması</li>
+            <li>Kiralama ve takas sistemleri</li>
+            <li>Modüler tasarımlar (parçaları değiştirilebilir giysiler)</li>
+            <li>Geri dönüşüm programları (H&M ve Patagonia gibi markaların uygulamaları)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Yavaş moda" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Yavaş Moda Hareketi</h3>
+          <p>Hızlı modaya karşı çıkan bu hareket, kaliteli, dayanıklı ve etik üretim yapan markaları destekliyor.</p>
+          <ul>
+            <li>Daha az ama daha kaliteli giysiler satın almak</li>
+            <li>Yerel ve küçük üreticileri desteklemek</li>
+            <li>Şeffaf tedarik zincirlerini tercih etmek</li>
+            <li>Klasik ve zamansız parçalara yatırım yapmak</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="comparison-section">
+      <div class="comparison-card">
+        <img src="resimler/moda.png" alt="Hızlı moda" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Hızlı Moda</h3>
+          <ul>
+            <li>Düşük fiyat, düşük kalite</li>
+            <li>Haftalık yeni koleksiyonlar</li>
+            <li>Kötü çalışma koşulları</li>
+            <li>Yüksek çevresel maliyet</li>
+            <li>Atık kültürünü teşvik</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="comparison-card">
+        <img src="resimler/moda.png" alt="Sürdürülebilir moda" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Sürdürülebilir Moda</h3>
+          <ul>
+            <li>Adil fiyat, yüksek kalite</li>
+            <li>Mevsimsel koleksiyonlar</li>
+            <li>Adil çalışma koşulları</li>
+            <li>Düşük çevresel etki</li>
+            <li>Döngüsel ekonomi</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quote-section">
+      <p>"Moda dünyanın ikinci en kirletici endüstrisi. Ancak aynı zamanda bu durumu değiştirme gücüne de sahip. Her satın alma kararımızla, nasıl bir dünya istediğimizi oyluyoruz."</p>
+      <p>- Livia Firth, Eco-Age Kurucusu</p>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Başarı Hikayeleri</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-recycle-line impact-icon"></i>
+          <h3>Patagonia: Döngüsel Moda Öncüsü</h3>
+          <p>Outdoor giyim markası Patagonia, "Satın Alma, Tamir Et" sloganıyla ürünlerinin ömrünü uzatıyor. Giysilerinin %87'si geri dönüştürülmüş malzemelerden üretiliyor ve kullanılmış ürünlerini geri alıp yeniden işliyorlar.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-plant-line impact-icon"></i>
+          <h3>Stella McCartney: Lüks ve Sürdürülebilir</h3>
+          <p>Ünlü tasarımcı Stella McCartney, lüks modada sürdürülebilirliğin mümkün olduğunu kanıtlıyor. Kürk, deri veya PVC kullanmayan marka, mantar derisi ve geri dönüştürülmüş naylon gibi yenilikçi malzemelerle çalışıyor.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="intro-text">
+      <h3>Sonuç</h3>
+      <p>Moda endüstrisinin iklim üzerindeki etkisi göz ardı edilemeyecek kadar büyük, ancak bireyler ve markalar olarak yapabileceğimiz çok şey var. Sürdürülebilir malzemeleri tercih etmek, ikinci el alışveriş yapmak, kaliteli ve dayanıklı parçalara yatırım yapmak ve tüketim alışkanlıklarımızı gözden geçirmek önemli adımlar. Unutmayın, her satın alma kararınız bir oy niteliğinde - hangi tür bir moda endüstrisini desteklemek istediğinizi düşünerek hareket edin. Sürdürülebilir moda sadece bir trend değil, gezegenimizin geleceği için bir zorunluluk.</p>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+      <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

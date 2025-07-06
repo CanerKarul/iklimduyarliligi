@@ -1,20 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-   
-  </head>
-  <body>
-  <header class="header">
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sürdürülebilir Yaşam İçin 10 Pratik Öneri | EcoVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
+            --accent-color: #8BC34A;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            padding-top: 80px;
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+        
+        .container-blog {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            position: relative;
+            margin-bottom: 50px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-section:hover .hero-image {
+            transform: scale(1.03);
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 40px;
+            color: var(--white);
+        }
+        
+        .blog-title {
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .intro-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .tip-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .tip-image-container {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .tip-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tip-card:hover .tip-image {
+            transform: scale(1.1);
+        }
+        
+        .tip-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tip-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: inline-block;
+            background-color: rgba(76, 175, 80, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        
+        .tip-title {
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .tip-description {
+            color: #555;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .tip-benefits {
+            padding: 15px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            margin-top: auto;
+        }
+        
+        .tip-benefits h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .tip-benefits ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .tip-benefits li {
+            margin-bottom: 8px;
+        }
+        
+        .impact-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px;
+            border-radius: 16px;
+            margin: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .impact-section::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .impact-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .impact-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 12px;
+            min-width: 200px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stat-item p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .conclusion-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 6px solid var(--primary-color);
+        }
+        
+        .conclusion-section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+        
+        .back-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(46, 125, 50, 0.4);
+        }
+        
+        @media (max-width: 900px) {
+            .tips-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content {
+                padding: 30px;
+            }
+            
+            .blog-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .impact-section {
+                padding: 30px;
+            }
+            
+            .impact-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 20px;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .blog-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-image {
+                height: 280px;
+            }
+            
+            .intro-section, .conclusion-section {
+                padding: 25px;
+            }
+            
+            .impact-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .tip-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
     <nav class="nav container">
       <div class="nav__data">
         <a href="/index.html" class="nav__logo">
@@ -181,27 +528,255 @@
     </nav>
   </header>
 
-    <div class="container-blog">
-      <h1>Sürdürülebilir Yaşam İçin 10 Pratik Öneri</h1>
-      <p class="date">📅 03 Temmuz 2025</p>
-      <img src="resimler/resim6.jpg" alt="Sürdürülebilir yaşam" />
-      <p>
-        Günlük hayatınızda sürdürülebilir yaşamı desteklemek için birçok pratik
-        öneri vardır. Alışveriş çantanızı tekrar kullanmak, kompost yapmak ve
-        enerji tasarruflu ürünler tercih etmek bunlardan sadece birkaçıdır.
-      </p>
-      <p>
-        Doğaya dost alışkanlıklar edinmek hem çevreyi korur hem de yaşam
-        kalitenizi artırır. Küçük adımlar büyük farklar yaratır.
-      </p>
-      <p>
-        Bu önerilerle hem kendiniz hem de gelecek nesiller için daha sağlıklı
-        bir çevre yaratabilirsiniz.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <div class="container-blog">
+    <div class="hero-section">
+      <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Sürdürülebilir yaşam" class="hero-image">
+      <div class="hero-content">
+        <h1 class="blog-title">Sürdürülebilir Yaşam İçin 10 Pratik Öneri</h1>
+        <p class="date"><i class="ri-calendar-line"></i> 15 Temmuz 2025 | <i class="ri-time-line"></i> 6 dakika okuma</p>
+      </div>
+    </div>
+    
+    <div class="intro-section">
+      <p>Sürdürülebilir yaşam, gezegenimizin kaynaklarını tüketmeden bugünün ihtiyaçlarını karşılarken gelecek nesillerin de kendi ihtiyaçlarını karşılayabilmesini sağlamaktır. Günlük alışkanlıklarımızda yapacağımız küçük değişikliklerle büyük farklar yaratabiliriz. İşte evde, işte ve günlük yaşamda kolayca uygulayabileceğiniz 10 pratik sürdürülebilir yaşam önerisi:</p>
+    </div>
+    
+    <div class="tips-container">
+      <!-- Öneri 1 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="resimler/yenidenkullanılabilir.png" alt="Yeniden kullanılabilir ürünler" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 01</span>
+          <h3 class="tip-title">Yeniden Kullanılabilir Ürünlere Geçiş Yapın</h3>
+          <p class="tip-description">Tek kullanımlık plastikleri hayatınızdan çıkarın. Bez çantalar, cam şişeler, metal pipetler ve kahve fincanları gibi yeniden kullanılabilir alternatifleri tercih edin. Bu basit değişiklikle yılda ortalama 500 plastik atığın önüne geçebilirsiniz.</p>
+          <div class="tip-benefits">
+            <h4>Ana Faydaları:</h4>
+            <ul>
+              <li>Plastik atıkları %80'e varan oranda azaltır</li>
+              <li>Uzun vadede ekonomik tasarruf sağlar</li>
+              <li>Doğal kaynakların korunmasına katkıda bulunur</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 2 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="resimler/enerji.png" alt="Enerji tasarruflu cihazlar" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 02</span>
+          <h3 class="tip-title">Enerji Tasarruflu Cihazlar Kullanın</h3>
+          <p class="tip-description">Elektronik cihaz alırken enerji verimliliği yüksek modelleri tercih edin. LED ampuller, A+++ beyaz eşyalar ve akıllı termostatlar uzun vadede hem enerji hem de para tasarrufu sağlar.</p>
+          <div class="tip-benefits">
+            <h4>Ana Faydaları:</h4>
+            <ul>
+              <li>Enerji tüketimini %40'a kadar azaltır</li>
+              <li>Elektrik faturalarında belirgin düşüş sağlar</li>
+              <li>Karbon ayak izini küçültür</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 3 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Su tasarrufu" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 03</span>
+          <h3 class="tip-title">Su Tüketiminizi Gözden Geçirin</h3>
+          <p class="tip-description">Su kaynaklarımız sınırlı. Duş sürenizi kısaltarak, muslukları tam kapatarak ve su tasarruflu armatürler kullanarak günlük su tüketiminizi %30'a varan oranda azaltabilirsiniz.</p>
+          <div class="tip-benefits">
+            <h4>Uygulama İpuçları:</h4>
+            <ul>
+              <li>Diş fırçalarken musluğu kapatın</li>
+              <li>Bulaşık makinesini tam dolmadan çalıştırmayın</li>
+              <li>Yağmur suyu hasadı sistemleri araştırın</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 4 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Yerel gıdalar" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 04</span>
+          <h3 class="tip-title">Yerel ve Mevsimsel Beslenin</h3>
+          <p class="tip-description">Yerel üreticilerden mevsiminde sebze-meyve almak hem daha sağlıklı hem de karbon ayak izinizi azaltır. Uzak ülkelerden gelen gıdaların taşınması büyük miktarda fosil yakıt tüketimine neden olur.</p>
+          <div class="tip-benefits">
+            <h4>Bonus:</h4>
+            <p>Haftada bir gün et tüketmeyerek karbon ayak izinizi önemli ölçüde azaltabilirsiniz.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 5 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toplu taşıma" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 05</span>
+          <h3 class="tip-title">Toplu Taşıma ve Bisiklet Kullanımını Artırın</h3>
+          <p class="tip-description">Kısa mesafelere yürüyerek veya bisikletle ulaşım sağlayın. Toplu taşıma araçlarını tercih ederek kişisel araç kullanımınızı azaltın. Bu sayede hem trafik yoğunluğuna hem de hava kirliliğine çözüm olabilirsiniz.</p>
+          <div class="tip-benefits">
+            <h4>Karşılaştırma:</h4>
+            <ul>
+              <li>Kişisel araba: km başına 170g CO2</li>
+              <li>Otobüs: km başına 68g CO2</li>
+              <li>Bisiklet: 0g CO2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 6 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Kompost yapımı" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 06</span>
+          <h3 class="tip-title">Kompost Yapın</h3>
+          <p class="tip-description">Mutfak atıklarınızı çöpe atmak yerine kompost yaparak doğal gübre elde edin. Bu sayede hem atık miktarınızı azaltır hem de toprağa faydalı organik madde kazandırırsınız.</p>
+          <div class="tip-benefits">
+            <h4>Başlangıç İçin:</h4>
+            <ul>
+              <li>Sebze-meyve atıkları, yumurta kabukları, çay posası kullanın</li>
+              <li>Et, süt ürünleri ve yağlı gıdalardan kaçının</li>
+              <li>Küçük bir balkon kompostu ile başlayabilirsiniz</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 7 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="resimler/kadınlar2.png" alt="İkinci el alışveriş" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 07</span>
+          <h3 class="tip-title">İkinci El Alışverişi Destekleyin</h3>
+          <p class="tip-description">Yeni ürünler üretmek yerine var olanları değerlendirin. İkinci el eşya alım-satım platformlarını kullanarak döngüsel ekonomiye katkı sağlayın.</p>
+          <div class="tip-benefits">
+            <h4>Nereden Başlamalı:</h4>
+            <ul>
+              <li>Yerel ikinci el mağazalarını ziyaret edin</li>
+              <li>Online ikinci el platformlarını deneyin</li>
+              <li>Takas etkinliklerine katılın</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 8 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ev bitkileri" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 08</span>
+          <h3 class="tip-title">Evinizi Yeşillendirin</h3>
+          <p class="tip-description">Ev bitkileri iç mekan hava kalitesini artırır ve stresi azaltır. Ayrıca balkonunuzda küçük bir sebze bahçesi oluşturabilirsiniz.</p>
+          <div class="tip-benefits">
+            <h4>Başlangıç İçin Bitkiler:</h4>
+            <ul>
+              <li>Hava temizleyen: Areka palmiyesi, paşa kılıcı</li>
+              <li>Kolay bakım: Sukulentler, kauçuk bitkisi</li>
+              <li>Yenilebilir: Fesleğen, nane, maydanoz</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 9 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="resimler/surdurulebilir.png" alt="Dijitalleşme" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 09</span>
+          <h3 class="tip-title">Dijitalleşin</h3>
+          <p class="tip-description">Kağıt fatura yerine e-fatura, kitap yerine e-kitap tercih ederek kağıt tüketiminizi azaltın. Bulut depolama kullanarak fiziksel arşiv ihtiyacını ortadan kaldırın.</p>
+          <div class="tip-benefits">
+            <h4>Dijital Adımlar:</h4>
+            <ul>
+              <li>Faturalarınızı dijital alın</li>
+              <li>E-kitap okuyucu edinin</li>
+              <li>Notlarınızı dijital ortamda tutun</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Öneri 10 -->
+      <div class="tip-card">
+        <div class="tip-image-container">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Topluluk etkinliği" class="tip-image">
+        </div>
+        <div class="tip-content">
+          <span class="tip-number">Öneri 10</span>
+          <h3 class="tip-title">Bilgi Paylaşın ve Topluluğa Katılın</h3>
+          <p class="tip-description">Edindiğiniz sürdürülebilir yaşam bilgilerini çevrenizle paylaşın. Sosyal medyada farkındalık yaratacak içerikler üretin, yerel topluluklara katılın.</p>
+          <div class="tip-benefits">
+            <h4>Katılabileceğiniz Topluluklar:</h4>
+            <ul>
+              <li>Yerel geri dönüşüm grupları</li>
+              <li>Topluluk bahçeleri</li>
+              <li>Sürdürülebilir yaşam platformları</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Sürdürülebilir Yaşamın Etkisi</h2>
+      
+      <div class="impact-stats">
+        <div class="stat-item">
+          <div class="stat-value">%40</div>
+          <p>Enerji tasarrufu potansiyeli</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">1.5t</div>
+          <p>Yıllık karbon ayak izi azalması</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">%60</div>
+          <p>Atık miktarında azalma</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">₺2000</div>
+          <p>Yıllık ortalama tasarruf</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="conclusion-section">
+      <h2>Küçük Adımlar, Büyük Değişimler</h2>
+      <p>Sürdürülebilir bir yaşam tarzı benimsemek aslında hiç de zor değil. Küçük adımlarla başlayın ve zamanla bu önerileri günlük rutininizin bir parçası haline getirin. Unutmayın, gezegenimizin geleceği hepimizin günlük tercihlerine bağlı. Bugün yapacağınız küçük bir değişiklik, yarın büyük bir fark yaratabilir!</p>
+      <p>Hangi öneriyi ilk deneyeceksiniz? #SürdürülebilirYaşam etiketiyle deneyimlerinizi paylaşmayı unutmayın!</p>
+      
+      <a href="bloglar.html" class="back-link">
+        <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+      </a>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

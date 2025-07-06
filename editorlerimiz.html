@@ -1,19 +1,658 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editörlerimiz | EcoVision</title>
      <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        
+/* Container margin ayarı (navbar yüksekliğine göre) */
+.container-editor {
+    max-width: 1200px;
+    margin: 120px auto 80px; /* Üst margin'i navbar yüksekliğine göre artırdım */
+    padding: 0 20px;
+    margin-top: 100px;
+}
 
+/* Mobilde daha küçük margin */
+@media (max-width: 768px) {
+    .container-editor {
+        margin: 100px auto 60px;
+    }
+}
+
+/* Navbar scroll efekti için */
+.scroll-header {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+
+        /* Başlık Stili */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h1 {
+            font-size: 2.8rem;
+            color: #10b981;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #10b981;
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Editör Kartları */
+        .editors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .editor-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .editor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .editor-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .editor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .editor-card:hover .editor-image img {
+            transform: scale(1.05);
+        }
+        
+        .editor-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .editor-info h3 {
+            font-size: 1.5rem;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+        
+        .editor-info p.position {
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .editor-info p.bio {
+    color: #475569;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    
+    /* Modern tarayıcılar için */
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-line-clamp: 3;
+    
+    /* Standart özellik (henüz çoğu tarayıcıda desteklenmiyor) */
+    display: box;
+    line-clamp: 3;
+    box-orient: vertical;
+}
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #64748b;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #10b981;
+        }
+        
+        /* Modal Stilleri */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        .modal-header {
+            padding: 25px;
+            background-color: #10b981;
+            color: white;
+            position: relative;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .modal-header p {
+            opacity: 0.9;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+        }
+        
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 0;
+        }
+        
+        .modal-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-details {
+            padding: 30px;
+        }
+        
+        .modal-details h3 {
+            color: #10b981;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .modal-details p {
+            margin-bottom: 20px;
+            color: #475569;
+        }
+        
+        .modal-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .modal-social a {
+            color: #64748b;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+        
+        .modal-social a:hover {
+            color: #10b981;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .editors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-body {
+                flex-direction: column;
+            }
+            
+            .modal-image {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
+
+          <header class="header">
+            <nav class="nav container">
+                <div class="nav__data">
+                    <a href="index.html" class="nav__logo">
+                        <i class="ri-code-s-slash-line"></i> EcoVision
+                    </a>
     
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line nav__toggle-menu"></i>
+                        <i class="ri-close-line nav__toggle-close"></i>
+                    </div>
+                </div>
+
+                <!--=============== NAV MENU ===============-->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li>
+                            <a href="index.html" class="nav__link">Anasayfa</a>
+                        </li>
+
+                       
+
+                        <!--=============== DROPDOWN 2 ===============-->
+                        <li class="dropdown__item">
+                            <div class="nav__link dropdown__button">
+                                Keşfet <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-code-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Su ve İklim Duyarlılığı</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="sukaynaklarininkorunması.html" class="dropdown__link">Su Kaynaklarının Korunması</a>
+                                            </li>
+                                            <li>
+                                                <a href="sürdürülebilirsutüketimi.html" class="dropdown__link">Sürdürülebilir Su Tüketimi</a>
+                                            </li>
+                                            <li>
+                                                <a href="denizseviyesininyukselmesi.html" class="dropdown__link">Deniz Seviyesinin Yükselmesi</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-pen-nib-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Geri Dönüşüm ve Atık Yönetimi</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="geridonusumuniklimekatkisi.html" class="dropdown__link">Geri Dönüşümün İklime Katkısı</a>
+                                            </li>
+                                            <li>
+                                                <a href="plastikatiklariniklimeetkisi.html" class="dropdown__link">Plastik Atıkların İklime Etkisi</a>
+                                            </li>
+                                            <li>
+                                                <a href="elektronikatiklarinyonetimi.html" class="dropdown__link">Elektronik Atıkların Yönetimi</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-apps-2-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Enerji Tüketimi </span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="yenilenebilirenerjikaynaklari.html" class="dropdown__link">Yenilenebilir Enerji Kaynakları</a>
+                                            </li>
+                                            <li>
+                                                <a href="fosilyakitlarinazaltilmasi.html" class="dropdown__link">Fosil yakıtların azaltılması</a>
+                                            </li>
+                                            <li>
+                                                <a href="temizulasimalternatifleri.html" class="dropdown__link">Temiz Ulaşım Alternatifleri</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                       <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                        <i class="ri-apps-2-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Doğa ve Canlılar</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="ormanlarveiklim.html" class="dropdown__link">Ormanlar ve İklim</a>
+                                            </li>
+                                            <li>
+                                                <a href="biyocesitlilikkaybiveiklimkrizi.html" class="dropdown__link">Biyoçeşitlilik Kaybı ve İklim Krizi</a>
+                                            </li>
+                                            <li>
+                                                <a href="dogalafetlerveiklimdegisikligi.html" class="dropdown__link">Doğal Afetler ve İklim Değişikliği</a>
+                                            </li>
+                                        </ul>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="bloglar/bloglar.html" class="nav__link">Bloglar</a>
+                        </li>
+
+                        <!--=============== DROPDOWN 3 ===============-->
+                        <li class="dropdown__item">                        
+                            <div class="nav__link dropdown__button">
+                                Hakkımızda <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-community-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Hakkımızda</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="hakkimizda.html" class="dropdown__link">Hakkımızda</a>
+                                            </li>
+                                            <li>
+                                                <a href="sikcasorulansorular.html" class="dropdown__link">Sıkça Sorulan Sorular</a>
+                                            </li>
+                                            <li>
+                                                <a href="editorlerimiz.html" class="dropdown__link">Editörlerimiz</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-shield-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Konumumuz</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="haritalardakikonum.html" class="dropdown__link">Haritalardaki Konum</a>
+                                            </li>
+                                            <li>
+                                                <a href="iletisim.html" class="dropdown__link">İletişim</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+<!-- Editörler Sayfası İçeriği -->
+<main class="container-editor">
+    <div class="section-header">
+        <h1>Editörlerimiz</h1>
+        <p>EcoVision'ın değerli editör ekibi, iklim değişikliği ve sürdürülebilirlik konularında uzmanlaşmış deneyimli isimlerden oluşmaktadır.</p>
+    </div>
+    
+    <div class="editors-grid">
+        <!-- Editör 1 -->
+        <div class="editor-card" onclick="openModal('modal1')">
+            <div class="editor-image">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Editör 1">
+            </div>
+            <div class="editor-info">
+                <h3>Dr. Ayşe Kaya</h3>
+                <p class="position">İklim Bilimci</p>
+                <p class="bio">10 yılı aşkın süredir iklim değişikliği üzerine çalışmalar yürüten Dr. Kaya, özellikle Akdeniz bölgesindeki iklim modelleri üzerine uzmanlaşmıştır.</p>
+                <div class="social-links">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#"><i class="ri-global-line"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Editör 2 -->
+        <div class="editor-card" onclick="openModal('modal2')">
+            <div class="editor-image">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Editör 2">
+            </div>
+            <div class="editor-info">
+                <h3>Mehmet Arslan</h3>
+                <p class="position">Sürdürülebilirlik Uzmanı</p>
+                <p class="bio">Yeşil enerji ve sürdürülebilir kentleşme alanlarında projeler yürüten Mehmet Bey, 15'ten fazla ülkede danışmanlık yapmıştır.</p>
+                <div class="social-links">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#"><i class="ri-global-line"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Editör 3 -->
+        <div class="editor-card" onclick="openModal('modal3')">
+            <div class="editor-image">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Editör 3">
+            </div>
+            <div class="editor-info">
+                <h3>Zeynep Demir</h3>
+                <p class="position">Çevre Mühendisi</p>
+                <p class="bio">Atık yönetimi ve geri dönüşüm sistemleri konusunda uzman olan Zeynep Hanım, birçok belediyeye danışmanlık yapmaktadır.</p>
+                <div class="social-links">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#"><i class="ri-global-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Modal Pencereler -->
+<!-- Editör 1 Modal -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-modal" onclick="closeModal('modal1')">&times;</button>
+            <h2>Dr. Ayşe Kaya</h2>
+            <p>İklim Bilimci | EcoVision Kurucu Üye</p>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Dr. Ayşe Kaya">
+            </div>
+            <div class="modal-details">
+                <h3>Hakkında</h3>
+                <p>Dr. Ayşe Kaya, İstanbul Teknik Üniversitesi'nde meteoroloji mühendisliği eğitimi aldıktan sonra, doktorasını Almanya'da iklim modelleme üzerine tamamlamıştır. 2015 yılından bu yana EcoVision bünyesinde çalışmalarını sürdürmektedir.</p>
+                
+                <h3>Uzmanlık Alanları</h3>
+                <p>- İklim değişikliği modellemeleri<br>
+                - Akdeniz iklim sistemleri<br>
+                - Kuraklık tahmin yöntemleri<br>
+                - İklim politikaları</p>
+                
+                <h3>Eğitim</h3>
+                <p>- Doktora: Potsdam İklim Araştırmaları Enstitüsü<br>
+                - Yüksek Lisans: İTÜ Meteoroloji Mühendisliği<br>
+                - Lisans: İTÜ Meteoroloji Mühendisliği</p>
+                
+                <div class="modal-social">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#"><i class="ri-global-line"></i></a>
+                    <a href="#"><i class="ri-mail-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Editör 2 Modal -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-modal" onclick="closeModal('modal2')">&times;</button>
+            <h2>Mehmet Arslan</h2>
+            <p>Sürdürülebilirlik Uzmanı | Proje Koordinatörü</p>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Mehmet Arslan">
+            </div>
+            <div class="modal-details">
+                <h3>Hakkında</h3>
+                <p>Mehmet Arslan, ODTÜ Çevre Mühendisliği mezunudur. 20 yılı aşkın süredir sürdürülebilirlik projelerinde yer almaktadır. EcoVision'ın uluslararası projelerinin koordinatörlüğünü yürütmektedir.</p>
+                
+                <h3>Uzmanlık Alanları</h3>
+                <p>- Yeşil bina sertifikasyon sistemleri<br>
+                - Sürdürülebilir kent planlaması<br>
+                - Yenilenebilir enerji sistemleri<br>
+                - Karbon ayak izi analizi</p>
+                
+                <h3>Önemli Projeler</h3>
+                <p>- İstanbul Sürdürülebilir Kentsel Dönüşüm Projesi<br>
+                - Güneş Enerjisiyle Tarım Projesi (GAP Bölgesi)<br>
+                - Akıllı Şehirler için İklim Uyum Planlaması</p>
+                
+                <div class="modal-social">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#"><i class="ri-global-line"></i></a>
+                    <a href="#"><i class="ri-mail-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Editör 3 Modal -->
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-modal" onclick="closeModal('modal3')">&times;</button>
+            <h2>Zeynep Demir</h2>
+            <p>Çevre Mühendisi | Atık Yönetimi Uzmanı</p>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Zeynep Demir">
+            </div>
+            <div class="modal-details">
+                <h3>Hakkında</h3>
+                <p>Zeynep Demir, Hacettepe Üniversitesi Çevre Mühendisliği bölümünden mezun olduktan sonra, İsveç'te atık yönetimi üzerine yüksek lisans yapmıştır. EcoVision'ın geri dönüşüm ve sıfır atık projelerinin liderliğini yapmaktadır.</p>
+                
+                <h3>Uzmanlık Alanları</h3>
+                <p>- Döngüsel ekonomi modelleri<br>
+                - Atık yönetim sistemleri<br>
+                - Geri dönüşüm teknolojileri<br>
+                - Kompost sistemleri</p>
+                
+                <h3>Başarıları</h3>
+                <p>- 2022 Yeşil Nokta Ödülü<br>
+                - 5 belediyede sıfır atık sisteminin kurulumu<br>
+                - 10.000+ kişiye atık yönetimi eğitimi</p>
+                
+                <div class="modal-social">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#"><i class="ri-global-line"></i></a>
+                    <a href="#"><i class="ri-mail-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-       <!--=============== MAIN JS bunu al her sayfada en alta body üstüne yapıştır ===============-->
-    <script src="assets/js/main.js"></script>
+
+<!-- JavaScript -->
+<script>
+    // Modal fonksiyonları
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Dışarı tıklayınca kapatma
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+</script>
+
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>

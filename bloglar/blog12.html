@@ -1,20 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İklim Dostu Beslenme: Vegan ve Yerel Gıdaların Önemi | EcoVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-    
-  </head>
-  <body>
-   <header class="header">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        body {
+            padding-top: 80px;
+            background-color: #f9f9f7;
+            color: #333;
+            line-height: 1.7;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .container-blog {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 30px;
+            color: white;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            margin: 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #eee;
+            margin-top: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #2e7d32;
+        }
+        
+        .impact-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .impact-title {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .impact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-icon {
+            font-size: 2rem;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .impact-card h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .statistics-section {
+            background-color: #3a506b;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .statistics-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #81c784;
+            margin: 10px 0;
+        }
+        
+        .solution-section {
+            margin: 40px 0;
+        }
+        
+        .solution-card {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .solution-image {
+            width: 40%;
+            object-fit: cover;
+        }
+        
+        .solution-content {
+            padding: 30px;
+            width: 60%;
+        }
+        
+        .solution-title {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .comparison-section {
+            display: flex;
+            margin: 40px 0;
+            gap: 30px;
+        }
+        
+        .comparison-card {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .comparison-content {
+            padding: 20px;
+        }
+        
+        .comparison-title {
+            color: #2e7d32;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .quote-section {
+            background-color: #f0f4f8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .quote-section::before {
+            content: '"';
+            font-size: 4rem;
+            color: #2e7d32;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .back-link:hover {
+            background-color: #1b5e20;
+            transform: translateX(-5px);
+        }
+        
+        .tip-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-title {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .seasonal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .seasonal-table th {
+            background-color: #2e7d32;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .seasonal-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .seasonal-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .seasonal-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        @media (max-width: 768px) {
+            .impact-grid, .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-card, .comparison-section {
+                flex-direction: column;
+            }
+            
+            .solution-image, .solution-content, .comparison-card {
+                width: 100%;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+            
+            .seasonal-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header class="header">
     <nav class="nav container">
       <div class="nav__data">
         <a href="/index.html" class="nav__logo">
@@ -181,26 +492,219 @@
     </nav>
   </header>
 
-    <div class="container-blog">
-      <h1>Sürdürülebilir Yaşam İçin 10 Pratik Öneri</h1>
-      <p class="date">📅 03 Temmuz 2025</p>
-      <img src="resimler/resim6.jpg" alt="Sürdürülebilir yaşam önerileri" />
-      <p>
-        Günlük hayatınızda sürdürülebilirliği artırmak için alışveriş çantanızı
-        tekrar kullanmak, enerji tasarrufu sağlamak ve kompost yapmak gibi
-        adımlar atabilirsiniz.
-      </p>
-      <p>
-        Bu küçük ama etkili öneriler, çevre üzerindeki olumsuz etkileri
-        azaltmaya yardımcı olur ve daha sağlıklı bir yaşam ortamı yaratır.
-      </p>
-      <p>
-        Her bireyin katkısı, daha yaşanabilir bir dünya için büyük önem taşır.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
-    </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <div class="container-blog">
+    <div class="hero-section">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="İklim dostu beslenme ve vegan yemekler" class="hero-image">
+      <div class="hero-content">
+        <h1 class="blog-title">İklim Dostu Beslenme: Vegan ve Yerel Gıdaların Önemi</h1>
+        <p class="date"><i class="ri-calendar-line"></i> 12 Ağustos 2025 | <i class="ri-time-line"></i> 10 dakika okuma</p>
+      </div>
+    </div>
+    
+    <div class="intro-text">
+      <p>Gıda sistemleri küresel sera gazı emisyonlarının %26'sından sorumlu. Et ve süt ürünleri tek başına tüm gıda kaynaklı emisyonların %60'ını oluşturuyor. Bitki temelli beslenme, mevsimsel ve yerel gıdaları tercih etmek ise karbon ayak izimizi önemli ölçüde azaltabilir. Bu makalede, beslenme alışkanlıklarımızın iklim üzerindeki etkilerini ve daha sürdürülebilir bir gelecek için neler yapabileceğimizi keşfedeceğiz.</p>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Gıda Üretiminin İklim Üzerindeki Etkisi</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="ri-cow-line impact-icon"></i>
+          <h3>Hayvancılık Sektörü</h3>
+          <p>Hayvancılık, tüm insan kaynaklı sera gazı emisyonlarının %14.5'ini oluşturuyor. Bir kilo sığır eti üretmek için 15,000 litre su tüketiliyor ve 27 kg CO2 eşdeğeri sera gazı salınıyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-truck-line impact-icon"></i>
+          <h3>Gıda Miles</h3>
+          <p>Gıdaların üretim yerinden tüketiciye ulaşana kadar katettiği mesafe. Ortalama bir gıda ürünü 1,500-2,500 km yol kat ediyor. Yerel ürünler tercih ederek nakliye kaynaklı emisyonları %90'a varan oranda azaltabiliriz.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-leaf-line impact-icon"></i>
+          <h3>Toprak Kullanımı</h3>
+          <p>Dünyadaki tarım arazilerinin %77'si hayvancılık için kullanılıyor. Aynı alanda bitkisel gıda üretmek 10-20 kat daha fazla insanı besleyebilir.</p>
+        </div>
+        
+        <div class="impact-card">
+          <i class="ri-flashlight-line impact-icon"></i>
+          <h3>Enerji Tüketimi</h3>
+          <p>Endüstriyel tarım büyük miktarda fosil yakıt tüketiyor. 1 kalori hayvansal protein üretmek için 11 kalori fosil yakıt enerjisi gerekiyor.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="statistics-section">
+      <h2 class="statistics-title">Çarpıcı Gıda İstatistikleri</h2>
+      
+      <div class="statistics-grid">
+        <div class="stat-item">
+          <div class="stat-value">56%</div>
+          <p>Bitki temelli beslenmeye geçerek gıda kaynaklı emisyonları azaltma potansiyeli</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">3.1B</div>
+          <p>2050'de dünya nüfusunu beslemek için gerekecek ek tarım arazisi (hektar)</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">8X</div>
+          <p>Bitkisel proteinlerin hayvansal proteinlere göre daha az su kullanımı</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="solution-section">
+      <h2 class="impact-title">İklim Dostu Beslenme Çözümleri</h2>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bitki temelli beslenme" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Bitki Temelli Beslenme</h3>
+          <p>Vegan ve vejetaryen beslenme, hayvancılık kaynaklı emisyonları ortadan kaldırırken sağlık açısından da pek çok fayda sunuyor.</p>
+          <ul>
+            <li>Sebze, meyve, baklagil ve tam tahıllar temel besin kaynaklarıdır</li>
+            <li>Bitkisel protein kaynakları: Mercimek, nohut, kinoa, tofu, tempeh</li>
+            <li>Süt alternatifleri: Badem, soya, yulaf, hindistan cevizi sütü</li>
+            <li>Daha az işlenmiş gıda tüketimi</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Başlangıç Önerisi</h4>
+            <p>Haftada bir gün "etsiz pazartesi" uygulayarak başlayın. Yavaş yavaş bitkisel öğün sayısını artırın. Vegan tarifler deneyerek lezzetli alternatifler keşfedin.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1447078806655-40579c2520d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Yerel ve mevsimsel gıdalar" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Yerel ve Mevsimsel Beslenme</h3>
+          <p>Yakın çevrede yetişen ve mevsiminde tüketilen gıdalar nakliye ve depolama kaynaklı emisyonları azaltır.</p>
+          <ul>
+            <li>Yerel çiftçi pazarlarını ve topluluk destekli tarımı (CSA) tercih edin</li>
+            <li>Gıda kooperatiflerine üye olun</li>
+            <li>Kendi sebze-meyvenizi yetiştirmeyi deneyin</li>
+            <li>Derin dondurucuda mevsiminde saklanmış gıdaları kullanın</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Uygulama Önerisi</h4>
+            <p>Yaşadığınız bölgede hangi meyve-sebzelerin hangi aylarda yetiştiğini öğrenin. Alışveriş yaparken menşei en yakın olan ürünleri seçin.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gıda israfını önleme" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Gıda İsrafını Önleme</h3>
+          <p>Dünyada üretilen gıdanın 1/3'ü israf ediliyor. Gıda israfını azaltmak iklim değişikliğiyle mücadelede kritik öneme sahip.</p>
+          <ul>
+            <li>İhtiyacınız kadar alın - planlı alışveriş yapın</li>
+            <li>Artıkları değerlendirin - çorba, smoothie vb. yapın</li>
+            <li>Doğru saklama yöntemlerini öğrenin</li>
+            <li>"Çirkin" meyve-sebzeleri satın alın</li>
+            <li>Kompost yaparak organik atıkları geri dönüştürün</li>
+          </ul>
+          
+          <div class="tip-box">
+            <h4 class="tip-title">Uygulama Önerisi</h4>
+            <p>Haftalık yemek planı yapın ve buna göre alışveriş listesi hazırlayın. Buzdolabınızı düzenli tutarak son kullanma tarihlerini takip edin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="comparison-section">
+      <div class="comparison-card">
+        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Geleneksel beslenme" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">Geleneksel Beslenme</h3>
+          <ul>
+            <li>Yüksek hayvansal ürün tüketimi</li>
+            <li>Uzun mesafelerden taşınan gıdalar</li>
+            <li>Serada yetiştirilmiş mevsim dışı ürünler</li>
+            <li>Yüksek karbon ayak izi</li>
+            <li>Daha fazla su ve arazi kullanımı</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="comparison-card">
+        <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="İklim dostu beslenme" class="comparison-image">
+        <div class="comparison-content">
+          <h3 class="comparison-title">İklim Dostu Beslenme</h3>
+          <ul>
+            <li>Bitki ağırlıklı beslenme</li>
+            <li>Yerel ve mevsimsel ürünler</li>
+            <li>Organik ve sürdürülebilir tarım ürünleri</li>
+            <li>Düşük karbon ayak izi</li>
+            <li>Daha az kaynak tüketimi</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="impact-section">
+      <h2 class="impact-title">Mevsimsel Beslenme Rehberi</h2>
+      
+      <table class="seasonal-table">
+        <thead>
+          <tr>
+            <th>Mevsim</th>
+            <th>Sebzeler</th>
+            <th>Meyveler</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>İlkbahar</td>
+            <td>Kuşkonmaz, enginar, bezelye, taze soğan, ıspanak, marul</td>
+            <td>Çilek, erik, limon, kiraz, kayısı</td>
+          </tr>
+          <tr>
+            <td>Yaz</td>
+            <td>Kabak, patlıcan, domates, salatalık, biber, fasulye</td>
+            <td>Karpuz, kavun, şeftali, üzüm, incir, dut</td>
+          </tr>
+          <tr>
+            <td>Sonbahar</td>
+            <td>Balkabağı, havuç, kereviz, pırasa, mantar, karnabahar</td>
+            <td>Elma, armut, nar, ayva, üzüm, mandalina</td>
+          </tr>
+          <tr>
+            <td>Kış</td>
+            <td>Lahana, brüksel lahanası, pancar, turp, ıspanak, pazı</td>
+            <td>Portakal, greyfurt, muz, ayva, kestane</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="quote-section">
+      <p>"Yediklerimizle dünyayı değiştirebiliriz. Her öğün, gezegenin geleceği için bir oy kullanma fırsatıdır. Bitki temelli beslenmeye geçmek, iklim krizine karşı bireysel olarak yapabileceğimiz en etkili eylemlerden biridir."</p>
+      <p>- Dr. Jane Goodall, Primatolog ve Çevre Aktivist</p>
+    </div>
+    
+    <div class="intro-text">
+      <h3>Sonuç</h3>
+      <p>Beslenme alışkanlıklarımızı değiştirerek iklim değişikliğiyle mücadelede önemli bir rol oynayabiliriz. Bitki temelli, yerel ve mevsimsel beslenme, gıda israfını önleme gibi basit ama etkili adımlarla karbon ayak izimizi önemli ölçüde azaltabiliriz. Unutmayın, mükemmel olmak zorunda değilsiniz - küçük, sürdürülebilir değişiklikler bile büyük farklar yaratabilir. Bugünden başlayarak tabağınızı gezegen için daha dost canlısı hale getirin ve bu bilinci çevrenizle paylaşın. Daha sağlıklı bir yaşam ve daha sağlıklı bir gezegen için ilk adımı atın.</p>
+      
+      <div class="tip-box">
+        <h4 class="tip-title">Harekete Geçin</h4>
+        <p>Önümüzdeki hafta için bir iklim dostu beslenme hedefi belirleyin. Örneğin: "Bu hafta 3 vegan öğün deneyeceğim" veya "Yerel çiftçi pazarından alışveriş yapacağım". Küçük başlayın ve zamanla bu alışkanlıkları genişletin.</p>
+      </div>
+    </div>
+    
+    <a href="bloglar.html" class="back-link">
+      <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+    </a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

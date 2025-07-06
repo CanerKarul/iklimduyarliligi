@@ -1,20 +1,369 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--=============== REMIXICONS bunları kopyala head içine yapıştır her sayfada ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  <link rel="stylesheet" href="blog-style.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
- 
-  </head>
-  <body>
-   <header class="header">
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İklim Göçmenleri: İklim Değişikliğinin Sosyal Etkileri | EcoVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --accent-color: #64B5F6;
+            --text-color: #333;
+            --light-bg: #f5f9fd;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            padding-top: 80px;
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+        
+        .container-blog {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            position: relative;
+            margin-bottom: 50px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-section:hover .hero-image {
+            transform: scale(1.03);
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 40px;
+            color: var(--white);
+        }
+        
+        .blog-title {
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .intro-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .content-section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        
+        .image-with-caption {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .image-with-caption img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 15px;
+        }
+        
+        .image-with-caption p {
+            color: #666;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .impact-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .impact-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .statistics-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px;
+            border-radius: 16px;
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .statistics-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .statistics-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .statistics-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 12px;
+            min-width: 200px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .solution-section {
+            margin: 50px 0;
+        }
+        
+        .solution-card {
+            display: flex;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .solution-image {
+            width: 40%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .solution-card:hover .solution-image {
+            transform: scale(1.05);
+        }
+        
+        .solution-content {
+            padding: 30px;
+            width: 60%;
+        }
+        
+        .solution-title {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .quote-section {
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 50px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+            border-left: 6px solid var(--primary-color);
+        }
+        
+        .quote-section::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            line-height: 1;
+        }
+        
+        .quote-author {
+            font-weight: 600;
+            margin-top: 20px;
+            font-style: normal;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+        
+        .back-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+        }
+        
+        @media (max-width: 900px) {
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content {
+                padding: 30px;
+            }
+            
+            .blog-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .statistics-section {
+                padding: 30px;
+            }
+            
+            .statistics-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 20px;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            .solution-card {
+                flex-direction: column;
+            }
+            
+            .solution-image, .solution-content {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .blog-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-image {
+                height: 280px;
+            }
+            
+            .intro-section, .content-section {
+                padding: 25px;
+            }
+            
+            .statistics-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+      <header class="header">
     <nav class="nav container">
       <div class="nav__data">
         <a href="/index.html" class="nav__logo">
@@ -181,27 +530,169 @@
     </nav>
   </header>
 
-    <div class="container-blog">
-      <h1>İklim Değişikliği ile Mücadelede Bireysel Adımlar</h1>
-      <p class="date">📅 30 Haziran 2025</p>
-      <img src="resimler/resim2.jpg" alt="İklim eylemi" />
-      <p>
-        Enerji tasarrufu yapmak, geri dönüşüm alışkanlıklarını kazanmak ve
-        sürdürülebilir ulaşım yöntemlerini tercih etmek, iklim değişikliğiyle
-        mücadelede bireysel olarak atılabilecek önemli adımlardır.
-      </p>
-      <p>
-        Bireylerin bu konuda bilinçlenmesi, toplum genelinde pozitif etkiler
-        yaratır ve küresel ısınmayı yavaşlatmaya yardımcı olur.
-      </p>
-      <p>
-        Toplumsal farkındalık arttıkça, sürdürülebilir yaşam tarzları daha kolay
-        benimsenir ve doğaya olan zarar azalır.
-      </p>
-      <a class="back" href="bloglar.html">← Bloglara Geri Dön</a>
+  <div class="container-blog">
+    <div class="hero-section">
+      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="İklim göçmenleri" class="hero-image">
+      <div class="hero-content">
+        <h1 class="blog-title">İklim Göçmenleri: İklim Değişikliğinin Sosyal Etkileri</h1>
+        <p class="date"><i class="ri-calendar-line"></i> 25 Temmuz 2025 | <i class="ri-time-line"></i> 8 dakika okuma</p>
+      </div>
     </div>
+    
+    <div class="intro-section">
+      <p>İklim değişikliği sadece çevresel bir sorun değil, aynı zamanda giderek büyüyen bir insani krizdir. Aşırı hava olayları, yükselen deniz seviyeleri ve uzun süreli kuraklıklar, milyonlarca insanı evlerini terk etmeye zorluyor. Bu makalede, iklim göçmenlerinin karşılaştığı zorlukları, bu krizin sosyal etkilerini ve çözüm önerilerini ele alacağız.</p>
+    </div>
+    
+    <div class="content-section">
+      <h2>İklim Göçü Nedir?</h2>
+      <p>İklim göçü, insanların iklim değişikliğinin olumsuz etkileri nedeniyle geçici veya kalıcı olarak yer değiştirmesidir. Bu göçler genellikle aşırı hava olayları (kasırgalar, seller), yavaş gelişen çevresel değişiklikler (deniz seviyesinin yükselmesi, çölleşme) veya geçim kaynaklarının yok olması (tarım arazilerinin verimsizleşmesi) nedeniyle gerçekleşir.</p>
+      
+      <div class="image-with-caption">
+        <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="İklim göçü">
+        <p>İklim değişikliği nedeniyle evlerini terk etmek zorunda kalan aileler</p>
+      </div>
+    </div>
+    
+    <div class="content-section">
+      <h2>İklim Göçmenlerinin Karşılaştığı Zorluklar</h2>
+      
+      <div class="impact-grid">
+        <div class="impact-card">
+          <h3>Geçim Kaynaklarının Kaybı</h3>
+          <p>Tarım ve balıkçılık gibi doğal kaynaklara bağımlı topluluklar, iklim değişikliği nedeniyle geçim kaynaklarını kaybediyor. Bu da yoksulluğun artmasına ve zorunlu göçlere neden oluyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <h3>Sağlık Sorunları</h3>
+          <p>İklim göçmenleri, temiz suya erişim zorluğu, yetersiz beslenme ve yeni hastalıklara maruz kalma gibi ciddi sağlık riskleriyle karşı karşıya kalıyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <h3>Toplumsal Çatışmalar</h3>
+          <p>Kaynakların azalması ve nüfus hareketleri, var olan toplumsal gerilimleri artırarak çatışmalara ve şiddete yol açabiliyor.</p>
+        </div>
+        
+        <div class="impact-card">
+          <h3>Hukuki Belirsizlik</h3>
+          <p>İklim göçmenlerinin çoğu, uluslararası hukukta resmi mülteci statüsüne sahip değil. Bu da haklarını korumayı ve destek hizmetlerine erişmeyi zorlaştırıyor.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="statistics-section">
+      <h2 class="statistics-title">İklim Göçüyle İlgili Çarpıcı İstatistikler</h2>
+      
+      <div class="statistics-grid">
+        <div class="stat-item">
+          <div class="stat-value">21.5 Milyon</div>
+          <p>Yılda iklim nedeniyle yerinden olan kişi sayısı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">%80</div>
+          <p>İklim göçmenlerinin gelişmekte olan ülkelerden olma oranı</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">1 Milyar</div>
+          <p>2050'ye kadar iklim göçü riski altındaki insan sayısı</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-section">
+      <h2>İklim Göçünün Öne Çıkan Örnekleri</h2>
+      
+      <div class="image-with-caption">
+        <img src="https://images.unsplash.com/photo-1580301762590-1a33d06bb6a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bangladesh'te iklim göçü">
+        <p>Bangladesh'te deniz seviyesinin yükselmesi nedeniyle yerinden olan insanlar</p>
+      </div>
+      
+      <h3>Bangladesh</h3>
+      <p>Deniz seviyesinin yükselmesi ve siklonlar nedeniyle her yıl yaklaşık 400.000 kişi başkent Dakka'ya göç ediyor. Bu durum şehirde aşırı nüfus yoğunluğuna ve gecekondulaşmaya yol açıyor.</p>
+      
+      <h3>Sahel Kuşağı</h3>
+      <p>Çölleşme ve kuraklık, Sahra Altı Afrika'da tarım arazilerini yok ederek kitlesel göçlere neden oluyor. Nijer, Çad ve Mali gibi ülkelerde milyonlarca insan geçim kaynaklarını kaybediyor.</p>
+      
+      <h3>Pasifik Adaları</h3>
+      <p>Tuvalu ve Kiribati gibi ada ülkeleri, deniz seviyesinin yükselmesi nedeniyle tamamen sular altında kalma tehlikesiyle karşı karşıya. Bu durum, ulusların tamamen göç etmesi gerekecek ilk örnekleri oluşturuyor.</p>
+    </div>
+    
+    <div class="solution-section">
+      <h2 class="statistics-title">Çözüm Önerileri</h2>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Uyum stratejileri" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">İklim Uyum Stratejileri</h3>
+          <p>Savunmasız toplulukların iklim değişikliğine uyum sağlamasına yardımcı olacak projeler geliştirmek.</p>
+          <ul>
+            <li>Kuraklığa dayanıklı tarım teknikleri</li>
+            <li>Sel önleme altyapıları</li>
+            <li>Erken uyarı sistemleri</li>
+            <li>Sürdürülebilir su yönetimi</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Hukuki düzenlemeler" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Hukuki Düzenlemeler</h3>
+          <p>İklim göçmenlerinin statüsünü tanımlayan ve haklarını koruyan uluslararası anlaşmalar oluşturmak.</p>
+          <ul>
+            <li>İklim mültecisi statüsünün tanınması</li>
+            <li>Göç yönetimi politikaları</li>
+            <li>Uluslararası işbirliği mekanizmaları</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="solution-card">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Topluluk dayanışması" class="solution-image">
+        <div class="solution-content">
+          <h3 class="solution-title">Topluluk Dayanışması</h3>
+          <p>Yerel toplulukların iklim göçmenlerini desteklemesi ve entegrasyon süreçlerini kolaylaştırması.</p>
+          <ul>
+            <li>Kültürel entegrasyon programları</li>
+            <li>Mesleki eğitim fırsatları</li>
+            <li>Topluluk temelli destek ağları</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quote-section">
+      <p>"İklim değişikliği artık sadece kutup ayılarının sorunu değil. Bugün milyonlarca insan, yaşam alanlarını kaybetme tehlikesiyle karşı karşıya. Bu, neslimizin karşılaştığı en büyük insani krizlerden biridir."</p>
+      <p class="quote-author">- Ban Ki-moon, Eski BM Genel Sekreteri</p>
+    </div>
+    
+    <div class="content-section">
+      <h2>Bireysel Olarak Neler Yapabiliriz?</h2>
+      <p>İklim göçü krizine karşı hepimizin yapabileceği şeyler var:</p>
+      <ul>
+        <li><strong>Farkındalık yaratın:</strong> İklim göçü hakkında bilgi edinin ve çevrenizdekilerle paylaşın</li>
+        <li><strong>Karbon ayak izinizi azaltın:</strong> Günlük alışkanlıklarınızı değiştirerek iklim değişikliğine katkınızı minimize edin</li>
+        <li><strong>Destek olun:</strong> İklim göçmenlerine yardım eden organizasyonları destekleyin</li>
+        <li><strong>Savunuculuk yapın:</strong> Yerel ve ulusal düzeyde iklim politikalarını destekleyin</li>
+      </ul>
+      
+      <div class="image-with-caption">
+        <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Topluluk dayanışması">
+        <p>İklim göçmenlerine destek olan bir topluluk etkinliği</p>
+      </div>
+    </div>
+    
+    <div class="content-section" style="text-align: center;">
+      <h2>Sonuç</h2>
+      <p>İklim göçü, 21. yüzyılın en acil insani sorunlarından biri haline geldi. Bu krizle başa çıkmak için küresel işbirliği, yenilikçi politikalar ve yerel çözümler gerekiyor. Unutmayın, iklim değişikliğinin etkileri her geçen gün daha fazla insanı etkilerken, harekete geçmek için hala zamanımız var. Bugün atacağımız adımlar, yarın daha fazla insanın evini terk etmek zorunda kalmamasını sağlayabilir.</p>
+      
+      <a href="bloglar.html" class="back-link">
+        <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
+      </a>
+    </div>
+  </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

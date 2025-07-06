@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--=============== GOOGLE FONTS ===============-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --primary-color: #2ecc71;
@@ -236,31 +235,6 @@
             font-size: 14px;
         }
         
-        /* Responsive Tasarım */
-        @media (max-width: 768px) {
-            .calculator-container {
-                padding: 20px;
-            }
-            
-            .calculator-header h1 {
-                font-size: 24px;
-            }
-            
-            .form-control {
-                padding: 10px 12px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .calculator-container {
-                padding: 15px;
-            }
-            
-            .calculator-header h1 {
-                font-size: 20px;
-            }
-        }
-
         /* Anasayfaya Dön Butonu */
         .home-button {
             position: fixed;
@@ -287,10 +261,32 @@
         }
         
         @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+            
+            .calculator-header h1 {
+                font-size: 24px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+            }
+            
             .home-button {
                 width: 40px;
                 height: 40px;
                 font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .calculator-container {
+                padding: 15px;
+            }
+            
+            .calculator-header h1 {
+                font-size: 20px;
             }
         }
     </style>
@@ -380,12 +376,12 @@
                 </div>
             </div>
         </div>
-
-        <!-- Anasayfaya Dön Butonu -->
-        <a href="index.html" class="home-button">
-            <i class="ri-home-2-fill"></i>
-        </a>
     </div>
+
+    <!-- Anasayfaya Dön Butonu -->
+    <a href="index.html" class="home-button">
+        <i class="ri-home-2-fill"></i>
+    </a>
 
     <script>
         document.getElementById("carbonForm").addEventListener("submit", function(e) {

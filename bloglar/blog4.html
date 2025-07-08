@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doğaya Saygılı Kamp ve Yürüyüş Rehberi | EcoVision</title>
+    <link rel="icon" href="resimler/leaf.png" type="image/png">
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="blog-style.css">
@@ -33,7 +34,7 @@
         }
         .container-blog {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 100px auto;
             padding: 0 20px;
         }
         .blog-title {
@@ -83,16 +84,18 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #3498db;
+            color: white;
             text-decoration: none;
             margin-top: 40px;
             padding: 10px 20px;
             border: 1px solid #3498db;
             border-radius: 50px;
             transition: all 0.3s;
+            margin-bottom: 40px;
+            background-color: rgb(159, 86, 33);
         }
         .back-link:hover {
-            background-color: #3498db;
+            background-color:rgb(141, 76, 29) ;
             color: white;
         }
         .quote {
@@ -574,18 +577,39 @@
 </footer>
 
 <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
   .footer {
-    background-color: #227fb5;
+    background-color:#4C396B;
     color: #f5f5f5;
     padding: 60px 0 30px;
     margin-top: 80px;
     font-family: 'Segoe UI', system-ui, sans-serif;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll */
   }
   
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
   }
   
   .footer-content {
@@ -723,6 +747,8 @@
     text-align: center;
     opacity: 0.8;
   }
+  
+
   
   @media (min-width: 768px) {
     .footer-content {

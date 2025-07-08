@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>EcoVision | Bağış Yap</title>
+    <link rel="icon" href="resimler/leaf.png" type="image/png">
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -29,6 +30,7 @@
             background-color: #f9f9f9;
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .donation-page {
@@ -41,6 +43,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
+            overflow-x: hidden; /* Yatay kaydırmayı engeller */
         }
         
         .donation-container {
@@ -328,15 +331,21 @@
         
         @media (max-width: 768px) {
             .donation-container {
-                flex-direction: column;
+                flex-direction: column; 
+        align-items: center; /* İçerikleri ortalar */
+        margin-top: 1rem; /* Başlıkla arasındaki boşluk */
+        padding: 0 10px; /* Mobilde yan boşluk */
             }
             
             .donation-card, .qr-section {
-                max-width: 100%;
+                flex: 1 1 100% !important; /* Tüm genişliği kaplar */
+        max-width: 100%;
+        margin-bottom: 1.5rem; /* Kartlar arası boşluk */
             }
             
             .donation-amounts {
                 grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem; /* Buton aralıkları */
             }
         }
         
@@ -398,6 +407,8 @@
                 font-size: 16px;
             }
         }
+
+        
     </style>
 </head>
 <body>
@@ -883,7 +894,7 @@ document.getElementById('expiryDate').addEventListener('blur', function() {
 
 <style>
   .footer {
-    background-color: #227fb5;
+    background-color:#4C396B;
     color: #f5f5f5;
     padding: 60px 0 30px;
     margin-top: 80px;

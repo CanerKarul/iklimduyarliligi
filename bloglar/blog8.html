@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İklim Göçmenleri: İklim Değişikliğinin Sosyal Etkileri | EcoVision</title>
+    <link rel="icon" href="resimler/leaf.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="blog-style.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
@@ -38,7 +39,7 @@
         
         .container-blog {
             max-width: 1000px;
-            margin: 40px auto;
+            margin: 100px auto;
             padding: 0 20px;
         }
         
@@ -285,6 +286,8 @@
             margin-top: 30px;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+            margin-bottom: 40px;
+          
         }
         
         .back-link:hover {
@@ -690,11 +693,12 @@
     <div class="content-section" style="text-align: center;">
       <h2>Sonuç</h2>
       <p>İklim göçü, 21. yüzyılın en acil insani sorunlarından biri haline geldi. Bu krizle başa çıkmak için küresel işbirliği, yenilikçi politikalar ve yerel çözümler gerekiyor. Unutmayın, iklim değişikliğinin etkileri her geçen gün daha fazla insanı etkilerken, harekete geçmek için hala zamanımız var. Bugün atacağımız adımlar, yarın daha fazla insanın evini terk etmek zorunda kalmamasını sağlayabilir.</p>
-      
-      <a href="bloglar2.html" class="back-link">
+      </div>
+
+<a href="bloglar2.html" class="back-link">
         <i class="ri-arrow-left-line"></i> Tüm Bloglara Dön
       </a>
-    </div>
+
   </div>
 
   <footer class="footer">
@@ -755,18 +759,39 @@
 </footer>
 
 <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
   .footer {
-    background-color: #227fb5;
+    background-color:#4C396B;
     color: #f5f5f5;
     padding: 60px 0 30px;
     margin-top: 80px;
     font-family: 'Segoe UI', system-ui, sans-serif;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll */
   }
   
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
   }
   
   .footer-content {
@@ -904,6 +929,8 @@
     text-align: center;
     opacity: 0.8;
   }
+  
+
   
   @media (min-width: 768px) {
     .footer-content {
